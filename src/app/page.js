@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Map from './components/Map'
-import Experts from './components/Experts'
-import BestChoice from './components/BestChoice'
+import Map from '../components/Map'
+import Experts from '../components/Experts'
+import BestChoice from '../components/BestChoice'
 
 const Home = () => {
   return (
