@@ -1,9 +1,19 @@
 import React from 'react'
 
-const page = () => {
+import Map from './components/Map'
+import Experts from './components/Experts'
+import BestChoice from './components/BestChoice'
+
+const Home = () => {
   return (
-    <div>This is the starting</div>
+       <div>
+           
+           <Map/>
+           <BestChoice/>
+          <Experts/>
+         
+       </div>
   )
 }
 
-export default page
+export default Home
