@@ -4,13 +4,13 @@ import { FaGreaterThan } from "react-icons/fa6";
 const BestChoice = () => {
   return (
     <div className="w-full">
-      <div className="md:w-[928px] mx-auto my-10 bg-no-repeat bg-cover rounded-t-[60px]" style={{ backgroundImage: "url(./best-choice-image.jpg)" }} >
+      <div className="md:w-[1228px] mx-auto my-10 bg-no-repeat bg-cover rounded-[60px]" style={{ backgroundImage: "url(./best-choice-image.png)" }} >
         <div className="flex flex-col gap-6 mt-10">
           <h1 className="font-[600] mt-10 text-[40px] text-center text-[#000000E5]">
             Discover the best choice for you
           </h1>
 
-          <div className="mt-10 mx-auto p-6 rounded-[30px] bg-white md:w-[800px]">
+          <div className="mt-10 mb-10  mx-auto p-6 rounded-[30px] bg-white md:w-[1000px]">
             <div className="flex items-center justify-between px-5">
               <div className="flex flex-col gap-1">
                 <h2 className="text-[#000000] text-[18px]">
