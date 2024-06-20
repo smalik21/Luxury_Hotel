@@ -44,7 +44,7 @@ const Footer = () => {
     </div>
     </div>
     <hr className="h-px my-6 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-    <div className="text-gray-500 mt-7">Copyright © 2023 LuxuryHotelConcierge. All rights reserved</div>
+    <div className="text-gray-500 mt-7 text-center">Copyright © 2023 LuxuryHotelConcierge. All rights reserved</div>
     
   </div>
   </>
