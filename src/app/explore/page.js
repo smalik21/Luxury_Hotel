@@ -5,6 +5,8 @@ import TopPickings from '@/components/explore/TopPickings';
 import FeaturedHotels from '@/components/explore/FeaturedHotels';
 import Yards from '@/components/explore/Yards';
 import Find from '@/components/explore/Find';
+import TopRatedHotels from '../../components/explore/TopRatedHotels';
+import Footer from '../../components/Footer';
 
 const page = () => {
     return (
@@ -15,6 +17,8 @@ const page = () => {
             <TopPickings />
             <Yards/>
             <Find/>
+            <TopRatedHotels/>
+            <Footer/>
         </div>
     );
 }
