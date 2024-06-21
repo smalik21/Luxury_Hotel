@@ -28,12 +28,12 @@ const hotels = [
 
 const TopPickings = () => {
     return (
-        <div className="min-h-screen relative">
-            <div className="pl-[88px] pt-16 pb-4">
+        <div className="my-10 min-h-screen relative">
+            <div className="pl-[50px] md:pl-[190px] pt-16 pb-4">
                 <h2 className="text-3xl font-bold mb-2">Top pickings</h2>
                 <p className="text-lg mb-4">20 Most frequents</p>
             </div>
-            <div className="absolute top-[88px] right-[88px] flex gap-4 items-center z-10">
+            <div className="absolute top-[88px] right-[50px] md:right-[190px] flex gap-4 items-center z-10">
                 <div className="rounded-md py-1 px-2 border border-black">
                     <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" />
                 </div>
@@ -41,7 +41,7 @@ const TopPickings = () => {
                     <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" />
                 </div>
             </div>
-            <div className="border-dashed p-8 border-2 rounded-md border-purple-500 mx-[58px] md:mx-[70px]">
+            <div className="border-dashed p-8 border-2 rounded-md border-purple-500 mx-[50px] md:mx-[170px]">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {hotels.map((hotel) => (
                         <div key={hotel.id} className="rounded-lg shadow-lg overflow-hidden"
