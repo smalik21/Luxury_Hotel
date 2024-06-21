@@ -3,12 +3,25 @@ import React from "react";
 const Footer = () => {
   return(
   <>
-   <div className="h-[750px]  bg-black rounded-t-3xl ">
+   <div className="h-[800px]  bg-black rounded-t-3xl ">
     <div className=" justify-center items-center pt-[5rem] pb-[3rem]">
       <div className="text-4xl text-gray-200 text-center">You're important to us!</div>
       <div className="text-gray-400 text-xl text-center mt-5">Subscribe us to get notified about exciting things..</div>
     </div>
     <div className="text-3xl text-gray-200 text-center">Newsletter</div>
+    <div className=" flex justify-center items-center mt-5">
+        <div className="relative"> 
+            <div className="absolute ">
+                 <i className="fa fa-search text-white z-20 hover:text-white"></i>
+            </div>
+          <input type="text" className="h-14 w-[55rem] pl-10 rounded-full text-white bg-black z-0 border-2 border-white focus:shadow focus:outline-none" placeholder="Enter your email"/>
+            <div className="absolute top-0 right-0">
+                
+                <button className="h-14 w-[13rem] text-black rounded-full bg-white hover:bg-gray-200">Receive newsletters</button>
+                
+            </div>
+        </div>
+    </div>
     <div className=" pt-10   text-center">
     <div className="text-4xl text-gray-200 pb-[3rem] ">Start your journey today, don’t miss out!</div>
     <div>
@@ -44,7 +57,7 @@ const Footer = () => {
     </div>
     </div>
     <hr className="h-px my-6 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-    <div className="text-gray-500 mt-7 text-center">Copyright © 2023 LuxuryHotelConcierge. All rights reserved</div>
+    <div className="text-gray-500 mt-7">Copyright © 2023 LuxuryHotelConcierge. All rights reserved</div>
     
   </div>
   </>
