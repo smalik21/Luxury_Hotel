@@ -192,7 +192,7 @@ const Hero = () => {
                         </button>
                     </div>
                 </div>
-                <Link href="#" className="mt-8 bg-white bg-opacity-50 border-white text-black rounded-3xl px-8 py-2 flex items-center font-bold">
+                <Link href="/explore" className="mt-8 bg-white bg-opacity-50 border-white text-black rounded-3xl px-8 py-2 flex items-center font-bold">
                     Explore
                     <FaArrowRight className="ml-2" />
                 </Link>
