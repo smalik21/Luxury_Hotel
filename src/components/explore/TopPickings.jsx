@@ -1,5 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
+
+import React, { useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const hotels = [
@@ -12,21 +13,53 @@ const hotels = [
     },
     {
         id: 2,
-        name: "Blue origin Farms",
+        name: "Red origin Farms",
         location: "Jarata, Indonesia",
-        price: "94$ / night",
-        image: "/explore-toppicking-hotel.png",
+        price: "95$ / night",
+        image: "/y2.png",
     },
     {
         id: 3,
-        name: "Blue origin Farms",
+        name: "Green origin Farms",
         location: "Jarata, Indonesia",
-        price: "94$ / night",
-        image: "/explore-toppicking-hotel.png",
+        price: "96$ / night",
+        image: "/y3.png",
+    },
+    {
+        id: 4,
+        name: "Black origin Farms",
+        location: "Jarata, Indonesia",
+        price: "97$ / night",
+        image: "/y4.png",
+    },
+    {
+        id: 5,
+        name: "Gray origin Farms",
+        location: "Jarata, Indonesia",
+        price: "98$ / night",
+        image: "/y5.png",
     },
 ];
 
 const TopPickings = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handlePrevClick = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + hotels.length) % hotels.length);
+    };
+
+    const handleNextClick = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % hotels.length);
+    };
+
+    const getVisibleHotels = () => {
+        const visibleHotels = [];
+        for (let i = 0; i < 3; i++) {
+            visibleHotels.push(hotels[(currentIndex + i) % hotels.length]);
+        }
+        return visibleHotels;
+    };
+
     return (
         <div className="my-10 min-h-screen relative">
             <div className="pl-[50px] md:pl-[320px] pt-16 pb-4">
@@ -35,15 +68,15 @@ const TopPickings = () => {
             </div>
             <div className="absolute top-[88px] right-[50px] md:right-[320px] flex gap-4 items-center z-10">
                 <div className="rounded-md py-1 px-2 border border-black">
-                    <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" />
+                    <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" onClick={handlePrevClick} />
                 </div>
-                <div className="bg-black rounded-md py-1 px-2">
-                    <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" />
+                <div className="bg-black rounded-md py-1 px-2 border border-black">
+                    <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" onClick={handleNextClick} />
                 </div>
             </div>
-            <div className="border-dashed p-8 border-2 rounded-md border-purple-500 mx-[50px] md:mx-[300px]">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {hotels.map((hotel) => (
+            <div className="border-dashed py-8 px-5 border-2 rounded-md border-purple-500 mx-[50px] md:mx-[300px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 transition-transform duration-500 ease-in-out">
+                    {getVisibleHotels().map((hotel) => (
                         <div key={hotel.id} className="rounded-lg shadow-lg overflow-hidden"
                             style={{ backgroundImage: `url(${hotel.image})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '350px' }}>
                             <div className="relative h-48">
