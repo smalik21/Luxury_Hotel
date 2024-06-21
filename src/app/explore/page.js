@@ -11,8 +11,8 @@ const page = () => {
         <div>
             <Header/>
             <Hero />
-            <TopPickings />
             <FeaturedHotels/>
+            <TopPickings />
             <Yards/>
             <Find/>
         </div>
