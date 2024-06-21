@@ -4,8 +4,8 @@ import { PiGreaterThanBold } from "react-icons/pi";
 
 const FeaturedHotels = () => {
   return (
-    <div className="w-full p-4">
-      <div className="w-full max-w-4xl mx-auto p-4">
+    <div className="w-full p-4 mt-14">
+      <div className=" max-w-4xl mx-auto p-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-4">
           <div className="flex flex-col justify-center mb-4 md:mb-0">
             <h1 className="text-3xl text-black font-bold">Featured Hotels</h1>
@@ -13,12 +13,12 @@ const FeaturedHotels = () => {
           </div>
           <div className="flex gap-2 items-center justify-center">
             <button aria-label="Previous">
-              <div className="bg-white text-black border border-black w-7 h-7 flex items-center justify-center">
+              <div className="bg-white text-black border border-black rounded-md w-9 h-7 flex items-center justify-center">
                 <PiLessThanBold />
               </div>
             </button>
             <button aria-label="Next">
-              <div className="bg-black text-white border border-black w-7 h-7 flex items-center justify-center">
+              <div className="bg-black text-white border border-black rounded-md w-9 h-7 flex items-center justify-center">
                 <PiGreaterThanBold />
               </div>
             </button>
