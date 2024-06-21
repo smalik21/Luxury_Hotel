@@ -13,7 +13,7 @@ const Header = () => {
     };
 
     return (
-        <header className="flex justify-between items-center p-6 fixed w-full top-0 z-10 bg-opacity-50 px-8">
+        <header className="flex justify-between items-center p-6 absolute w-full top-0 z-10 bg-opacity-50 px-8">
             <h1 className="md:text-3xl text-xl font-bold text-white text-[24px]">LuxuryHotelConcierge</h1>
             <nav className="hidden lg:flex flex-grow justify-center space-x-4 text-[16px] gap-5">
                 <Link href="/home" className={`text-white ${pathname === '/home' ? 'font-bold' : ''}`}>Home</Link>
