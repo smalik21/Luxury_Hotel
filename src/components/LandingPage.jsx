@@ -2,7 +2,7 @@ import { FaPlay } from 'react-icons/fa';
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
 
-const GuestPage = () => {
+const LandingPage = () => {
     return (
         <div className="relative h-screen w-full">
             <img
@@ -52,4 +52,4 @@ const GuestPage = () => {
     );
 };
 
-export default GuestPage;
+export default LandingPage;
