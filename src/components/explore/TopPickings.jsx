@@ -86,16 +86,16 @@ const TopPickings = () => {
 
     return (
         <div className="my-10 min-h-screen relative">
-            <div className="container mx-auto max-w-4xl px-5 lg:px-0 pt-16 ">
+            <div className="container mx-auto max-w-4xl px-5 lg:px-0 pt-16">
                 <h2 className="text-3xl font-bold mb-2">Top pickings</h2>
-                <p className="text-lg">20 Most frequents</p>
+                <p className="text-lg mb-4">20 Most frequents</p>
             </div>
             <div className="container mx-auto max-w-4xl lg:px-0 px-4">
-                <div className="relative flex justify-end bottom-12 right-4 gap-4 items-center z-10">
-                    <div className="rounded-md py-1 px-2 border border-black">
+                <div className="relative flex justify-end bottom-14 right-4 gap-4 items-center z-10">
+                    <div className="rounded-md py-1 px-2 border hover:bg-gray-200 border-black">
                         <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" onClick={handlePrevClick} />
                     </div>
-                    <div className="bg-black rounded-md py-1 px-2 border border-black">
+                    <div className="bg-black hover:bg-gray-800 rounded-md py-1 px-2 border border-black">
                         <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" onClick={handleNextClick} />
                     </div>
                 </div>
@@ -103,7 +103,7 @@ const TopPickings = () => {
                     {getVisibleHotels().map((hotel, index) => (
                         <div
                             key={hotel.id}
-                            className={`rounded-lg shadow-lg overflow-hidden transform transition-opacity duration-500 ${isAnimating ? 'opacity-0 blur-lg' : 'opacity-100 blur-0'}`}
+                            className={`rounded-lg shadow-lg overflow-hidden transform transition-all duration-400 hover:cursor-pointer hover:scale-105 ${isAnimating ? 'opacity-0 blur-lg' : 'opacity-100 blur-0'}`}
                             style={{ backgroundImage: `url(${hotel.image})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '350px' }}
                         >
                             <div className="relative h-48">

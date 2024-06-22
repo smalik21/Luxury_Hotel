@@ -42,7 +42,7 @@ const Features = () => {
                         </div>
                         <div className="order-2 md:w-1/2 lg:max-w-[350px] max-w-[340px]">
                             <div className="max-w-md mx-auto md:mx-0">
-                                <h3 className="lg:text-[36px] mt-6 lg:mt-0 text-[26px] font-semibold mb-2 text-black leading-tight">Premium sport destination</h3>
+                                <h3 className="lg:text-[36px] mt-6 lg:mt-0 text-[26px] font-semibold mb-2 text-black leading-tight">Safaris</h3>
                                 <p className="text-gray-600 lg:text-[18px] text-[15px]  leading-tight">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -61,8 +61,8 @@ const Features = () => {
                         </div>
                         <div className="order-2 md:order-1 md:w-1/2">
                             <div className="max-w-md mx-auto md:mx-0">
-                                <h3 className="lg:text-[36px] mt-6 lg:mt-0 text-[26px] font-semibold mb-2 text-black">Big savings</h3>
-                                <p className="text-gray-600 lg:text-[18px] text-[15px] max-w-[370px] leading-tight">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h3 className="lg:text-[36px] mt-6 lg:mt-0 text-[26px] font-semibold mb-2 text-black">Hotels & Resorts</h3>
+                                <p className="text-gray-600 lg:text-[18px] text-[15px] max-w-[370px] leading-tight">Indulge in the finest luxury accommodations around the world.</p>
                             </div>
                         </div>
                     </div>
