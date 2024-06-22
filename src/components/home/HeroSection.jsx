@@ -8,6 +8,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import Link from 'next/link';
 import { IoCalendarOutline } from "react-icons/io5";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Hero = () => {
     const [checkInDate, setCheckInDate] = useState(null);
@@ -204,8 +205,8 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-                <Link href="/explore" className="sm:bottom-12 bottom-9 absolute bg-white bg-opacity-50 border-white text-black rounded-3xl px-8 py-2 flex items-center gap-3 font-bold">
-                    Explore <div className="ml-1 text-md">&gt;</div>
+                <Link href="/explore" className="sm:bottom-12 bottom-9 absolute bg-white bg-opacity-50 border-white text-black rounded-3xl px-8 py-2 flex items-center gap-2 font-bold">
+                    Explore <div className="ml-1 text-md font-extrabold"><IoIosArrowForward /></div>
                 </Link>
             </div>
         </div>
