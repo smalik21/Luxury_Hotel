@@ -8,6 +8,24 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import Link from 'next/link';
 
+const Modal = ({ isOpen, onClose, date, setDate }) => {
+    if (!isOpen) return null;
+
+    return (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+            <div className="bg-white p-6 rounded-lg shadow-xl">
+                <DatePicker
+                    selected={date}
+                    onChange={(date) => setDate(date)}
+                    className="mb-4"
+                    popperPlacement="bottom"
+                />
+                <button onClick={onClose}>Close</button>
+            </div>
+        </div>
+    );
+};
+
 const Hero = () => {
     const [checkInDate, setCheckInDate] = useState(null);
     const [checkOutDate, setCheckOutDate] = useState(null);
@@ -17,6 +35,8 @@ const Hero = () => {
     const [roomsOpen, setRoomsOpen] = useState(false);
     const [adultsOpen, setAdultsOpen] = useState(false);
     const [childrenOpen, setChildrenOpen] = useState(false);
+    const [checkInOpen, setCheckInOpen] = useState(false);
+    const [checkOutOpen, setCheckOutOpen] = useState(false);
     const [tab, setTab] = useState('day');
 
     const toggleRooms = () => setRoomsOpen(!roomsOpen);
@@ -73,48 +93,35 @@ const Hero = () => {
                             night lodge
                         </button>
                     </div>
-
                     <hr className="border-gray-300 -mt-[17px] mx-2 w-full mb-4" />
-
                     <div className="flex items-center mb-4 bg-gray-200 rounded-lg px-2 py-2">
                         <FaSearch className="mr-2" />
                         <input
                             type="text"
                             placeholder="Type destination, hotel, country..."
-                            className="w-full px-2 bg-gray-200"
+                            className="w-full px-2 bg-gray-200 focus:outline-none"
                         />
                     </div>
-
                     <div className="flex flex-wrap justify-between items-center space-x-2 text-[15px]">
                         <div className="relative flex-grow text-black">
                             <button
-                                onClick={() => document.querySelector("#checkInDate").focus()}
+                                onClick={() => setCheckInOpen(true)}
                                 className="px-4 py-2 rounded-lg w-full text-black"
                             >
                                 Check In
                             </button>
-                            <DatePicker
-                                selected={checkInDate}
-                                onChange={(date) => setCheckInDate(date)}
-                                className="hidden"
-                                id="checkInDate"
-                            />
+                            <Modal isOpen={checkInOpen} onClose={() => setCheckInOpen(false)} date={checkInDate} setDate={setCheckInDate} />
                             <p className="text-sm -mt-1 text-gray-400">{checkInDate ? `${checkInDate.toLocaleDateString()}` : 'Add date'}</p>
                         </div>
 
                         <div className="relative flex-grow">
                             <button
-                                onClick={() => document.querySelector("#checkOutDate").focus()}
+                                onClick={() => setCheckOutOpen(true)}
                                 className="px-4 py-2 rounded-lg w-full"
                             >
                                 Check Out
                             </button>
-                            <DatePicker
-                                selected={checkOutDate}
-                                onChange={(date) => setCheckOutDate(date)}
-                                className="hidden"
-                                id="checkOutDate"
-                            />
+                            <Modal isOpen={checkOutOpen} onClose={() => setCheckOutOpen(false)} date={checkOutDate} setDate={setCheckOutDate} />
                             <p className="text-sm -mt-1 text-gray-400">{checkOutDate ? `${checkOutDate.toLocaleDateString()}` : 'Add date'}</p>
                         </div>
 
