@@ -1,33 +1,62 @@
-import React from 'react'
+"use client"
+import React, {useState} from 'react'
 
+const reviews=[
+  {
+    id:1,
+    name:"Pamela Halpert",
+    photo:"/pam.jpeg",
+    heading:"by pam",
+    rev:"Lorem ipsum dolor sit amet. Ut numquam omnis et dignissimos maxime ut quae iste est voluptatem voluptates. Et architecto autem aut doloribus repudiandae sed omnis omnis ut voluptas veniam vel quidem expedita! </p><>Est nihil ratione in temporibus vero quo quia pariatur a velit repudiandae? Aut iure aliquam est dolorem quia aut dolore voluptatem. Qui consequatur itaque aut inventore molestiae et aliquid doloribus  "
+  },
+  {
+    id:2,
+    name:"Michael Scott",
+    photo:"/michael.avif",
+    heading:"by michael",
+    rev:"Lorem ipsum dolor sit amet. Et assumenda iure non aspernatur necessitatibus a nihil accusamus ut fuga molestias? Et amet veniam est sint sint ut modi odio 33 corporis iusto. </p><>Id repellat aliquid ut voluptatem sint est ipsa exercitationem. Aut placeat consequuntur ad itaque voluptatem est sequi rerum ea aliquid unde. Eum dignissimos nesciunt ut alias galisum et dolor possimus! Et voluptatum explicabo qui ducimus fugiat ut quos omnis et fugit voluptatem. "
+  },
+  {
+    id:3,
+    name:"James Halpert",
+    photo:"/jim.jpeg",
+    heading:"by jim",
+    rev:"<p>Lorem ipsum dolor sit amet. Aut maiores voluptas in galisum alias in eligendi velit cum consequatur temporibus ad tempora eius. Aut omnis doloremque sed omnis rerum aut iure dolorem. </p><>Et adipisci totam quo dicta maxime et numquam modi ut reprehenderit cupiditate. Qui porro quaerat ut alias porro et dolorem aspernatur ut molestiae repellat sed illum quisquam ut suscipit voluptatem et numquam aperiam? Ad vero nemo quo beatae asperiores et iusto sapien"
+  }
+];
 
 const Reviews = () => {
+  
+
+  const [selectedReview, setSelectedReview] = useState(null);
+
+  const handleClick = (review) => {
+    setSelectedReview(review);
+  };
   return (
     <>
-    <div className='h-[780px] m-0'>
+    <div className='h-[600px] md:h-[780px] m-0'>
         <div className='m-[3rem]'>
-        <div className='text-center text-5xl'> <b>Our Satisfied Clients</b></div>
-        <div className='text-center mt-5 text-[#808080] text-2xl'>we are dedicated to providing an unparalleled experience for our guests.</div>
+        <div className='text-center text-4xl md:text-5xl'> <b>Our Satisfied Clients</b></div>
+        <div className='text-center mt-5 text-[#808080] text-xl md:text-2xl'>we are dedicated to providing an unparalleled experience for our guests.</div>
         </div>
-        <div className='flex mx-10 my-[3rem] justify-center items-center'>
-            <div className='w-1/2 ml-[10rem] mt-5'  >
-            <div className='h-[6.5rem] w-[25rem] flex bg-gray-200  mb-10 rounded-full hover:border-black hover:border-2'>
-                <div className='p-7 rounded-full w-[5rem] h-[5rem] ml-5 mt-3 bg-black'></div>
-                <div className='ml-10 text-xl mt-7'><b>John Dey</b></div>
+        <div className='flex md:mx-10 my-[3rem]  '>
+            <div className=' w-1/2 md:ml-[10rem] mt-5 ml-2'  >
+            {reviews.map(item=>(
+              <div key={item.id} onClick={() => handleClick(item)} className='h-[3rem] w-[10rem] md:h-[6.5rem]  md:w-[25rem] flex bg-gray-200 mb-6 md:mb-10 rounded-full hover:border-black hover:border-2'>
+              <div className=' rounded-full md:w-[5rem] md:h-[5rem] h-[3rem] w-[3rem]  md:ml-5 md:mt-3 '><img height={100}  width={100} alt="Dummy Image" className="rounded-full aspect-square object-cover" src={item.photo}/></div>
+              <div className='md:ml-10 md:text-xl md:mt-7 ml-2 text-xs mt-4'><b>{item.name}</b></div>
+          </div>
+            ))}
+        
             </div>
-            <div className='h-[6.5rem] w-[25rem] flex bg-gray-200 mb-10 rounded-full hover:border-black hover:border-2'>
-            <div className='p-7 rounded-full w-[5rem] h-[5rem] ml-5 mt-3 bg-black'></div>
-            <div className='ml-10 text-xl mt-7'><b>John Dey</b></div>
-            </div>
-            <div className='h-[6.5rem] w-[25rem] flex bg-gray-200  mb-10 rounded-full hover:border-black hover:border-2'>
-            <div className='p-7 rounded-full w-[5rem] h-[5rem] ml-5 mt-3 bg-black'></div>
-            <div className='ml-10 text-xl mt-7'><b>John Dey</b></div>
-            </div>
-            </div>
-            <div className='w-1/2  '>
-                <div className='text-2xl mb-[2rem] '><b>Absolute good service, satisfied</b></div>
-                <div className='text-[#808080] text-xl leading-normal mr-[3rem]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</div>
-            </div>
+            {selectedReview && (
+              <div className='w-1/2  '>
+              <div className='text-xl md:text-2xl mb-3 md:mb-[2rem] '><b>{selectedReview.heading}</b></div>
+              <div className='text-[#808080] md:text-xl text-xs md:leading-normal md:mr-[3rem]'>{selectedReview.rev}</div>
+          </div>
+            )}
+            
         </div>
     </div>
     </>
