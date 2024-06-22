@@ -51,7 +51,7 @@ const TopPickings = () => {
         setTimeout(() => {
             setCurrentIndex((prevIndex) => (prevIndex - 1 + hotels.length) % hotels.length);
             setIsAnimating(false);
-        }, 500);
+        }, 400);
     };
 
     const handleNextClick = () => {
@@ -59,7 +59,7 @@ const TopPickings = () => {
         setTimeout(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % hotels.length);
             setIsAnimating(false);
-        }, 500);
+        }, 400);
     };
 
     const getVisibleHotels = () => {
@@ -86,19 +86,19 @@ const TopPickings = () => {
 
     return (
         <div className="my-10 min-h-screen relative">
-            <div className="container mx-auto max-w-4xl px-5 lg:px-0 pt-16 pb-4">
+            <div className="container mx-auto max-w-4xl px-5 lg:px-0 pt-16 ">
                 <h2 className="text-3xl font-bold mb-2">Top pickings</h2>
-                <p className="text-lg mb-4">20 Most frequents</p>
+                <p className="text-lg">20 Most frequents</p>
             </div>
-            <div className="absolute top-[88px] right-[50px] lg:right-[320px] flex gap-4 items-center z-10">
-                <div className="rounded-md py-1 px-2 border border-black">
-                    <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" onClick={handlePrevClick} />
+            <div className="container mx-auto max-w-4xl lg:px-0 px-4">
+                <div className="relative flex justify-end bottom-12 right-4 gap-4 items-center z-10">
+                    <div className="rounded-md py-1 px-2 border border-black">
+                        <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" onClick={handlePrevClick} />
+                    </div>
+                    <div className="bg-black rounded-md py-1 px-2 border border-black">
+                        <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" onClick={handleNextClick} />
+                    </div>
                 </div>
-                <div className="bg-black rounded-md py-1 px-2 border border-black">
-                    <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" onClick={handleNextClick} />
-                </div>
-            </div>
-            <div className="border-dashed py-8 container mx-auto max-w-4xl lg:px-0 px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 transition-transform duration-500 ease-in-out">
                     {getVisibleHotels().map((hotel, index) => (
                         <div
