@@ -1,9 +1,10 @@
 import React from "react";
 import { FaGreaterThan } from "react-icons/fa6";
+import Link from "next/link";
 
 const BestChoice = () => {
   return (
-    <div className="w-full px-4">
+    <div className="w-full px-4 pb-14">
       <div className="w-full md:w-[1228px] mx-auto my-10 bg-no-repeat bg-cover rounded-[10%] md:rounded-[60px]" style={{ backgroundImage: "url(./best-choice-image.png)" }}>
         <div className="flex flex-col gap-6 mt-10">
           <h1 className="font-[600] mt-10 text-[28px] md:text-[40px] text-center text-[#000000E5]">
@@ -20,9 +21,9 @@ const BestChoice = () => {
                   Explore more than 2000 destinations now.
                 </p>
               </div>
-              <div className="h-10 w-10 md:h-12 md:w-12 bg-black text-white flex items-center justify-center rounded-full">
+              <Link href="/explore" className="h-10 w-10 md:h-12 md:w-12 bg-black text-white flex items-center justify-center rounded-full">
                 <FaGreaterThan />
-              </div>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">

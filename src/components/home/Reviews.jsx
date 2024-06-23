@@ -7,21 +7,21 @@ const reviews=[
     name:"Pamela Halpert",
     photo:"/pam.jpeg",
     heading:"by pam",
-    rev:"Lorem ipsum dolor sit amet. Ut numquam omnis et dignissimos maxime ut quae iste est voluptatem voluptates. Et architecto autem aut doloribus repudiandae sed omnis omnis ut voluptas veniam vel quidem expedita! </p><>Est nihil ratione in temporibus vero quo quia pariatur a velit repudiandae? Aut iure aliquam est dolorem quia aut dolore voluptatem. Qui consequatur itaque aut inventore molestiae et aliquid doloribus  "
+    rev:"Lorem ipsum dolor sit amet. Ut numquam omnis et dignissimos maxime ut quae iste est voluptatem voluptates. Et architecto autem aut doloribus repudiandae sed omnis omnis ut voluptas veniam vel quidem expedita! Est nihil ratione in temporibus vero quo quia pariatur a velit repudiandae? Aut iure aliquam est dolorem quia aut dolore voluptatem. Qui consequatur itaque aut inventore molestiae et aliquid doloribus  "
   },
   {
     id:2,
     name:"Michael Scott",
     photo:"/michael.avif",
     heading:"by michael",
-    rev:"Lorem ipsum dolor sit amet. Et assumenda iure non aspernatur necessitatibus a nihil accusamus ut fuga molestias? Et amet veniam est sint sint ut modi odio 33 corporis iusto. </p><>Id repellat aliquid ut voluptatem sint est ipsa exercitationem. Aut placeat consequuntur ad itaque voluptatem est sequi rerum ea aliquid unde. Eum dignissimos nesciunt ut alias galisum et dolor possimus! Et voluptatum explicabo qui ducimus fugiat ut quos omnis et fugit voluptatem. "
+    rev:"Lorem ipsum dolor sit amet. Et assumenda iure non aspernatur necessitatibus a nihil accusamus ut fuga molestias? Et amet veniam est sint sint ut modi odio 33 corporis iusto. Id repellat aliquid ut voluptatem sint est ipsa exercitationem. Aut placeat consequuntur ad itaque voluptatem est sequi rerum ea aliquid unde. Eum dignissimos nesciunt ut alias galisum et dolor possimus! Et voluptatum explicabo qui ducimus fugiat ut quos omnis et fugit voluptatem. "
   },
   {
     id:3,
     name:"James Halpert",
     photo:"/jim.jpeg",
     heading:"by jim",
-    rev:"<p>Lorem ipsum dolor sit amet. Aut maiores voluptas in galisum alias in eligendi velit cum consequatur temporibus ad tempora eius. Aut omnis doloremque sed omnis rerum aut iure dolorem. </p><>Et adipisci totam quo dicta maxime et numquam modi ut reprehenderit cupiditate. Qui porro quaerat ut alias porro et dolorem aspernatur ut molestiae repellat sed illum quisquam ut suscipit voluptatem et numquam aperiam? Ad vero nemo quo beatae asperiores et iusto sapien"
+    rev:"Lorem ipsum dolor sit amet. Aut maiores voluptas in galisum alias in eligendi velit cum consequatur temporibus ad tempora eius. Aut omnis doloremque sed omnis rerum aut iure dolorem. Et adipisci totam quo dicta maxime et numquam modi ut reprehenderit cupiditate. Qui porro quaerat ut alias porro et dolorem aspernatur ut molestiae repellat sed illum quisquam ut suscipit voluptatem et numquam aperiam? Ad vero nemo quo beatae asperiores et iusto sapien"
   }
 ];
 
@@ -35,7 +35,7 @@ const Reviews = () => {
   };
   return (
     <>
-    <div className='h-[600px] md:h-[780px] m-0'>
+    <div className='h-[600px] md:h-[780px] m-0 pt-14'>
         <div className='m-[3rem]'>
         <div className='text-center text-4xl md:text-5xl'> <b>Our Satisfied Clients</b></div>
         <div className='text-center mt-5 text-[#808080] text-xl md:text-2xl'>we are dedicated to providing an unparalleled experience for our guests.</div>

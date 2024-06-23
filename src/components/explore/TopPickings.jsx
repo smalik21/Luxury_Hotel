@@ -91,7 +91,7 @@ const TopPickings = () => {
     }, []);
 
     return (
-        <div className="my-5 min-h-screen relative">
+        <div className="my-5 md:min-h-screen min-h-[620px] relative">
             <div className="container mx-auto max-w-4xl px-5 lg:px-0 pt-16">
                 <h2 className="text-3xl font-bold mb-2">Top pickings</h2>
                 <p className="text-lg mb-4">20 Most frequents</p>
