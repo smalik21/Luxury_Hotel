@@ -5,7 +5,7 @@ const Hero = () => {
         <section className="relative h-[500px] w-auto z-0">
             <div className="absolute inset-0 pointer-events-none">
                 <Image
-                    src="/explore-hero-bg.jpeg"
+                    src="/top-hotel.jpeg"
                     alt="Background"
                     layout="fill"
                     objectFit="cover"
