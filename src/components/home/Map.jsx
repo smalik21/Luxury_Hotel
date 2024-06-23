@@ -4,8 +4,8 @@ const Map = () => {
   
 
   return (
-    <div className="w-full min-h-screen px-4 pt-14">
-      <div className="h-auto md:h-[780px]">
+    <div className="w-full  px-4 pt-14">
+      <div className=" md:h-[780px]">
         <div className="w-full md:w-[610px] mx-auto my-10 flex flex-col gap-3">
           <h1 className="text-black text-[28px] md:text-[40px] font-[800] text-center">
             Our Global Reach

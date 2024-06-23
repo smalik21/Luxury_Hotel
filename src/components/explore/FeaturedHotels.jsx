@@ -115,8 +115,8 @@ const FeaturedHotels = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {getVisibleImages()}
           </div>
-          <div className="absolute flex flex-col sm:flex-row items-center    justify-between gap-3 w-[90%] sm:w-auto  sm:p-0 bg-white rounded-md top-[85%] left-[5%] sm:top-[70%] sm:left-[50%] sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 shadow-lg">
-            <div className="flex flex-col justify-center text-center sm:text-left p-3 sm:p-0">
+          <div className="absolute flex flex-col sm:flex-row items-center  md:p-4 md:w-[50%]   justify-between gap-3  w-[90%] sm:w-auto  sm:p-0 bg-white rounded-md top-[85%] left-[5%] sm:top-[70%] sm:left-[50%] sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 shadow-lg">
+            <div className="flex flex-col justify-center  text-center sm:text-left p-3 sm:p-0">
               <h3 className="text-lg sm:text-xl font-medium text-black">{hotels[currentIndex].name}</h3>
               <p className="text-sm sm:text-md text-[#00000099]">starts at {hotels[currentIndex].price}</p>
             </div>
