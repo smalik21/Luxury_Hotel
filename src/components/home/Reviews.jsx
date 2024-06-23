@@ -28,14 +28,14 @@ const reviews=[
 const Reviews = () => {
   
 
-  const [selectedReview, setSelectedReview] = useState(null);
+  const [selectedReview, setSelectedReview] = useState(reviews[0]);
 
   const handleClick = (review) => {
     setSelectedReview(review);
   };
   return (
     <>
-    <div className='h-[600px] md:h-[780px] m-0 pt-14'>
+    <div className='h-[650px] md:h-[780px] m-0 pt-14 '>
         <div className='m-[3rem]'>
         <div className='text-center text-4xl md:text-5xl'> <b>Our Satisfied Clients</b></div>
         <div className='text-center mt-5 text-[#808080] text-xl md:text-2xl'>we are dedicated to providing an unparalleled experience for our guests.</div>

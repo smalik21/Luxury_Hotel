@@ -1,6 +1,8 @@
 import React from "react";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { CiTwitter } from "react-icons/ci";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { RiInstagramFill } from "react-icons/ri";
 
 const Footer = () => {
   return (
@@ -67,12 +69,14 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-gray-500 text-xs md:text-lg">© 2023 LuxuryHotelConcierge. All rights reserved</div>
         <div className="flex gap-4">
-          <div className="text-gray-500 text-xs md:text-lg">Terms</div>
-          <div className="text-gray-500 text-xs md:text-lg">Cookies</div>
-          <div className="text-gray-500 text-xs md:text-lg">Privacy Policies</div>
+          <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Terms</div>
+          <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Cookies</div>
+          <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Privacy Policies</div>
           <div className="text-gray-500 flex items-center gap-2">
             <FaSquareFacebook className="text-xl md:text-2xl" />
             <CiTwitter className="text-xl md:text-2xl" />
+            <AiOutlineYoutube  className="text-xl md:text-2xl" />
+            <RiInstagramFill className="text-xl md:text-2xl" />
           </div>
         </div>
       </div>
