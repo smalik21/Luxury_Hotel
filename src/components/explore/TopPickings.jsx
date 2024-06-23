@@ -47,19 +47,23 @@ const TopPickings = () => {
     const [numVisibleHotels, setNumVisibleHotels] = useState(3);
 
     const handlePrevClick = () => {
-        setIsAnimating(true);
-        setTimeout(() => {
-            setCurrentIndex((prevIndex) => (prevIndex - 1 + hotels.length) % hotels.length);
-            setIsAnimating(false);
-        }, 400);
+        if (!isAnimating) {
+            setIsAnimating(true);
+            setTimeout(() => {
+                setCurrentIndex((prevIndex) => (prevIndex - 1 + hotels.length) % hotels.length);
+                setIsAnimating(false);
+            }, 400);
+        }
     };
 
     const handleNextClick = () => {
-        setIsAnimating(true);
-        setTimeout(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % hotels.length);
-            setIsAnimating(false);
-        }, 400);
+        if (!isAnimating) {
+            setIsAnimating(true);
+            setTimeout(() => {
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % hotels.length);
+                setIsAnimating(false);
+            }, 400);
+        }
     };
 
     const getVisibleHotels = () => {
@@ -73,6 +77,8 @@ const TopPickings = () => {
     const updateNumVisibleHotels = () => {
         if (window.innerWidth < 768) {
             setNumVisibleHotels(1);
+        } else if (window.innerWidth < 1024) {
+            setNumVisibleHotels(2);
         } else {
             setNumVisibleHotels(3);
         }
@@ -85,7 +91,7 @@ const TopPickings = () => {
     }, []);
 
     return (
-        <div className="my-10 min-h-screen relative">
+        <div className="my-5 min-h-screen relative">
             <div className="container mx-auto max-w-4xl px-5 lg:px-0 pt-16">
                 <h2 className="text-3xl font-bold mb-2">Top pickings</h2>
                 <p className="text-lg mb-4">20 Most frequents</p>

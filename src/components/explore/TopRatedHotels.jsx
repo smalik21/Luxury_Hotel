@@ -97,15 +97,15 @@ const TopRatedHotels = () => {
 
   return (
     <div className="w-full p-4">
-      <div className="w-full max-w-4xl mx-auto p-4">
+      <div className="w-full max-w-6xl mx-auto p-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-          <div className="flex flex-col justify-center mb-4 md:mb-0">
+          <div className="flex flex-col justify-center mb-4 md:mb-0 text-center md:text-left">
             <h1 className="text-3xl text-black font-bold">Top Rated Hotels</h1>
             <p className="text-black mt-2 text-sm">{hotels.length}+ hotels</p>
           </div>
           <div className="flex gap-2 items-center justify-center">
             <button aria-label="Previous" onClick={handlePrevClick}>
-              <div className="bg-white text-black  w-7 h-7 flex items-center justify-center border border-black rounded-md hover:bg-gray-200 transition">
+              <div className="bg-white text-black w-7 h-7 flex items-center justify-center border border-black rounded-md hover:bg-gray-200 transition">
                 <PiLessThanBold />
               </div>
             </button>
@@ -117,12 +117,12 @@ const TopRatedHotels = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row w-full gap-5  mt-10 p-4 rounded-md">
-          <div className="flex-shrink-0 w-[270px] h-[250px]">
-            <img src={getVisibleHotel().image} alt="top hotel" className=" h-[300px] rounded-b-full object-cover md:w-auto" />
+        <div className="flex flex-col md:flex-row w-full gap-5 mt-10 p-4 rounded-md">
+          <div className="flex-shrink-0 w-full md:w-[270px] h-[250px] md:h-auto">
+            <img src={getVisibleHotel().image} alt="top hotel" className="w-full h-full object-cover rounded-md md:rounded-b-full" />
           </div>
 
-          <div className="flex flex-col justify-center gap-4">
+          <div className="flex flex-col justify-center gap-4 w-full">
             <div>
               <h1 className="text-2xl font-semibold text-black">{getVisibleHotel().name}</h1>
               <p className="text-sm text-gray-600">{getVisibleHotel().location}</p>
@@ -147,14 +147,14 @@ const TopRatedHotels = () => {
                 </div>
               ))}
             </div>
-            <div className="flex gap-3 mt-4">
+            <div className="flex flex-col sm:flex-row gap-3 mt-4">
               <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition">Book Now</button>
               <button className="border border-black text-black px-4 py-2 rounded-md hover:bg-gray-100 transition">Add To Cart</button>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-10">
           {[getVisibleHotel().img1, getVisibleHotel().img2, getVisibleHotel().img3, getVisibleHotel().img4].map((img, index) => (
             <img key={index} src={img} alt={`Hotel ${getVisibleHotel().id} Image ${index + 1}`} className="w-full h-full object-cover rounded-md" />
           ))}
