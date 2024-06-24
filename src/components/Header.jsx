@@ -16,7 +16,7 @@ const Header = () => {
         <header className="flex justify-between items-center p-6 absolute w-full top-0 z-10 bg-opacity-50 px-8 mt-4">
             <Link href="/home" className="lg:text-2xl text-lg font-bold text-white text-[24px]">LuxuryHotelConcierge</Link>
             <nav className="hidden lg:flex flex-grow justify-center space-x-4 text-[16px] gap-5">
-                <Link href="/home" className={`text-white ${pathname === '/home' ? 'font-bold' : ''}`}>Home</Link>
+                <Link href="/" className={`text-white ${pathname === '/' ? 'font-bold' : ''}`}>Home</Link>
                 <Link href="/explore" className={`text-white ${pathname === '/explore' ? 'font-bold' : ''}`}>Explore</Link>
                 <Link href="/destinations" className={`text-white ${pathname === '/destinations' ? 'font-bold' : ''}`}>Destinations</Link>
                 <Link href="/blog" className={`text-white ${pathname === '/blog' ? 'font-bold' : ''}`}>Blog</Link>
