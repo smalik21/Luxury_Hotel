@@ -7,6 +7,7 @@ import Yards from '@/components/explore/Yards';
 import Find from '@/components/explore/Find';
 import TopRatedHotels from '../../components/explore/TopRatedHotels';
 import Footer from '../../components/Footer';
+import Offers from '@/components/explore/Offers';
 
 const page = () => {
     return (
@@ -18,6 +19,7 @@ const page = () => {
             <Yards/>
             <Find/>
             <TopRatedHotels/>
+            <Offers/>
             <Footer/>
         </div>
     );
