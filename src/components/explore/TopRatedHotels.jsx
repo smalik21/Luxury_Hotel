@@ -4,81 +4,82 @@ import React, { useState } from 'react';
 import { PiLessThanBold, PiGreaterThanBold } from "react-icons/pi";
 import { IoStar } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
+import hotels from "@/data/HotelsData.json";
 
-const hotels = [
-  {
-    id: 1,
-    name: "Dubai International Airport Hotel",
-    location: "Dubai International Airport Terminal 03",
-    rating: 4,
-    description: "Situated in upper midtown Manhattan, 483 metres from the Central Park, the Whitby Hotel is a short distance away from stores such as Saks Fifth Avenue and Bergdorf Goodman. The Whitby Hotel offers complimentary WiFi to all guests.",
-    features: [
-      "Front Desk",
-      "Free Wi-Fi in all rooms",
-      "Swimming pool - indoor",
-      "Check-in/out - express"
-    ],
-    image: "./top-hotel.jpeg",
-    img1: "y1.png",
-    img2: "y2.png",
-    img3: "y3.png",
-    img4: "y4.png",
-  },
-  {
-    id: 2,
-    name: "New York Grand Hotel",
-    location: "New York, USA",
-    rating: 5,
-    description: "Luxury hotel located in the heart of New York City, offering stunning views of Central Park and impeccable service. Ideal for business and leisure travelers alike.",
-    features: [
-      "24-hour room service",
-      "Fitness center",
-      "Spa facilities",
-      "Business center"
-    ],
-    image: "./top-hotel.jpeg",
-    img1: "y1.png",
-    img2: "y2.png",
-    img3: "y3.png",
-    img4: "y4.png",
-  },
-  {
-    id: 3,
-    name: "London Skyline Resort",
-    location: "London, UK",
-    rating: 4,
-    description: "Experience the charm of London with a stay at our resort, offering luxurious rooms, fine dining, and easy access to iconic landmarks like the Big Ben and Buckingham Palace.",
-    features: [
-      "Rooftop bar",
-      "Concierge service",
-      "Event spaces",
-      "Valet parking"
-    ],
-    image: "./top-hotel.jpeg",
-    img1: "y5.png",
-    img2: "y4.png",
-    img3: "y6.png",
-    img4: "y2.png",
-  },
-  {
-    id: 4,
-    name: "Paris Eiffel Tower Hotel",
-    location: "Paris, France",
-    rating: 4,
-    description: "Enjoy breathtaking views of the Eiffel Tower from our elegant hotel rooms. Discover French cuisine at our onsite restaurant and explore Parisian culture nearby.",
-    features: [
-      "Eiffel Tower view rooms",
-      "Fine dining restaurant",
-      "Spa and wellness center",
-      "Airport shuttle service"
-    ],
-    image: "./top-hotel.jpeg",
-    img1: "y4.png",
-    img2: "y2.png",
-    img3: "y3.png",
-    img4: "y6.png",
-  }
-];
+// const hotels = [
+//   {
+//     id: 1,
+//     name: "Dubai International Airport Hotel",
+//     location: "Dubai International Airport Terminal 03",
+//     rating: 4,
+//     description: "Situated in upper midtown Manhattan, 483 metres from the Central Park, the Whitby Hotel is a short distance away from stores such as Saks Fifth Avenue and Bergdorf Goodman. The Whitby Hotel offers complimentary WiFi to all guests.",
+//     features: [
+//       "Front Desk",
+//       "Free Wi-Fi in all rooms",
+//       "Swimming pool - indoor",
+//       "Check-in/out - express"
+//     ],
+//     image: "./top-hotel.jpeg",
+//     img1: "y1.png",
+//     img2: "y2.png",
+//     img3: "y3.png",
+//     img4: "y4.png",
+//   },
+//   {
+//     id: 2,
+//     name: "New York Grand Hotel",
+//     location: "New York, USA",
+//     rating: 5,
+//     description: "Luxury hotel located in the heart of New York City, offering stunning views of Central Park and impeccable service. Ideal for business and leisure travelers alike.",
+//     features: [
+//       "24-hour room service",
+//       "Fitness center",
+//       "Spa facilities",
+//       "Business center"
+//     ],
+//     image: "./top-hotel.jpeg",
+//     img1: "y1.png",
+//     img2: "y2.png",
+//     img3: "y3.png",
+//     img4: "y4.png",
+//   },
+//   {
+//     id: 3,
+//     name: "London Skyline Resort",
+//     location: "London, UK",
+//     rating: 4,
+//     description: "Experience the charm of London with a stay at our resort, offering luxurious rooms, fine dining, and easy access to iconic landmarks like the Big Ben and Buckingham Palace.",
+//     features: [
+//       "Rooftop bar",
+//       "Concierge service",
+//       "Event spaces",
+//       "Valet parking"
+//     ],
+//     image: "./top-hotel.jpeg",
+//     img1: "y5.png",
+//     img2: "y4.png",
+//     img3: "y6.png",
+//     img4: "y2.png",
+//   },
+//   {
+//     id: 4,
+//     name: "Paris Eiffel Tower Hotel",
+//     location: "Paris, France",
+//     rating: 4,
+//     description: "Enjoy breathtaking views of the Eiffel Tower from our elegant hotel rooms. Discover French cuisine at our onsite restaurant and explore Parisian culture nearby.",
+//     features: [
+//       "Eiffel Tower view rooms",
+//       "Fine dining restaurant",
+//       "Spa and wellness center",
+//       "Airport shuttle service"
+//     ],
+//     image: "./top-hotel.jpeg",
+//     img1: "y4.png",
+//     img2: "y2.png",
+//     img3: "y3.png",
+//     img4: "y6.png",
+//   }
+// ];
 
 const TopRatedHotels = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -149,7 +150,7 @@ const TopRatedHotels = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 mt-4">
               <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition">Book Now</button>
-              <button className="border border-black text-black px-4 py-2 rounded-md hover:bg-gray-100 transition">Add To Cart</button>
+              <button className="border border-black text-black px-4 py-2 rounded-md hover:bg-gray-100 transition">Add To Waitlist</button>
             </div>
           </div>
         </div>
