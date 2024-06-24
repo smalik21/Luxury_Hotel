@@ -14,7 +14,7 @@ const Header = () => {
 
     return (
         <header className="flex justify-between items-center p-6 absolute w-full top-0 z-10 bg-opacity-50 px-8 mt-4">
-            <Link href="/home" className="lg:text-2xl text-lg font-bold text-white text-[24px]">LuxuryHotelConcierge</Link>
+            <Link href="/" className="lg:text-2xl text-lg font-bold text-white text-[24px]">LuxuryHotelConcierge</Link>
             <nav className="hidden lg:flex flex-grow justify-center space-x-4 text-[16px] gap-5">
                 <Link href="/" className={`text-white ${pathname === '/' ? 'font-bold' : ''}`}>Home</Link>
                 <Link href="/explore" className={`text-white ${pathname === '/explore' ? 'font-bold' : ''}`}>Explore</Link>
@@ -45,7 +45,7 @@ const Header = () => {
                             </button>
                         </div>
                         <nav className="flex flex-col space-y-4 text-[16px] mt-4">
-                            <Link href="/home" className={`text-black px-2 py-1 rounded-md ${pathname === '/home' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Home</Link>
+                            <Link href="/" className={`text-black px-2 py-1 rounded-md ${pathname === '/home' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Home</Link>
                             <Link href="/explore" className={`text-black px-2 py-1 rounded-md ${pathname === '/explore' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Explore</Link>
                             <Link href="/destinations" className={`text-black px-2 py-1 rounded-md ${pathname === '/destinations' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Destinations</Link>
                             <Link href="/blog" className={`text-black px-2 py-1 rounded-md ${pathname === '/blog' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Blog</Link>
