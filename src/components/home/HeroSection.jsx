@@ -21,14 +21,14 @@ const Hero = () => {
     const [childrenOpen, setChildrenOpen] = useState(false);
     const [checkInOpen, setCheckInOpen] = useState(false);
     const [checkOutOpen, setCheckOutOpen] = useState(false);
-    const [tab, setTab] = useState('day');
+    const [tab, setTab] = useState('hotels');
 
     const handleRoomsChange = (e) => setRooms(e.target.value);
     const handleAdultsChange = (e) => setAdults(e.target.value);
     const handleChildrenChange = (e) => setChildren(e.target.value);
 
     return (
-        <div className="relative h-[790px] w-auto  top-0 left-0 right-0">
+        <div className="relative h-[750px] w-auto  top-0 left-0 right-0">
             <Carousel
                 showThumbs={false}
                 autoPlay
@@ -61,17 +61,23 @@ const Hero = () => {
                 <div className="mt-14 bg-white text-black px-8 pb-8 pt-3 rounded-3xl md:max-w-[763px] sm:max-w-[450px] max-w-[340px] w-full">
                     <div className="flex mb-4">
                         <button
-                            onClick={() => setTab('day')}
-                            className={`px-4 py-2 ${tab === 'day' ? 'border-b-2 border-black' : ''}`}
+                            onClick={() => setTab('hotels')}
+                            className={`px-4 py-2 ${tab === 'hotels' ? 'border-b-2 border-black' : ''}`}
                         >
-                            Day Inn
+                            Hotels
                         </button>
 
                         <button
-                            onClick={() => setTab('night')}
-                            className={`px-4 py-2 ${tab === 'night' ? 'border-b-2 border-black' : ''}`}
+                            onClick={() => setTab('safari')}
+                            className={`px-4 py-2 ${tab === 'safari' ? 'border-b-2 border-black' : ''}`}
                         >
-                            night lodge
+                            Safaris
+                        </button>
+                        <button
+                            onClick={() => setTab('flight')}
+                            className={`px-4 py-2 ${tab === 'flight' ? 'border-b-2 border-black' : ''}`}
+                        >
+                            Flights
                         </button>
                     </div>
                     <hr className="border-gray-300 -mt-[17px] mx-2 w-full mb-4" />
