@@ -38,7 +38,7 @@ const ContactSection = () => {
                     </div>
                 </div>
                 <div className='md:w-3/5 border-gray-300 border-2  rounded-lg md:p-5 sm:p-4 p-3 md:my-0 my-3 md:mx-0 sm:mx-5 mx-1  '>
-                        <div className='md:text-xl  text-lg'>I'm interested in:</div>
+                        <div className='md:text-xl  text-lg'><b>I'm interested in:</b></div>
                         <div className='md:pb-5 md:pt-3 py-2  md:mr-[10rem] sm:mr-10 mr-5 md:text-sm text-xs flex flex-wrap '>
                             {components.map(component => (
                                 <Highlight 
