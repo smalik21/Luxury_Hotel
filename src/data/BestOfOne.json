@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "image": "/guest-page-bg.png",
+        "place": "New York, USA",
+        "name": "Molokini and Turtle Town Snorkeling Adventure Aboard",
+        "rating": 4.1,
+        "people": 243,
+        "days": 4,
+        "price": 220
+    },
+    {
+        "id": 2,
+        "image": "/guest-page-bg.png",
+        "place": "New York, USA",
+        "name": "Molokini and Turtle Town Snorkeling Adventure Aboard",
+        "rating": 4.8,
+        "people": 243,
+        "days": 4,
+        "price": 225
+    },
+    {
+        "id": 3,
+        "image": "/guest-page-bg.png",
+        "place": "New York, USA",
+        "name": "Molokini and Turtle Town Snorkeling Adventure Aboard",
+        "rating": 4.8,
+        "people": 243,
+        "days": 4,
+        "price": 225
+    }
+]
