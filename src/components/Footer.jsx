@@ -1,7 +1,7 @@
 import React from "react";
 import { FaSquareFacebook } from "react-icons/fa6";
-import { CiTwitter } from "react-icons/ci";
-import { AiOutlineYoutube } from "react-icons/ai";
+import { FaTwitter } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
 const Footer = () => {
@@ -74,8 +74,8 @@ const Footer = () => {
           <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Privacy Policies</div>
           <div className="text-gray-500 flex items-center gap-2">
             <FaSquareFacebook className="text-xl md:text-2xl" />
-            <CiTwitter className="text-xl md:text-2xl" />
-            <AiOutlineYoutube  className="text-xl md:text-2xl" />
+            <FaTwitter className="text-xl md:text-2xl" />
+            <FaYoutube  className="text-xl md:text-2xl" />
             <RiInstagramFill className="text-xl md:text-2xl" />
           </div>
         </div>

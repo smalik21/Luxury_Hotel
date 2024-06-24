@@ -1,8 +1,17 @@
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import ContactSection from '@/components/contact/ContactSection'
+import Hero from '@/components/contact/HeroSection'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <Header/>
+      <Hero/>
+      <ContactSection/>
+      <Footer/>
+    </div>
   )
 }
 
