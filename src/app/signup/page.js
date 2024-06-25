@@ -1,6 +1,7 @@
 "use client"
 import React, {useState} from 'react'
 import Link from 'next/link'
+import FormData from 'form-data'
 
 const page = () => {
     const [inputs,setInputs] = useState({
@@ -13,7 +14,26 @@ const page = () => {
     });
     const handleChange = (e) =>{
         setInputs(prev=>({...prev,[e.target.name]:e.target.value}));
-        console.log(inputs);  
+        // console.log(inputs);  
+    };
+
+    const handleClick=async e=>{
+        e.preventDefault();
+        console.log(inputs)
+
+        try{
+            let data = new FormData();
+            console.log(data);
+
+
+            //write the code for post here
+
+        }
+        catch(error){
+            console.log(error);
+            
+        }
+        
     };
     return (
         <>
@@ -51,13 +71,13 @@ const page = () => {
                             <div className="ml-[5rem] md:mx-10 mb-4">
                                 <input onChange={handleChange} name="confirmPassword" type="password" id="confirm_password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] p-2.5 " placeholder="Confirm Password" required />
                             </div>
-                            <button type="button" className="text-white w-[18rem] md:w-[25rem] ml-[5rem] md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">SignUp</button>
+                            <button type="button" onClick={handleClick} className="text-white w-[18rem] md:w-[25rem] ml-[5rem] md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">SignUp</button>
                             <div className="relative flex py-2 items-center">
                                 <div className="flex-grow border-t border-gray-400"></div>
                                 <span className="flex-shrink mx-4 text-gray-400">or</span>
                                 <div className="flex-grow border-t border-gray-400"></div>
                             </div>
-                            <button type="button" className="text-white  w-[25rem] ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Google</button>
+                            <button type="button"  className="text-white  w-[25rem] ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Google</button>
                             <Link href="/signin">  <div className='text-gray-700 text-sm mb-2 ml-[7rem] md:ml-[9rem]'>Already have an account? Sign In</div></Link>
                         </div>
                     </div>

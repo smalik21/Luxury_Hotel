@@ -2,6 +2,7 @@
 import React, {useState} from 'react'
 import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
+import FormData from 'form-data';
 
 const page = () => {
     const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
@@ -13,6 +14,25 @@ const page = () => {
     const handleChange = (e) =>{
         setInputs(prev=>({...prev,[e.target.name]:e.target.value}));
         console.log(inputs); 
+    };
+
+    const handleClick=async e=>{
+        e.preventDefault();
+        console.log(inputs)
+
+        try{
+            let data = new FormData();
+            console.log(data);
+
+
+            //write the code for post here
+
+        }
+        catch(error){
+            console.log(error);
+            
+        }
+        
     };
 
     const toggleHiddenDiv = () => {
@@ -48,13 +68,13 @@ const page = () => {
             {/* <div className=" inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                 
             </div> */}
-            <input name="email" onChange={handleChange}  type="text" id="input-group-1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 " placeholder="Enter your email"/>
+            <input name="email" onChange={handleChange}  type="email" id="input-group-1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 " placeholder="Enter your email"/>
             </div>
             
             </div>
             
    
-            <button type="button" className="text-white w-[18rem] md:w-[25rem] ml-[5rem] md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Continue</button>
+            <button onClick={handleClick} type="button" className="text-white w-[18rem] md:w-[25rem] ml-[5rem] md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Continue</button>
             <div onClick={toggleHiddenDiv} className='text-gray-700 text-sm mb-2 ml-[11.2rem] cursor-pointer'>Forgot password?</div>
 
 
