@@ -60,7 +60,7 @@ const Hero = () => {
 
 
     return (
-        <div className="relative h-[700px] sm:h-[790px] w-auto  top-0 left-0 right-0">
+        <div className="relative h-[700px] sm:h-[730px] w-auto  top-0 left-0 right-0">
             <Carousel
                 showThumbs={false}
                 autoPlay
@@ -71,16 +71,16 @@ const Hero = () => {
                 showIndicators={false}
                 className="h-[790px]"
             >
-                <div className="h-[700px] sm:h-[790px]">
+                <div className="h-[700px] sm:h-[730px]">
                     <img src="/hero-image.jpeg" alt="Background 1" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[700px] sm:h-[790px]">
+                <div className="h-[700px] sm:h-[730px]">
                     <img src="/luxury-hotel-3.webp" alt="Background 2" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[700px] sm:h-[790px]">
+                <div className="h-[700px] sm:h-[730px]">
                     <img src="/luxury-hotel-2.webp" alt="Background 3" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[700px] sm:h-[790px]">
+                <div className="h-[700px] sm:h-[730px]">
                     <img src="/luxury-hotel-4.jpg" alt="Background 4" className="h-[790px] object-cover" />
                 </div>
             </Carousel>
