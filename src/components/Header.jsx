@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { BsSuitcaseLgFill } from "react-icons/bs";
 
 const Header = () => {
     const pathname = usePathname();
@@ -13,7 +14,7 @@ const Header = () => {
     };
 
     return (
-        <header className="flex justify-between items-center p-6 absolute w-full top-0 z-10 bg-opacity-50 px-8 mt-4">
+        <header className="flex justify-between items-center p-6 absolute w-full font-f_3 top-0 z-10 bg-opacity-50 px-8 mt-4">
             <Link href="/" className="lg:text-2xl text-lg font-bold text-white text-[24px]">LuxuryHotelConcierge</Link>
             <nav className="hidden lg:flex flex-grow justify-center space-x-4 text-[16px] gap-5">
                 <Link href="/" className={`text-white ${pathname === '/' ? 'font-bold' : ''}`}>Home</Link>
@@ -23,6 +24,9 @@ const Header = () => {
                 <Link href="/contact" className={`text-white ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact Us</Link>
             </nav>
             <div className="hidden lg:flex items-center space-x-4 gap-7">
+            <Link href="/waitlist" className="text-white text-2xl"><BsSuitcaseLgFill />
+            </Link>
+
                 <Link href="/signin" className="text-white">Sign In</Link>
                 <button className="bg-white text-black px-7 py-1 rounded-full"><Link href="/signup">Join</Link></button>
             </div>
@@ -50,6 +54,7 @@ const Header = () => {
                             <Link href="/destinations" className={`text-black px-2 py-1 rounded-md ${pathname === '/destinations' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Destinations</Link>
                             <Link href="/blog" className={`text-black px-2 py-1 rounded-md ${pathname === '/blog' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Blog</Link>
                             <Link href="/contact" className={`text-black px-2 py-1 rounded-md ${pathname === '/contact' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Contact Us</Link>
+                            
                             <Link href="/signin" className="text-black px-2 py-1 rounded-md hover:bg-gray-200" onClick={toggleMenu}>Sign In</Link>
                             <button className="bg-black text-white px-7 py-1 rounded-full mt-4" onClick={toggleMenu}>
                                 <Link href="/signup">Join</Link>

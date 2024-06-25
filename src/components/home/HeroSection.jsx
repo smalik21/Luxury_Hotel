@@ -13,22 +13,54 @@ import { IoIosArrowForward } from "react-icons/io";
 const Hero = () => {
     const [checkInDate, setCheckInDate] = useState(null);
     const [checkOutDate, setCheckOutDate] = useState(null);
-    const [rooms, setRooms] = useState(0);
-    const [adults, setAdults] = useState(0);
-    const [children, setChildren] = useState(0);
-    const [roomsOpen, setRoomsOpen] = useState(false);
-    const [adultsOpen, setAdultsOpen] = useState(false);
-    const [childrenOpen, setChildrenOpen] = useState(false);
+   
     const [checkInOpen, setCheckInOpen] = useState(false);
     const [checkOutOpen, setCheckOutOpen] = useState(false);
     const [tab, setTab] = useState('hotels');
+    
+    const [cities, setCities] = useState([]);
+    const [searchText, setSearchText] = useState('');
+    const [selectedCity, setSelectedCity] = useState('');
+    
+    
 
-    const handleRoomsChange = (e) => setRooms(e.target.value);
-    const handleAdultsChange = (e) => setAdults(e.target.value);
-    const handleChildrenChange = (e) => setChildren(e.target.value);
+    const handleSearchChange = async (e) => {
+        const searchText = e.target.value;
+        setSearchText(searchText);
+        if (searchText.length > 1) { // Adjust as needed for minimum search length
+            const data = await fetchCities(searchText);
+            setCities(data);
+        } else {
+            setCities([]);
+        }
+    };
+
+    const handleCitySelect = (city) => {
+        setSelectedCity(city);
+        setSearchText('');
+        setCities([]);
+    };
+
+
+    // Replace this with your actual API endpoint that fetches cities data
+    const fetchCities = async (searchText) => {
+        try {
+            // Mock API endpoint for demonstration
+            const response = await fetch(`https://api.example.com/cities?q=${searchText}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching cities:', error);
+            return [];
+        }
+    };
+
 
     return (
-        <div className="relative h-[750px] w-auto  top-0 left-0 right-0">
+        <div className="relative h-[700px] sm:h-[750px] w-auto  top-0 left-0 right-0">
             <Carousel
                 showThumbs={false}
                 autoPlay
@@ -39,24 +71,24 @@ const Hero = () => {
                 showIndicators={false}
                 className="h-[790px]"
             >
-                <div className="h-[790px]">
+                <div className="h-[700px] sm:h-[750px]">
                     <img src="/hero-image.jpeg" alt="Background 1" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[790px]">
+                <div className="h-[700px] sm:h-[750px]">
                     <img src="/luxury-hotel-3.webp" alt="Background 2" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[790px]">
+                <div className="h-[700px] sm:h-[750px]">
                     <img src="/luxury-hotel-2.webp" alt="Background 3" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[790px]">
+                <div className="h-[700px] sm:h-[790px]">
                     <img src="/luxury-hotel-4.jpg" alt="Background 4" className="h-[790px] object-cover" />
                 </div>
             </Carousel>
 
             <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center text-center md:pt-0 pt-[60px] text-white bg-black bg-opacity-50 px-4">
                 <p className="border border-gray-300 py-1 px-3 text-[14px] rounded-2xl md:mt-[140px] text-gray-200">it's time for vacation 🚀</p>
-                <h2 className="md:text-[50px] text-[40px] font-bold">Discover Luxury</h2>
-                <p className="text-[15px] text-gray-200">Experience the ultimate in hospitality..</p>
+                <h2 className="md:text-[50px] text-[40px] font-f_2 font-bold">Discover Luxury</h2>
+                <p className="text-[15px] font-f_2 text-gray-200">Experience the ultimate in hospitality..</p>
 
                 <div className="mt-14 bg-white text-black px-8 pb-8 pt-3 rounded-3xl md:max-w-[763px] sm:max-w-[450px] max-w-[340px] w-full">
                     <div className="flex mb-4">
@@ -81,14 +113,29 @@ const Hero = () => {
                         </button>
                     </div>
                     <hr className="border-gray-300 -mt-[17px] mx-2 w-full mb-4" />
-                    <div className="flex items-center mb-4 bg-gray-200 rounded-lg px-2 py-2">
-                        <FaSearch className="mr-2" />
-                        <input
-                            type="text"
-                            placeholder="Type destination, hotel, country..."
-                            className="w-full px-2 bg-gray-200 focus:outline-none"
-                        />
-                    </div>
+                    {tab === 'hotels' && (
+                <div className="flex items-center mb-4 bg-gray-200 rounded-lg px-2 py-2">
+                    <select
+                        value={selectedCity}
+                        onChange={(e) => handleCitySelect(e.target.value)}
+                        className="w-2/3 px-2 bg-gray-200 focus:outline-none"
+                    >
+                        <option value="">Select a city</option>
+                        {cities.map((city) => (
+                            <option key={city.id} value={city.name}>
+                                {city.name}
+                            </option>
+                        ))}
+                    </select>
+                    <input
+                        type="text"
+                        value={searchText}
+                        onChange={handleSearchChange}
+                        placeholder="Search for a city..."
+                        className="w-1/3 px-2 bg-gray-200 focus:outline-none"
+                    />
+                </div>
+            )}
                     <div className="flex flex-wrap justify-between items-center space-x-1 text-[15px] ">
                         <div className="relative sm:ml-0 ml-3 text-black">
                             <button
@@ -135,75 +182,7 @@ const Hero = () => {
                             )}
                             <p className="text-sm -mt-1 text-gray-400">{checkOutDate ? `${checkOutDate.toLocaleDateString()}` : 'Add date'}</p>
                         </div>
-                        <div className="relative max-w-md">
-                            <button
-                                onClick={() => setRoomsOpen(!roomsOpen)}
-                                className="px-4 py-2 rounded-lg w-full flex items-center justify-between"
-                            >
-                                <IoCalendarOutline size={18} className="mr-2 text-bold -mt-0.5" /> Rooms
-                                {roomsOpen ? <FaChevronUp className="ml-2" /> : <FaChevronDown className="ml-2" />}
-                            </button>
-                            {roomsOpen && (
-                                <select
-                                    className="absolute top-0 left-0 w-full p-2 border bg-white z-10"
-                                    value={rooms}
-                                    onChange={handleRoomsChange}
-                                    onBlur={() => setRoomsOpen(false)}
-                                >
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            )}
-                            <p className="text-sm -mt-1 text-gray-400">{rooms > 0 ? `${rooms} ${rooms > 1 ? 'Room' : 'Rooms'}` : 'Add Rooms'}</p>
-                        </div>
-                        <div className="relative max-w-md lg:mt-0 mt-2">
-                            <button
-                                onClick={() => setAdultsOpen(!adultsOpen)}
-                                className="px-4 py-2 rounded-lg w-full flex items-center justify-between"
-                            >
-                                <IoCalendarOutline size={18} className="mr-2 text-bold -mt-0.5" /> Adults
-                                {adultsOpen ? <FaChevronUp className="ml-2" /> : <FaChevronDown className="ml-2" />}
-                            </button>
-                            {adultsOpen && (
-                                <select
-                                    className="absolute top-0 left-0 w-full p-2 border bg-white z-10"
-                                    value={adults}
-                                    onChange={handleAdultsChange}
-                                    onBlur={() => setAdultsOpen(false)}
-                                >
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            )}
-                            <p className="text-sm -mt-1 text-gray-400">{adults > 0 ? `${adults} ${adults > 1 ? 'Adults' : 'Adults'}` : 'Add Adults'}</p>
-                        </div>
-                        <div className="relative max-w-md lg:mt-0 mt-2">
-                            <button
-                                onClick={() => setChildrenOpen(!childrenOpen)}
-                                className="px-4 py-2 rounded-lg w-full flex items-center justify-between"
-                            >
-                                <IoCalendarOutline size={18} className="mr-2 text-bold -mt-0.5" /> Children
-                                {childrenOpen ? <FaChevronUp className="ml-2" /> : <FaChevronDown className="ml-2" />}
-                            </button>
-                            {childrenOpen && (
-                                <select
-                                    className="absolute top-0 left-0 w-full p-2 border bg-white z-10"
-                                    value={children}
-                                    onChange={handleChildrenChange}
-                                    onBlur={() => setChildrenOpen(false)}
-                                >
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            )}
-                            <p className="text-sm -mt-1 text-gray-400">{children > 0 ? `${children} ${children > 1 ? 'Children' : 'Child'}` : 'Add Child'}</p>
-                        </div>
+                          
                         <div className="sm:pr-0 pr-5">
                             <button className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center  lg:mt-0 mt-2">
                                 Search

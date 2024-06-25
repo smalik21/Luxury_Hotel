@@ -4,13 +4,13 @@ const Map = () => {
   
 
   return (
-    <div className="w-full  px-4 pt-14">
+    <div className="w-full  px-4 sm:pt-10 pt-5 md:pt-8">
       <div className=" md:h-[780px]">
         <div className="w-full md:w-[610px] mx-auto my-10 flex flex-col gap-3">
-          <h1 className="text-black text-[28px] md:text-[40px] font-[800] text-center">
+          <h1 className="text-black text-[28px]  md:text-[45px] font-bold font-f_1 text-center">
             Our Global Reach
           </h1>
-          <p className="text-[#00000066] font-[400] text-[18px] md:text-[24px] text-center leading-[22px] md:leading-[28px]">
+          <p className="text-[#00000066] font-f_3 text-[18px] md:text-[24px] text-center leading-[22px] md:leading-[28px]">
             Discover the destinations we service around the world.
           </p>
         </div>

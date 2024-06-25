@@ -3,6 +3,7 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -38,7 +39,7 @@ const Footer = () => {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mt-10 md:mt-16 gap-8 md:gap-0">
+      <div className=" flex flex-col md:flex-row justify-between items-start md:items-center mt-10 md:mt-16 gap-8 md:gap-0">
         <div className="md:w-1/4">
           <div className="text-lg text-gray-200 pb-2 md:pb-8"><b>LuxuryHotelConcierge</b></div>
           <div className="text-gray-400 leading-relaxed text-sm md:text-lg">
@@ -46,22 +47,22 @@ const Footer = () => {
           </div>
         </div>
         <div className="leading-relaxed">
-          <div className="text-gray-200 text-lg pb-2"><b>Company</b></div>
-          <div className="text-gray-400 text-sm md:text-lg">Blog</div>
-          <div className="text-gray-400 text-sm md:text-lg">Careers</div>
-          <div className="text-gray-400 text-sm md:text-lg">About Us</div>
+          <div className=" text-gray-200 text-lg pb-2"><b>Company</b></div>
+          <Link href="/blog"><div className="cursor-pointer text-gray-400 text-sm md:text-lg">Blog</div></Link>
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Careers</div>
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">About Us</div>
         </div>
         <div className="leading-relaxed">
-          <div className="text-gray-200 text-lg pb-2"><b>Product</b></div>
-          <div className="text-gray-400 text-sm md:text-lg">Integrations</div>
-          <div className="text-gray-400 text-sm md:text-lg">Pricing</div>
-          <div className="text-gray-400 text-sm md:text-lg">Features</div>
+          <div className="text-gray-200  text-lg pb-2"><b>Product</b></div>
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Integrations</div>
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Pricing</div>
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Features</div>
         </div>
         <div className="leading-relaxed">
           <div className="text-gray-200 text-lg pb-2"><b>Support</b></div>
-          <div className="text-gray-400 text-sm md:text-lg">Help Center</div>
-          <div className="text-gray-400 text-sm md:text-lg">Contact Us</div>
-          <div className="text-gray-400 text-sm md:text-lg">Status</div>
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Help Center</div>
+          <Link href="contact"><div className="text-gray-400 cursor-pointer text-sm md:text-lg">Contact Us</div></Link>
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Status</div>
         </div>
       </div>
 

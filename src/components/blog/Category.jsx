@@ -1,7 +1,40 @@
-import React from 'react'
+"use client"
+import React,{useState} from 'react'
+import Highlight from '../contact/Highlight';
 
 const Category = () => {
-  const values = ["Hotels guide", "Travel guide", "Booking guide", "Booking guide", "Offers guide", "Top safari’s"];
+
+  const [highlighted, setHighlighted] = useState(null);
+
+    const handleHighlight = (id) => {
+        setHighlighted(id);
+    };
+  const values=[
+    {
+      id:1,
+      name:"Hotels guide"
+    },
+    {
+      id:2,
+      name:"Travel guide"
+    },
+    {
+      id:3,
+      name:"Booking guide"
+    },
+    {
+      id:4,
+      name:"Booking guide"
+    },
+    {
+      id:5,
+      name:"Offers guide"
+    },
+    {
+      id:6,
+      name:"Top safari"
+    }
+  ];
 
   return (
     <div className='w-full max-w-[1023px] h-auto flex flex-col justify-center items-center gap-5 mx-auto px-5  py-10'>
@@ -9,13 +42,17 @@ const Category = () => {
         <h1 className='font-bold text-xl sm:text-5xl text-[#2B2C34]'>Browse the category</h1>
         <p className='text-lg sm:text-2xl text-[#2B2C34E5] font-medium cursor-pointer '>see all</p>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full mt-10'>
-        {values.map((value, i) => (
-          <button key={i} className='rounded-full border text-base sm:text-xl border-gray-400 text-gray-600 px-5 py-3 hover:bg-gray-400 hover:text-white transition-colors'>
-            {value}
-          </button>
-        ))}
-      </div>
+      <div className='md:pb-10 md:pt-10 py-10  md:mr-[10rem] sm:mr-10 mr-5 md:text-lg text-md flex flex-wrap '>
+                            {values.map(value => (
+                                <Highlight 
+                                key={value.id} 
+                                id={value.id} 
+                                name={value.name} 
+                                isHighlighted={highlighted === value.id} 
+                                onClick={handleHighlight} 
+                                />
+                            ))}
+                        </div>
     </div>
   )
 }

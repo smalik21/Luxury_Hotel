@@ -3,15 +3,16 @@ import { FaGreaterThan } from "react-icons/fa6";
 import Link from "next/link";
 
 const BestChoice = () => {
+  
   return (
-    <div className="w-full px-4 pb-14">
-      <div className="w-full md:w-[1228px] mx-auto my-5 bg-no-repeat bg-cover rounded-md md:rounded-[60px]" style={{ backgroundImage: "url(./hero-image.jpeg)" }}>
-        <div className="flex flex-col gap-6 mt-10">
-          <h1 className="font-semibold mt-10 text-[28px] md:text-[40px] text-center text-white">
+    <div className="w-full px-4 pb-5">
+      <div className="w-full md:w-[1228px] mx-auto my-10 bg-no-repeat bg-cover rounded-md md:rounded-[60px]" >
+        <div className="flex flex-col gap-6 mt-5 sm:mt-10">
+          <h1 className="font-semibold font-f_1 mt-10 text-[28px] md:text-[40px] text-center text-black">
             Discover the best choice for you
           </h1>
 
-          <div className="mt-10 mb-10 mx-auto p-5 rounded-md md:rounded-[30px] bg-white w-full md:w-[1000px] shadow-lg">
+          <div className="sm:mt-10 sm:mb-10 my-0 mx-auto p-5 rounded-md md:rounded-[30px] bg-white w-full md:w-[1000px] shadow-lg">
             <div className="flex flex-col md:flex-row items-center justify-between px-5">
               <div className="flex flex-col gap-1 mb-4 md:mb-0 text-center md:text-left">
                 <h2 className="text-[#000000] text-[16px] md:text-[18px] font-medium">
@@ -26,7 +27,7 @@ const BestChoice = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+            <div className="grid grid-cols-1  md:grid-cols-2 gap-5 mt-10">
               {[
                 { title: "Goa Hotels", location: "Goa, India", image: "./y1.png" },
                 { title: "Pune Hotels", location: "Pune, India", image: "./y2.png" },

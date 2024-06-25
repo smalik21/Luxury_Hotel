@@ -1,9 +1,40 @@
-import React from 'react'
+"use client"
+import React , {useState}from 'react'
 import { IoSearch } from "react-icons/io5";
+import Highlight from '../contact/Highlight';
 
 const Search = () => {
-  const values = ["Quick Topics", "Design Thinking", "Technology", "Web3", "Programming", "AI"];
+  const [highlighted, setHighlighted] = useState(null);
 
+    const handleHighlight = (id) => {
+        setHighlighted(id);
+    };
+  const values=[
+    {
+      id:1,
+      name:"Budget Travel"
+    },
+    {
+      id:2,
+      name:"Solo Travel"
+    },
+    {
+      id:3,
+      name:"Business Trip Tips"
+    },
+    {
+      id:4,
+      name:"Underrated places to Travel"
+    },
+    {
+      id:5,
+      name:"Best Clubs"
+    },
+    {
+      id:6,
+      name:"Best Photo Locations"
+    }
+  ];
   return (
     <>
       <div className='mx-auto mt-5 w-full max-w-[503px] relative h-[49px] flex items-center justify-center px-4 sm:px-0'>
@@ -17,16 +48,17 @@ const Search = () => {
         </div>
       </div>
 
-      <div className='flex flex-wrap w-full mx-auto mt-10 justify-center gap-3 px-4'>
-        {values.map((value, i) => (
-          <button 
-            key={i} 
-            className='px-4 py-2 sm:px-5 sm:py-3 text-black bg-white border rounded-full hover:bg-[#00000066] hover:text-white'
-          >
-            {value}
-          </button>
-        ))}
-      </div>
+      <div className='justify-center items-center md:pb-10 md:pt-10 py-5    md:text-lg text-md flex flex-wrap '>
+                            {values.map(value => (
+                                <Highlight 
+                                key={value.id} 
+                                id={value.id} 
+                                name={value.name} 
+                                isHighlighted={highlighted === value.id} 
+                                onClick={handleHighlight} 
+                                />
+                            ))}
+                        </div>
     </>
   );
 }
