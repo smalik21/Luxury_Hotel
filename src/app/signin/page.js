@@ -5,10 +5,21 @@ import Link from 'next/link';
 
 const page = () => {
     const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
+    const [inputs,setInputs] = useState({
+        
+        email:""
+       
+    });
+    const handleChange = (e) =>{
+        setInputs(prev=>({...prev,[e.target.name]:e.target.value}));
+        console.log(inputs); 
+    };
 
     const toggleHiddenDiv = () => {
         setIsHiddenDivVisible(!isHiddenDivVisible);
     };
+
+   
   return (
     <> 
     <div className='m-auto'>
@@ -37,7 +48,7 @@ const page = () => {
             {/* <div className=" inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                 
             </div> */}
-            <input type="text" id="input-group-1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 " placeholder="Enter your email"/>
+            <input name="email" onChange={handleChange}  type="text" id="input-group-1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 " placeholder="Enter your email"/>
             </div>
             
             </div>
