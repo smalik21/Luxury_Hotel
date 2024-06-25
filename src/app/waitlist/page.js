@@ -1,10 +1,19 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
-import waitlistHotels from "@/data/HotelsData.json";
+import waitlistHotelsData from "@/data/HotelsData.json";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { FaTrashAlt } from "react-icons/fa";
 
 const Waitlist = () => {
+    const [waitlistHotels, setWaitlistHotels] = useState(waitlistHotelsData);
+
+    const handleDelete = (id) => {
+        setWaitlistHotels(waitlistHotels.filter(hotel => hotel.id !== id));
+    };
+
     return (
         <div className="">
             <Header />
@@ -36,6 +45,12 @@ const Waitlist = () => {
                         <div key={hotel.id} className="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden">
                             <div className="relative h-60">
                                 <img src={hotel.image} alt={hotel.name} className="w-full h-full object-cover" />
+                                <button
+                                    className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+                                    onClick={() => handleDelete(hotel.id)}
+                                >
+                                    <FaTrashAlt size={20} />
+                                </button>
                             </div>
                             <div className="p-4">
                                 <h3 className="text-lg font-bold">{hotel.name}</h3>
