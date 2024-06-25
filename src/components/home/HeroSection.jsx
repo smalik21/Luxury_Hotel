@@ -8,6 +8,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import Link from 'next/link';
 import { IoIosArrowForward } from "react-icons/io";
+// import axios from "axios";
 
 
 const Hero = () => {
@@ -16,12 +17,66 @@ const Hero = () => {
     const [checkInOpen, setCheckInOpen] = useState(false);
     const [checkOutOpen, setCheckOutOpen] = useState(false);
     const [tab, setTab] = useState('hotels');
-    const [cities, setCities] = useState([]);
+    // const [cities, setCities] = useState([]);
     const [searchText, setSearchText] = useState('');
-    const [selectedCity, setSelectedCity] = useState('');
+    // const [selectedCity, setSelectedCity] = useState('');
     const [location, setLocation] = useState('');
 
     const api=`http://localhost:4000`
+
+    const fetchCountries = async () => {
+        const res = await fetch('https://countriesnow.space/api/v0.1/countries');
+        const data = await res.json();
+        return data.data;
+      };
+
+      const fetchCities = async (country) => {
+        const res = await fetch('https://countriesnow.space/api/v0.1/countries/cities', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ country }),
+        });
+        const data = await res.json();
+        return data.data;
+      };
+
+      useEffect(() => {
+        const getCountries = async () => {
+          const countryData = await fetchCountries();
+          setCountries(countryData);
+        };
+        getCountries();
+      }, []);
+
+      const [countries, setCountries] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
+
+      
+  useEffect(() => {
+    if (selectedCountry) {
+      const getCities = async () => {
+        const cityData = await fetchCities(selectedCountry);
+        setCities(cityData);
+      };
+      getCities();
+    }
+  }, [selectedCountry]);
+
+
+  const handleCountryChange = (e) => {
+    setSelectedCountry(e.target.value);
+    setSelectedCity(''); // Reset city selection
+  };
+
+  const handleCityChange = (e) => {
+    setSelectedCity(e.target.value);
+  };
+
+      
 
     const handleSearchChange = async (e) => {
         const searchText = e.target.value;
@@ -42,24 +97,24 @@ const Hero = () => {
 
     // URL TO FETCH HOTELS BY FILTERS: ${api}/search/hotels/?city=${searchText}&check_in=${checkInDate}&check_out=${checkOutDate}
 
-    const fetchCities = async (searchText) => {
+    // const fetchCities = async (searchText) => {
 
-        console.log("search: ", searchText)
+    //     console.log("search: ", searchText)
 
-        try {
-            // Replace with your actual API endpoint for fetching cities
-            const response = await fetch(``);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            console.log(data)
-            return data;
-        } catch (error) {
-            console.error('Error fetching cities:', error);
-            return [];
-        }
-    };
+    //     try {
+    //         // Replace with your actual API endpoint for fetching cities
+    //         const response = await fetch(``);
+    //         if (!response.ok) {
+    //             throw new Error('Network response was not ok');
+    //         }
+    //         const data = await response.json();
+    //         console.log(data)
+    //         return data;
+    //     } catch (error) {
+    //         console.error('Error fetching cities:', error);
+    //         return [];
+    //     }
+    // };
 
     const handleOutsideClick = (event) => {
         if (
@@ -79,6 +134,10 @@ const Hero = () => {
             document.removeEventListener('click', handleOutsideClick);
         };
     }, []);
+
+    const  fetchHotel=()=>{
+        console.log("this is remaining");
+    }
 
     return (
         <div className="relative h-[700px] sm:h-[730px] w-auto top-0 left-0 right-0">
@@ -137,16 +196,34 @@ const Hero = () => {
 
                     {tab === 'hotels' && (
                         <>
-                            <div className="flex items-center mb-4">
-                                <div className="relative city-search px-2 flex-grow">
-                                    <input
+                            <div className="flex items-center mb-4 w-full">
+                                <div className="flex justify-between city-search px-2 gap-4 w-full">
+                                    {/* <input
                                         type="text"
                                         value={searchText}
                                         onChange={handleSearchChange}
                                         placeholder="Search for a city..."
                                         className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none"
-                                    />
-                                    {cities && cities.length > 0 && (
+                                    /> */}
+                         <select className=" px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-1/2" value={selectedCountry} onChange={handleCountryChange}>
+                        
+                                    <option value="">Select Country</option>
+                                    {countries.map((country) => (
+                                    <option key={country.country} value={country.country}>
+                                        {country.country}
+                                    </option>
+                                    ))}
+                                </select>
+
+                                <select className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none flex-grow w-1/2" value={selectedCity} onChange={handleCityChange} disabled={!selectedCountry}>
+                                    <option value="">Select City</option>
+                                    {cities.map((city) => (
+                                    <option key={city} value={city}>
+                                        {city}
+                                    </option>
+                                    ))}
+                                </select>
+                                    {/* {cities && cities.length > 0 && (
                                         <div className="absolute z-50 bg-white mt-1 w-full border border-gray-300 rounded-lg">
                                             {cities.map((city) => (
                                                 <div
@@ -158,7 +235,7 @@ const Hero = () => {
                                                 </div>
                                             ))}
                                         </div>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                             <div className="flex items-center space-x-2">
@@ -204,7 +281,7 @@ const Hero = () => {
                                         </div>
                                     )}
                                 </div>
-                                <button className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center">
+                                <button onClick={fetchHotel} className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center">
                                     <FaSearch className="mr-2" /> Search
                                 </button>
                             </div>

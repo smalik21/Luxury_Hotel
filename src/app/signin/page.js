@@ -1,35 +1,37 @@
 "use client";
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { useRouter } from "next/navigation";
+
 import Link from "next/link";
 // import FormData from "form-data";
 
 const page = () => {
   const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
+
   const [inputs, setInputs] = useState({
-    email: "",
+    mail: "",
+    password: "",
   });
+  const router = useRouter();
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     console.log(inputs);
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     e.preventDefault();
-
     console.log(inputs);
 
     try {
       let data = new FormData();
+      const myHeaders = new Headers();
       console.log(data);
 
-      const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
 
-      const raw = JSON.stringify({
-        mail: "krunaldevganiya02@gmail.com",
-        password: "123456",
-      });
+      const raw = JSON.stringify(inputs);
 
       const requestOptions = {
         method: "POST",
@@ -38,9 +40,13 @@ const page = () => {
         redirect: "follow",
       };
 
-      fetch("localhost:4000/api/auth/login", requestOptions)
+      fetch("http://localhost:4000/api/auth/login", requestOptions)
         .then((response) => response.text())
-        .then((result) => console.log(result))
+        .then((result) => {
+          // setToken(result);
+          console.log(result);
+          router.push("/");
+        })
         .catch((error) => console.error(error));
 
       //write the code for post here
@@ -112,9 +118,9 @@ const page = () => {
                 
             </div> */}
                 <input
-                  name="email"
+                  name="mail"
                   onChange={handleChange}
-                  type="email"
+                  type="mail"
                   id="input-group-1"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 "
                   placeholder="Enter your email"
@@ -125,9 +131,9 @@ const page = () => {
                 
             </div> */}
                 <input
-                  name="email"
+                  name="password"
                   onChange={handleChange}
-                  type="email"
+                  type="password"
                   id="input-group-1"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 "
                   placeholder="Enter your password"
