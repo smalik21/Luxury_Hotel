@@ -73,7 +73,7 @@ const Footer = () => {
           <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Terms</div>
           <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Cookies</div>
           <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Privacy Policies</div>
-          <div className="text-gray-500 flex items-center gap-2">
+          <div className="text-gray-500 flex items-center gap-2 md:mr-5">
             <FaSquareFacebook className="text-xl md:text-2xl" />
             <FaTwitter className="text-xl md:text-2xl" />
             <FaYoutube  className="text-xl md:text-2xl" />

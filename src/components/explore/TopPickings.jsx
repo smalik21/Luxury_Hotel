@@ -91,7 +91,7 @@ const TopPickings = () => {
     }, []);
 
     return (
-        <div className="my-5 mx-0 md:mx-5 mt-8 md:min-h-[680px] min-h-[620px] relative">
+        <div className="my-5 mx-0 md:mx-5 mt-8 md:min-h-[670px] min-h-[620px] relative">
             <div className="container mx-auto max-w-6xl px-5 md:px-4 pt-16">
                 <h2 className="md:text-4xl text-3xl font-bold mb-2">Deserts and Rejuvinations</h2>
                 <p className="text-lg mb-4">20 Most frequents</p>

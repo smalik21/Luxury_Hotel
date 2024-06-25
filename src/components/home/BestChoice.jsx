@@ -12,7 +12,7 @@ const BestChoice = () => {
             Discover the best choice for you
           </h1>
 
-          <div className="sm:mt-10 sm:mb-10 my-0 mx-auto p-5 rounded-md md:rounded-[30px] bg-white w-full md:w-[1000px] shadow-lg">
+          <div className="sm:mt-5 sm:mb-10  mx-auto p-5 rounded-md md:rounded-[30px] bg-white w-full md:w-[1000px] shadow-lg">
             <div className="flex flex-col md:flex-row items-center justify-between px-5">
               <div className="flex flex-col gap-1 mb-4 md:mb-0 text-center md:text-left">
                 <h2 className="text-[#000000] text-[16px] md:text-[18px] font-medium">

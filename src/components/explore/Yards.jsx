@@ -92,7 +92,7 @@ const Yards = () => {
   }, []);
   return (
     <div className='w-full max-w-6xl m-auto mt-4 px-4 pb-8'>
-      <div className='mt-10 mb-7'>
+      <div className='mt-5 mb-7'>
         <div className='text-3xl sm:text-3xl md:text-4xl mb-1'><b>Must Visit Places</b></div>
         <div className='text-md sm:text-lg text-gray-700'>20 Most viewed</div>
         <div className=" relative flex justify-end bottom-14 right-2 gap-4 items-center z-10">

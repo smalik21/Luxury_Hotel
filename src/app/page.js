@@ -7,6 +7,7 @@ import Map from '@/components/home/Map'
 import BestChoice from '@/components/home/BestChoice'
 //import Reviews from '@/components/home/Reviews'
 import Footer from '@/components/Footer'
+import Fixed from '@/components/home/Fixed';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Map />
             <BestChoice />
             <Footer />
+            
         </div>
     )
 }
