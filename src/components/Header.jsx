@@ -20,6 +20,7 @@ const Header = () => {
                 <Link href="/explore" className={`text-white ${pathname === '/explore' ? 'font-bold' : ''}`}>Explore</Link>
                 <Link href="/destinations" className={`text-white ${pathname === '/destinations' ? 'font-bold' : ''}`}>Destinations</Link>
                 <Link href="/blog" className={`text-white ${pathname === '/blog' ? 'font-bold' : ''}`}>Blog</Link>
+                <Link href="/hotels" className={`text-white ${pathname === '/hotels' ? 'font-bold' : ''}`}>Hotel</Link>
                 <Link href="/contact" className={`text-white ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact Us</Link>
             </nav>
             <div className="hidden lg:flex items-center space-x-4 gap-7">
@@ -49,6 +50,7 @@ const Header = () => {
                             <Link href="/explore" className={`text-black px-2 py-1 rounded-md ${pathname === '/explore' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Explore</Link>
                             <Link href="/destinations" className={`text-black px-2 py-1 rounded-md ${pathname === '/destinations' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Destinations</Link>
                             <Link href="/blog" className={`text-black px-2 py-1 rounded-md ${pathname === '/blog' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Blog</Link>
+                            <Link href="/hotels" className={`text-black px-2 py-1 rounded-md ${pathname === '/hotels' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Hotel</Link>
                             <Link href="/contact" className={`text-black px-2 py-1 rounded-md ${pathname === '/contact' ? 'font-bold' : ''} hover:bg-gray-200`} onClick={toggleMenu}>Contact Us</Link>
                             <Link href="/signin" className="text-black px-2 py-1 rounded-md hover:bg-gray-200" onClick={toggleMenu}>Sign In</Link>
                             <button className="bg-black text-white px-7 py-1 rounded-full mt-4" onClick={toggleMenu}>
