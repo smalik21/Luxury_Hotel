@@ -3,7 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const Features = () => {
     return (
-        <section className="md:py-40 py-10 max-w-screen overflow-hidden bg-white min-h-screen flex  items-center justify-center">
+        <section className="md:py-[5rem] py-10 max-w-screen overflow-hidden bg-white min-h-screen flex  items-center justify-center">
             <div className="container mx-auto px-4 md:px-0 max-w-6xl justify-center ">
                 <div className="text-center md:mb-10 mb-5">
                     <h2 className="text-[30px] lg:text-[45px] font-f_1 text-black font-bold mb-4">Features we provide</h2>
