@@ -9,6 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Link from 'next/link';
 import { IoIosArrowForward } from "react-icons/io";
 
+
 const Hero = () => {
     const [checkInDate, setCheckInDate] = useState(null);
     const [checkOutDate, setCheckOutDate] = useState(null);
@@ -19,6 +20,8 @@ const Hero = () => {
     const [searchText, setSearchText] = useState('');
     const [selectedCity, setSelectedCity] = useState('');
     const [location, setLocation] = useState('');
+
+    const api=`http://localhost:4000`
 
     const handleSearchChange = async (e) => {
         const searchText = e.target.value;
@@ -37,14 +40,20 @@ const Hero = () => {
         setCities([]);
     };
 
+    // URL TO FETCH HOTELS BY FILTERS: ${api}/search/hotels/?city=${searchText}&check_in=${checkInDate}&check_out=${checkOutDate}
+
     const fetchCities = async (searchText) => {
+
+        console.log("search: ", searchText)
+
         try {
             // Replace with your actual API endpoint for fetching cities
-            const response = await fetch(`https://api.api-ninjas.com/v1/city?q=${searchText}`);
+            const response = await fetch(``);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
+            console.log(data)
             return data;
         } catch (error) {
             console.error('Error fetching cities:', error);
@@ -137,7 +146,7 @@ const Hero = () => {
                                         placeholder="Search for a city..."
                                         className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none"
                                     />
-                                    {cities.length > 0 && (
+                                    {cities && cities.length > 0 && (
                                         <div className="absolute z-50 bg-white mt-1 w-full border border-gray-300 rounded-lg">
                                             {cities.map((city) => (
                                                 <div
