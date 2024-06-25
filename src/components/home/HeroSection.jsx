@@ -27,7 +27,7 @@ const Hero = () => {
     const handleSearchChange = async (e) => {
         const searchText = e.target.value;
         setSearchText(searchText);
-        if (searchText.length > 1) { // Adjust as needed for minimum search length
+        if (searchText.length > 1) {
             const data = await fetchCities(searchText);
             setCities(data);
         } else {
@@ -60,7 +60,7 @@ const Hero = () => {
 
 
     return (
-        <div className="relative h-[700px] sm:h-[750px] w-auto  top-0 left-0 right-0">
+        <div className="relative h-[700px] sm:h-[790px] w-auto  top-0 left-0 right-0">
             <Carousel
                 showThumbs={false}
                 autoPlay
@@ -71,13 +71,13 @@ const Hero = () => {
                 showIndicators={false}
                 className="h-[790px]"
             >
-                <div className="h-[700px] sm:h-[750px]">
+                <div className="h-[700px] sm:h-[790px]">
                     <img src="/hero-image.jpeg" alt="Background 1" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[700px] sm:h-[750px]">
+                <div className="h-[700px] sm:h-[790px]">
                     <img src="/luxury-hotel-3.webp" alt="Background 2" className="h-[790px] object-cover" />
                 </div>
-                <div className="h-[700px] sm:h-[750px]">
+                <div className="h-[700px] sm:h-[790px]">
                     <img src="/luxury-hotel-2.webp" alt="Background 3" className="h-[790px] object-cover" />
                 </div>
                 <div className="h-[700px] sm:h-[790px]">
@@ -182,7 +182,6 @@ const Hero = () => {
                             )}
                             <p className="text-sm -mt-1 text-gray-400">{checkOutDate ? `${checkOutDate.toLocaleDateString()}` : 'Add date'}</p>
                         </div>
-                          
                         <div className="sm:pr-0 pr-5">
                             <button className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center  lg:mt-0 mt-2">
                                 Search
