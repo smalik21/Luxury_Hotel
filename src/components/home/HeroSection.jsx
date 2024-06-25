@@ -8,8 +8,15 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import Link from 'next/link';
 import { IoIosArrowForward } from "react-icons/io";
+import axios from 'axios';
+
 
 const Hero = () => {
+    const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedState, setSelectedState] = useState('');
+
     const [checkInDate, setCheckInDate] = useState(null);
     const [checkOutDate, setCheckOutDate] = useState(null);
     const [checkInOpen, setCheckInOpen] = useState(false);
@@ -17,8 +24,8 @@ const Hero = () => {
     const [tab, setTab] = useState('hotels');
     const [cities, setCities] = useState([]);
     const [searchText, setSearchText] = useState('');
-    const [selectedCity, setSelectedCity] = useState('');
-    const [location, setLocation] = useState('');
+    // const [selectedCity, setSelectedCity] = useState('');
+    // const [location, setLocation] = useState('');
 
     const handleSearchChange = async (e) => {
         const searchText = e.target.value;
@@ -37,20 +44,37 @@ const Hero = () => {
         setCities([]);
     };
 
-    const fetchCities = async (searchText) => {
-        try {
-            // Replace with your actual API endpoint for fetching cities
-            const response = await fetch(`https://api.api-ninjas.com/v1/city?q=${searchText}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error fetching cities:', error);
-            return [];
+    useEffect(() => {
+        // Fetch all countries when the component mounts
+        axios.get('https://restcountries.com/v3.1/all')
+          .then(response => {
+            const countryList = response.data.map(country => ({
+              name: country.name.common,
+              code: country.cca2
+            }));
+            setCountries(countryList);
+          })
+          .catch(error => {
+            console.error('Error fetching countries:', error);
+          });
+    }, []);
+
+    useEffect(() => {
+        // Fetch states when a country is selected
+        if (selectedCountry) {
+          axios.post('https://countriesnow.space/api/v0.1/countries/states', {
+            country: selectedCountry
+          })
+            .then(response => {
+              setStates(response.data.data.states);
+            })
+            .catch(error => {
+              console.error('Error fetching states:', error);
+            });
         }
-    };
+    }, [selectedCountry]);
+    
+    
 
     const handleOutsideClick = (event) => {
         if (

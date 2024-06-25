@@ -16,11 +16,11 @@ const Map = () => {
         </div>
 
         <div className="relative flex flex-col md:flex-row justify-between gap-12 w-full md:w-[810px] mx-auto my-10">
-          <img src="/Mexi.png" alt="Mexico" className='absolute left-4 md:left-0 top-[60%] md:top-[40%] w-[40px] md:w-auto' />
+          {/* <img src="/Mexi.png" alt="Mexico" className='absolute left-4 md:left-0 top-[60%] md:top-[40%] w-[40px] md:w-auto' /> */}
           <img src="/map.png" alt="Map" className="w-full md:w-auto" />
-          <img src="/paris.png" alt="Paris" className='absolute left-20 md:left-16 top-[70%] md:top-[60%] w-[40px] md:w-auto' />
-          <img src="/Aus.png" alt="Australia" className='absolute left-[50%] md:left-[60%] top-[80%] md:top-[70%] w-[40px] md:w-auto' />
-          <img src="/India.png" alt="India" className='absolute right-4 md:right-10 top-[40%] md:top-[50%] w-[40px] md:w-auto' />
+          {/* <img src="/paris.png" alt="Paris" className='absolute left-20 md:left-16 top-[70%] md:top-[60%] w-[40px] md:w-auto' /> */}
+          {/* <img src="/Aus.png" alt="Australia" className='absolute left-[50%] md:left-[60%] top-[80%] md:top-[70%] w-[40px] md:w-auto' /> */}
+          {/* <img src="/India.png" alt="India" className='absolute right-4 md:right-10 top-[40%] md:top-[50%] w-[40px] md:w-auto' /> */}
         </div>
       </div>
     </div>
