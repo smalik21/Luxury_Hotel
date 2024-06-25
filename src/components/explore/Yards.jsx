@@ -93,14 +93,14 @@ const Yards = () => {
   return (
     <div className='w-full max-w-6xl m-auto mt-4 px-4 pb-8'>
       <div className='mt-10 mb-7'>
-        <div className='text-3xl sm:text-3xl md:text-4xl mb-1'><b>Beautiful yards</b></div>
+        <div className='text-3xl sm:text-3xl md:text-4xl mb-1'><b>Must Visit Places</b></div>
         <div className='text-md sm:text-lg text-gray-700'>20 Most viewed</div>
-        <div className="relative flex justify-end bottom-14 right-4 gap-4 items-center z-10">
+        <div className=" relative flex justify-end bottom-14 right-2 gap-4 items-center z-10">
                     <div className="rounded-md py-1 px-2 border hover:bg-gray-200 border-black">
-                        <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" onClick={handlePrevClick} />
+                        <MdKeyboardArrowLeft className=" text-black text-xl cursor-pointer" onClick={handlePrevClick} />
                     </div>
                     <div className="bg-black hover:bg-gray-800 rounded-md py-1 px-2 border border-black">
-                        <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" onClick={handleNextClick} />
+                        <MdKeyboardArrowRight className="text-white text-xl cursor-pointer" onClick={handleNextClick} />
                     </div>
                 </div>
       </div>

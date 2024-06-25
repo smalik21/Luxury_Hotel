@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
-import { PiLessThanBold, PiGreaterThanBold } from "react-icons/pi";
+import React, { useState, useEffect } from 'react';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const hotels = [
   {
@@ -13,9 +13,6 @@ const hotels = [
       "./Explore/Rectangle 5037.png",
       "./Explore/Rectangle 5039.png",
       "./Explore/Rectangle 5042.png",
-      "./Explore/Rectangle 5041.png",
-      "./Explore/Rectangle 5038.png",
-      "./Explore/Rectangle 5040.png"
     ]
   },
   {
@@ -26,9 +23,6 @@ const hotels = [
       "./Explore/Rectangle 5042.png",
       "./Explore/Rectangle 5039.png",
       "./Explore/Rectangle 5037.png",
-      "./Explore/Rectangle 5040.png",
-      "./Explore/Rectangle 5038.png",
-      "./Explore/Rectangle 5041.png",
     ]
   },
   {
@@ -39,9 +33,6 @@ const hotels = [
       "./Explore/Rectangle 5039.png",
       "./Explore/Rectangle 5041.png",
       "./Explore/Rectangle 5040.png",
-      "./Explore/Rectangle 5037.png",
-      "./Explore/Rectangle 5038.png",
-      "./Explore/Rectangle 5042.png",
     ]
   },
   {
@@ -52,9 +43,6 @@ const hotels = [
       "./Explore/Rectangle 5042.png",
       "./Explore/Rectangle 5039.png",
       "./Explore/Rectangle 5040.png",
-      "./Explore/Rectangle 5038.png",
-      "./Explore/Rectangle 5037.png",
-      "./Explore/Rectangle 5041.png",
     ]
   },
   {
@@ -65,15 +53,14 @@ const hotels = [
       "./Explore/Rectangle 5039.png",
       "./Explore/Rectangle 5037.png",
       "./Explore/Rectangle 5038.png",
-      "./Explore/Rectangle 5041.png",
-      "./Explore/Rectangle 5042.png",
-      "./Explore/Rectangle 5040.png"
     ]
   },
 ];
 
 const FeaturedHotels = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + hotels.length) % hotels.length);
@@ -86,42 +73,48 @@ const FeaturedHotels = () => {
   const getVisibleImages = () => {
     const hotel = hotels[currentIndex];
     return hotel.images.map((image, index) => (
-      <img key={index} src={image} alt={`Featured hotel ${index + 1}`} className="w-full h-64 sm:h-72 md:h-80 lg:h-96 hover:scale-105 object-cover rounded-md transition-transform duration-500 ease-in-out" />
+      <img 
+        key={index} 
+        src={image} 
+        alt={`Featured hotel image ${index + 1}`} 
+        loading="lazy" 
+        className={`w-full h-64 sm:h-72 md:h-90 lg:h-100 hover:scale-105 object-cover rounded-md transition-transform duration-500 ease-in-out ${index === 0 ? 'block' : 'hidden'} sm:block`} 
+      />
     ));
   };
 
   return (
-    <div className="w-full p-4 mt-14">
+    <div className="w-full p-4 mt-14 mb-[7rem]">
       <div className="max-w-6xl mx-auto p-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="flex flex-col justify-center mb-4 md:mb-0 text-center md:text-left">
-            <h1 className="text-3xl text-black font-bold mb-2">Featured Hotels</h1>
+            <h1 className="text-4xl text-black font-bold mb-2">Luxury Hubs of the World</h1>
             <p className="text-black text-sm">2000+ hotels</p>
           </div>
           <div className="flex gap-2 items-center justify-center">
             <button aria-label="Previous" onClick={handlePrevClick}>
               <div className="bg-white text-black border border-black rounded-md w-9 h-7 flex items-center justify-center">
-                <PiLessThanBold />
+                <MdKeyboardArrowLeft />
               </div>
             </button>
             <button aria-label="Next" onClick={handleNextClick}>
               <div className="bg-black text-white border border-black rounded-md w-9 h-7 flex items-center justify-center">
-                <PiGreaterThanBold />
+                <MdKeyboardArrowRight />
               </div>
             </button>
           </div>
         </div>
         <div className="relative transition-transform duration-500 ease-in-out">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {getVisibleImages()}
           </div>
-          <div className="absolute flex flex-col sm:flex-row items-center  md:p-4 md:w-[50%]   justify-between gap-3  w-[90%] sm:w-auto  sm:p-0 bg-white rounded-md top-[85%] left-[5%] sm:top-[70%] sm:left-[50%] sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 shadow-lg">
-            <div className="flex flex-col justify-center  text-center sm:text-left p-3 sm:p-0">
-              <h3 className="text-lg sm:text-xl font-medium text-black">{hotels[currentIndex].name}</h3>
-              <p className="text-sm sm:text-md text-[#00000099]">starts at {hotels[currentIndex].price}</p>
-            </div>
-            <button className="px-3 py-2 mx-2 my-2  sm:mt-0 text-black border border-black">Start Booking</button>
+        </div>
+        <div className="mt-[30rem] sm:mt-[35rem] md:mt-[33rem] absolute flex flex-col sm:flex-row items-center sm:p-2 md:p-3 p-1 md:w-[50%] justify-between gap-3 w-[90%] sm:w-auto bg-white rounded-md top-[85%] left-[5%] sm:top-[70%] sm:left-[50%] sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 shadow-xl">
+          <div className="flex flex-col justify-center text-center sm:text-left p-0">
+            <h3 className="text-lg sm:text-xl font-medium text-black">{hotels[currentIndex].name}</h3>
+            <p className="text-sm sm:text-md text-[#00000099]">starts at {hotels[currentIndex].price}</p>
           </div>
+          <button className="px-2 py-1 mx-2 my-2 sm:mt-0 text-black border border-black">Start Booking</button>
         </div>
       </div>
     </div>

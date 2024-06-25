@@ -93,16 +93,16 @@ const TopPickings = () => {
     return (
         <div className="my-5 mx-0 md:mx-5 mt-8 md:min-h-[680px] min-h-[620px] relative">
             <div className="container mx-auto max-w-6xl px-5 md:px-4 pt-16">
-                <h2 className="text-3xl font-bold mb-2">Top pickings</h2>
+                <h2 className="md:text-4xl text-3xl font-bold mb-2">Deserts and Rejuvinations</h2>
                 <p className="text-lg mb-4">20 Most frequents</p>
             </div>
             <div className="container mx-auto max-w-6xl lg:px-0 px-8">
                 <div className="relative flex justify-end bottom-14 right-4 gap-4 items-center z-10">
                     <div className="rounded-md py-1 px-2 border hover:bg-gray-200 border-black">
-                        <MdKeyboardArrowLeft className="text-black text-2xl cursor-pointer" onClick={handlePrevClick} />
+                        <MdKeyboardArrowLeft className="text-black text-xl cursor-pointer" onClick={handlePrevClick} />
                     </div>
                     <div className="bg-black hover:bg-gray-800 rounded-md py-1 px-2 border border-black">
-                        <MdKeyboardArrowRight className="text-white text-2xl cursor-pointer" onClick={handleNextClick} />
+                        <MdKeyboardArrowRight className="text-white text-xl cursor-pointer" onClick={handleNextClick} />
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 transition-transform duration-500 ease-in-out">

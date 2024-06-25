@@ -6,17 +6,22 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 const offer=[
     {
         id:1,
-        name:"Enjoy nature Live At Sea most curated plans",
+        name:"Enjoy nature Oceanfront Escapes",
         image:"/explore/three.png"
     },
     {
         id:2,
-        name:"80% Discount offer and Resorts",
+        name:"Snowscapes Cabin",
         image:"/explore/two.png"
     },
     {
         id:3,
-        name:"Must Visit Destinations for you",
+        name:"Safaris at its best!",
+        image:"/explore/one.png"
+    },
+    {
+        id:4,
+        name:"Forts and Castles",
         image:"/explore/one.png"
     }
 ];
@@ -89,7 +94,7 @@ const Offers = () => {
             <div key={item.id} className='relative w-full max-w-md mx-auto '>
                 <img className='shadow-2xl hover:scale-105 w-full h-auto rounded-md' src={item.image} alt="Yard 1"/>
                 <div className=' text-lg mx-2 mt-1 absolute inset-0 flex items-center justify-center pl-5 pr-[10rem]'>
-                    <span className='text-black text-lg font-bold'>{item.name}</span>
+                    <span className='text-white text-xl font-bold'>{item.name}</span>
                 </div>
             </div>
         ))}
