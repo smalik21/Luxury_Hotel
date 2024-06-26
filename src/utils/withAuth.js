@@ -1,27 +1,29 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import 'react-toastify/dist/ReactToastify.css';
 
 const withAuth = (WrappedComponent) => {
-    return (props) => {
-        const router = useRouter();
+  return (props) => {
+    const router = useRouter();
+    const [token, setToken] = useState(null);
 
-        const token = localStorage.getItem('accessToken')
+    useEffect(() => {
+      const accessToken = localStorage.getItem('accessToken');
+      setToken(accessToken);
 
-        useEffect(() => {
-            if (!token) {
-                router.replace('/guest-page');
-            }
-        }, []);
+      if (!accessToken) {
+        router.replace('/guest-page');
+      }
+    }, [router]);
 
-        if (!token) {
-            return null;
-        }
+    if (!token) {
+      return null;
+    }
 
-        return <WrappedComponent {...props} />;
-    };
+    return <WrappedComponent {...props} />;
+  };
 };
 
 export default withAuth;
