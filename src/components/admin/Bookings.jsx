@@ -2,48 +2,30 @@ import React, { useState } from 'react';
 import { FaPlus, FaPen } from "react-icons/fa";
 import { LuDelete } from "react-icons/lu";
 import { HiDotsHorizontal } from "react-icons/hi";
+import data from "@/data/BookingData.json";
 
 const Bookings = () => {
   const [activeHeading, setActiveHeading] = useState('Recents');
 
-  const data = [
-    {
-      img: "./y1.png",
-      heading: "Dubai International Airport Hotel",
-      status: "Booked",
-      date: "Today",
-    },
-    {
-      img: "./y1.png",
-      heading: "Dubai International Airport Hotel",
-      status: "Booked",
-      date: "Today",
-    },
-    {
-      img: "./y1.png",
-      heading: "Dubai International Airport Hotel",
-      status: "Booked",
-      date: "Today",
-    },
-    {
-      img: "./y1.png",
-      heading: "Dubai International Airport Hotel",
-      status: "Booked",
-      date: "Today",
-    },
-    {
-      img: "./y1.png",
-      heading: "Dubai International Airport Hotel",
-      status: "Free",
-      date: "Today",
-    },
-    {
-      img: "./y1.png",
-      heading: "Dubai International Airport Hotel",
-      status: "Free",
-      date: "Today",
-    },
-  ];
+  const today = new Date().toISOString().split('T')[0];
+
+  const isValidDate = (dateString) => {
+    const date = new Date(dateString);
+    return !isNaN(date);
+  };
+
+  const filteredData = data.filter((booking) => {
+    if (activeHeading === 'Recents') {
+      return (
+        booking.date === "Today" ||
+        (isValidDate(booking.date) &&
+          new Date(booking.date).toISOString().split('T')[0] === today)
+      );
+    } else if (activeHeading === 'Pending Bookings') {
+      return booking.status === 'Pending';
+    }
+    return true;
+  });
 
   const handleHeadingClick = (heading) => {
     setActiveHeading(heading);
@@ -56,8 +38,8 @@ const Bookings = () => {
       <div className='flex items-center justify-between mx-10 mb-5'>
         <div className='flex items-center justify-center gap-5'>
           {['Recents', 'All Bookings', 'Pending Bookings'].map((heading) => (
-            <div 
-              key={heading} 
+            <div
+              key={heading}
               className={`flex flex-col cursor-pointer ${activeHeading === heading ? 'text-black' : 'text-gray-500'}`}
               onClick={() => handleHeadingClick(heading)}
             >
@@ -72,7 +54,6 @@ const Bookings = () => {
       </div>
 
       <div className='bg-white mx-10 p-5 rounded-md shadow-md overflow-x-auto'>
-        {/* Table */}
         <table className='min-w-full divide-y divide-gray-200'>
           <thead className=''>
             <tr>
@@ -83,7 +64,7 @@ const Bookings = () => {
             </tr>
           </thead>
           <tbody className=''>
-            {data.map((item, index) => (
+            {filteredData.map((item, index) => (
               <tr key={index} className='bg-white border border-gray-400 '>
                 <td className='px-6 py-4 whitespace-nowrap'>
                   <div className='flex items-center'>
@@ -91,7 +72,7 @@ const Bookings = () => {
                       <img className='h-10 w-10 rounded-full' src={item.img} alt='Hotel' />
                     </div>
                     <div className='ml-4'>
-                      <div className='text-sm font-medium text-gray-900'>{item.heading}</div>
+                      <div className='text-sm font-medium text-gray-900'>{item.name}</div>
                       <div className='text-sm text-gray-500'>Code: XYZ123</div>
                     </div>
                   </div>
