@@ -80,7 +80,7 @@ const Offers = () => {
       <div className='mt-10 mb-7'>
         <div className='text-3xl sm:text-3xl md:text-4xl mb-1'><b>Special Offers</b></div>
         <div className='text-md sm:text-lg text-gray-700'>Most curated offer & plans only for you!</div>
-        <div className="relative flex justify-end bottom-14 right-4 gap-4 items-center z-10">
+        <div className=" flex justify-end bottom-14 right-4 gap-4 items-center z-10">
                     <div className="rounded-md py-1 px-2 border hover:bg-gray-200 border-black">
                         <MdKeyboardArrowLeft className="text-black md:text-2xl text-xl cursor-pointer" onClick={handlePrevClick} />
                     </div>

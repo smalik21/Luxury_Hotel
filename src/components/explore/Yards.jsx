@@ -92,18 +92,24 @@ const Yards = () => {
   }, []);
   return (
     <div className='w-full max-w-6xl m-auto mt-4 px-4 pb-8'>
-      <div className='mt-5 mb-7'>
-        <div className='text-3xl sm:text-3xl md:text-4xl mb-1'><b>Must Visit Places</b></div>
-        <div className='text-md sm:text-lg text-gray-700'>20 Most viewed</div>
-        <div className=" relative flex justify-end bottom-14 right-2 gap-4 items-center z-10">
-                    <div className="rounded-md py-1 px-2 border hover:bg-gray-200 border-black">
-                        <MdKeyboardArrowLeft className=" text-black text-xl cursor-pointer" onClick={handlePrevClick} />
-                    </div>
-                    <div className="bg-black hover:bg-gray-800 rounded-md py-1 px-2 border border-black">
-                        <MdKeyboardArrowRight className="text-white text-xl cursor-pointer" onClick={handleNextClick} />
-                    </div>
-                </div>
-      </div>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-10">
+          <div className="flex flex-col justify-center mb-4 md:mb-0 text-center md:text-left">
+            <h1 className="text-4xl text-black font-bold mb-2">Must Visit Places</h1>
+            <p className="text-black text-sm">2000+ hotels</p>
+          </div>
+          <div className="flex gap-2 items-center justify-center">
+            <button aria-label="Previous" onClick={handlePrevClick}>
+              <div className="bg-white text-black border border-black rounded-md w-9 h-7 flex items-center justify-center">
+                <MdKeyboardArrowLeft />
+              </div>
+            </button>
+            <button aria-label="Next" onClick={handleNextClick}>
+              <div className="bg-black text-white border border-black rounded-md w-9 h-7 flex items-center justify-center">
+                <MdKeyboardArrowRight />
+              </div>
+            </button>
+          </div>
+        </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {getVisibleHotels().map((item, index) => (
           <div key={item.id} className='w-full '>

@@ -28,7 +28,7 @@ const ContactSection = () => {
             <div className='md:flex ' >
                 <div className='md:w-2/5 md:mt-10 md:pr-[5rem] mx-3'>
                     <div className='sm:text-3xl md:text-4xl text-2xl md:leading-normal leading-snug'>Reach out to us for more details & <b>custom bookings </b></div>
-                    <div className='md:mt-[10rem] my-1 text-gray-500'>email: hedgemyfunds@gmail.com</div>
+                    <div className='md:mt-[10rem] my-1 text-gray-500'>email: contact@luxuryhotelconcierge.co.in</div>
                     <div className='md:my-10 my-1  text-gray-500'>Ph no: +123456789</div>
                     <div className="text-gray-500  flex items-center md:gap-4 gap-2">
                         <FaSquareFacebook className="text-xl md:text-2xl" />
