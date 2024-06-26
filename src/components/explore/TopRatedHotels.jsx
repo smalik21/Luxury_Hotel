@@ -5,6 +5,7 @@ import { PiLessThanBold, PiGreaterThanBold } from "react-icons/pi";
 import { IoStar } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
 import hotels from "@/data/HotelsData.json";
+import { useRouter } from 'next/navigation';
 
 // const hotels = [
 //   {
@@ -83,6 +84,7 @@ import hotels from "@/data/HotelsData.json";
 
 const TopRatedHotels = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter()
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + hotels.length) % hotels.length);
@@ -149,8 +151,16 @@ const TopRatedHotels = () => {
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-3 mt-4">
-              <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition">Book Now</button>
-              <button className="border border-black text-black px-4 py-2 rounded-md hover:bg-gray-100 transition">Add To Waitlist</button>
+              <button
+                className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
+              >
+                Book Now
+              </button>
+              <button
+                className="border border-black text-black px-4 py-2 rounded-md hover:bg-gray-100 transition"
+              >
+                Add To Waitlist
+              </button>
             </div>
           </div>
         </div>
@@ -161,7 +171,16 @@ const TopRatedHotels = () => {
           ))}
         </div>
 
-        <p className="text-center flex items-center justify-center gap-1 text-[16px] text-black font-bold mt-4">See all <span><PiGreaterThanBold className='text-[10px]'/></span></p>
+        <p
+          className="text-center flex items-center justify-center gap-1 text-[16px] text-black font-bold mt-8 hover:cursor-pointer hover:underline"
+          onClick={() => router.push('/hotels')}
+        >
+          See all
+          <span>
+            <PiGreaterThanBold className='text-[10px]' />
+
+          </span>
+        </p>
       </div>
     </div>
   );
