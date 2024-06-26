@@ -1,14 +1,21 @@
 "use client";
 
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsSuitcaseLgFill } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
 import Fixed from './home/Fixed';
 
 const Header = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    setIsAuthenticated(token !== null);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -21,7 +28,6 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center p-6 absolute w-full font-f_3 top-0 z-10 bg-opacity-50 px-8 mt-4">
-
       <button onClick={() => handleNavigation('/')} className="lg:text-2xl text-lg font-bold text-white text-[24px] hover:cursor-pointer">LuxuryHotelConcierge</button>
       <nav className="hidden xl:flex flex-grow justify-center space-x-4 text-[16px] gap-5">
         <button onClick={() => handleNavigation('/')} className={`text-white ${pathname === '/' ? 'font-bold' : ''}`}>Home</button>
@@ -32,9 +38,18 @@ const Header = () => {
         <button onClick={() => handleNavigation('/contact')} className={`text-white ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact Us</button>
       </nav>
       <div className="hidden xl:flex items-center space-x-4 gap-7">
-        <button onClick={() => handleNavigation('/waitlist')} className="text-white text-2xl"><BsSuitcaseLgFill /></button>
-        <button onClick={() => handleNavigation('/signin')} className="text-white">Sign In</button>
-        <button className="bg-white text-black px-7 py-1 rounded-full" onClick={() => handleNavigation('/signup')}>Join</button>
+        {isAuthenticated ? (
+          <>
+            <button onClick={() => handleNavigation('/waitlist')} className="text-white text-2xl"><BsSuitcaseLgFill /></button>
+            <button onClick={() => handleNavigation('/profile')} className="text-white text-3xl"><CgProfile /></button>
+            {/* <button onClick={() => handleNavigation('/signout')} className="text-white">Sign Out</button> */}
+          </>
+        ) : (
+          <>
+            <button onClick={() => handleNavigation('/signin')} className="text-white">Sign In</button>
+            <button className="bg-white text-black px-7 py-1 rounded-full" onClick={() => handleNavigation('/signup')}>Join</button>
+          </>
+        )}
       </div>
       <div className="xl:hidden flex items-center">
         <button onClick={toggleMenu} className="text-white focus:outline-none">
@@ -61,9 +76,18 @@ const Header = () => {
               <button onClick={() => handleNavigation('/blog')} className={`text-black px-2 py-1 rounded-md ${pathname === '/blog' ? 'font-bold' : ''} hover:bg-gray-200`}>Blog</button>
               <button onClick={() => handleNavigation('/hotels')} className={`text-black px-2 py-1 rounded-md ${pathname === '/hotels' ? 'font-bold' : ''} hover:bg-gray-200`}>Hotel</button>
               <button onClick={() => handleNavigation('/contact')} className={`text-black px-2 py-1 rounded-md ${pathname === '/contact' ? 'font-bold' : ''} hover:bg-gray-200`}>Contact Us</button>
-              <button onClick={() => handleNavigation('/waitlist')} className={`text-black px-2 py-1 rounded-md ${pathname === '/waitlist' ? 'font-bold' : ''} hover:bg-gray-200`}>Waitlist</button>
-              <button onClick={() => handleNavigation('/signin')} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Sign In</button>
-              <button className="bg-black text-white px-7 py-1 rounded-full mt-4" onClick={() => handleNavigation('/signup')}>Join</button>
+              {isAuthenticated ? (
+                <>
+                  <button onClick={() => handleNavigation('/waitlist')} className={`text-black px-2 py-1 rounded-md ${pathname === '/waitlist' ? 'font-bold' : ''} hover:bg-gray-200`}>Waitlist</button>
+                  <button onClick={() => handleNavigation('/profile')} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Profile</button>
+                  <button onClick={() => handleNavigation('/signout')} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Sign Out</button>
+                </>
+              ) : (
+                <>
+                  <button onClick={() => handleNavigation('/signin')} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Sign In</button>
+                  <button className="bg-black text-white px-7 py-1 rounded-full mt-4" onClick={() => handleNavigation('/signup')}>Join</button>
+                </>
+              )}
             </nav>
           </div>
         </div>
