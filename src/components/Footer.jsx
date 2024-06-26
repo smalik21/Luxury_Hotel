@@ -33,7 +33,7 @@ const Footer = () => {
         <div className="text-2xl md:text-4xl text-gray-200 pb-3">Start your journey today, don’t miss out!</div>
         <button
           type="button"
-          className="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5"
+          className="mt-8 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5"
         >
           Start Booking Hotels
         </button>
@@ -76,7 +76,7 @@ const Footer = () => {
           <div className="text-gray-500 flex items-center gap-2 md:mr-5">
             <FaSquareFacebook className="text-xl md:text-2xl" />
             <FaTwitter className="text-xl md:text-2xl" />
-            <FaYoutube  className="text-xl md:text-2xl" />
+            <FaYoutube className="text-xl md:text-2xl" />
             <RiInstagramFill className="text-xl md:text-2xl" />
           </div>
         </div>
