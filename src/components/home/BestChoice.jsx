@@ -1,9 +1,19 @@
+'use client'
+
 import React from "react";
 import { FaGreaterThan } from "react-icons/fa6";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const BestChoice = () => {
-  
+
+  const router = useRouter()
+
+  const handleSearch = (e) => {
+    // console.log("search", e.target)
+    // router.push(`/hotels?search=${hotel.location.split(',')[0]}`);
+  };
+
   return (
     <div className="w-full px-4 pb-5">
       <div className="w-full md:w-[1228px] mx-auto my-10 bg-no-repeat bg-cover rounded-md md:rounded-[60px]" >
@@ -38,7 +48,8 @@ const BestChoice = () => {
               ].map((hotel, index) => (
                 <div
                   key={index}
-                  className="flex gap-4 items-center rounded-lg border border-gray-300 py-3 px-4 hover:shadow-md transition duration-300"
+                  onClick={() => router.push(`/hotels?search=${hotel.location.split(',')[0]}`)}
+                  className="flex gap-4 items-center rounded-lg border border-gray-300 py-3 px-4 hover:cursor-pointer hover:shadow-md transition duration-300"
                 >
                   <div className="w-10 h-10 md:w-[100px] md:h-[100px] overflow-hidden rounded-full flex items-center justify-center">
                     <img src={hotel.image} alt={`${hotel.title}`} className="w-full h-full object-cover" />

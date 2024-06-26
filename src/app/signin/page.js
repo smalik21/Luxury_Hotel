@@ -76,12 +76,12 @@ const SigninPage = () => {
                 className=" m-auto mt-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[20rem] md:w-[25rem] ps-10 p-2.5 "
                 placeholder="Enter your email"
               />
-              <input
+              {/* <input
                 type="text"
                 id="input-group-1"
                 className=" m-auto mt-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[20rem] md:w-[25rem] ps-10 p-2.5 "
                 placeholder="Enter your password"
-              />
+              /> */}
               <button
                 type="button"
                 className="mt-5 text-white w-[20rem] md:w-[25rem] ml-5 md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"

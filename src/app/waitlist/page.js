@@ -9,11 +9,13 @@ import { FaTrashAlt } from "react-icons/fa";
 import withAuth from '@/utils/withAuth';
 
 const Waitlist = () => {
+
     const [waitlistHotels, setWaitlistHotels] = useState(waitlistHotelsData);
 
-    const handleDelete = (id) => {
-        setWaitlistHotels(waitlistHotels.filter(hotel => hotel.id !== id));
-    };
+
+  const handleDelete = (id) => {
+    setWaitlistHotels(waitlistHotels.filter(hotel => hotel.id !== id));
+  };
 
     return (
         <div>
@@ -87,8 +89,14 @@ const Waitlist = () => {
                 </div>
             </div>
             <Footer />
+
         </div>
-    );
+        <Footer />
+      </div>
+      {/* )} */}
+
+    </div>
+  );
 };
 
 export default withAuth(Waitlist);

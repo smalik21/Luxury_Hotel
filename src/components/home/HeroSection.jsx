@@ -3,6 +3,7 @@
 import { Carousel } from 'react-responsive-carousel';
 import DatePicker from 'react-datepicker';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { FaSearch } from 'react-icons/fa';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,8 +20,8 @@ const Hero = () => {
   const [checkInOpen, setCheckInOpen] = useState(false);
   const [checkOutOpen, setCheckOutOpen] = useState(false);
   const [tab, setTab] = useState('hotels');
-
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState('')
+  const router = useRouter()
 
   const api = `http://localhost:4000`
 
@@ -70,6 +71,12 @@ const Hero = () => {
     setSelectedCity(e.target.value);
   };
 
+  const handleSearch = () => {
+    console.log("selected:", selectedCity)
+    if (!selectedCity) return
+    router.push(`/hotels?search=${selectedCity}`);
+  };
+
   const handleOutsideClick = (event) => {
     if (
       !event.target.closest('.check-in-date') &&
@@ -88,10 +95,6 @@ const Hero = () => {
       document.removeEventListener('click', handleOutsideClick);
     };
   }, []);
-
-  const fetchHotel = () => {
-    console.log("this is remaining");
-  }
 
   return (
     <div className="relative h-[700px] sm:h-[730px] w-auto top-0 left-0 right-0">
@@ -235,7 +238,7 @@ const Hero = () => {
                     </div>
                   )}
                 </div>
-                <button onClick={fetchHotel} className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center">
+                <button onClick={handleSearch} className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center">
                   <FaSearch className="mr-2" /> Search
                 </button>
               </div>
@@ -370,8 +373,11 @@ const Hero = () => {
                                         </div>
                                     )}
                                 </div> */}
-                <button className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center">
-                  <FaSearch className="mr-2" /> Search
+                <button
+                  className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center"
+                >
+                  <FaSearch className="mr-2" />
+                  Search
                 </button>
               </div>
             </>
