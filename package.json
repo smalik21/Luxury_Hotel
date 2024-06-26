@@ -23,7 +23,8 @@
     "react-map-gl": "^7.1.7",
     "react-responsive-carousel": "^3.2.23",
     "react-simple-maps": "^1.0.0",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "use-debounce": "^10.0.1"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.1.4",
