@@ -8,6 +8,7 @@ import BestChoice from '@/components/home/BestChoice'
 //import Reviews from '@/components/home/Reviews'
 import Footer from '@/components/Footer'
 import Fixed from '@/components/home/Fixed';
+import Virtual from '@/components/home/Virtual';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Features />
             <Map />
             <BestChoice />
+            <Virtual/>
             <Footer />
             
         </div>

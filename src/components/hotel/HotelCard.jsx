@@ -4,6 +4,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoStarSharp } from "react-icons/io5";
 import { GoArrowUpRight } from "react-icons/go";
 import { IoEarth } from "react-icons/io5";
+import Link from 'next/link';
 
 const HotelCard = ({ data }) => {
   const [liked, setLiked] = useState(false);
@@ -46,9 +47,10 @@ const HotelCard = ({ data }) => {
             <p className="text-[#000000E5] text-base sm:text-lg md:text-xl flex items-center"><IoEarth className="mr-2" />{data.heading2}</p>
             <p className="text-[#000000E5]  text-sm  sm:text-base md:text-lg">{data.heading3}</p>
           </div>
-          <button className="bg-black text-white flex items-center justify-center rounded-full px-4 py-2 sm:px-6 sm:py-3">
+          <Link href='/hoteldetail'><button className="bg-black text-white flex items-center justify-center rounded-full px-4 py-2 sm:px-6 sm:py-3">
             {data.btn3} <GoArrowUpRight className="ml-2" />
           </button>
+          </Link>
         </div>
       </div>
     </div>

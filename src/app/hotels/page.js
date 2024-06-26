@@ -7,6 +7,7 @@ import HotelData from "./data.json";
 import HotelCard from "@/components/hotel/HotelCard";
 import Footer from "@/components/Footer";
 
+
 const Page = () => {
   const [visibleCards, setVisibleCards] = useState(5);
   const [data, setData] = useState([]);
@@ -14,7 +15,7 @@ const Page = () => {
   const [searchInput, setSearchInput] = useState("");
 
   const api = `http://localhost:4000`;
-
+ 
   const showMoreCards = () => {
     setVisibleCards((prevVisibleCards) => prevVisibleCards + 5);
   };
@@ -66,6 +67,7 @@ const Page = () => {
           </button>
         )}
       </div>
+      
       <Footer />
     </div>
   );
