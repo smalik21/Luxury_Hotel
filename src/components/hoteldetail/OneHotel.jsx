@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import Image from 'next/image';
 import { FaStar } from 'react-icons/fa';
 import Highlight from '../contact/Highlight';
@@ -84,7 +84,7 @@ const StarRating = ({ rating }) => {
       stars.push(<FaStar key={i} className="flex text-yellow-500" />);
     }
   
-    return <div className="flex pt-2">{stars}</div>;
+    return <div className="flex pt-2 justify-center items-center">{stars}</div>;
   };
 
 
@@ -109,6 +109,25 @@ const OneHotel = () => {
         }
         return visibleHotels;
     };
+
+    const updateNumVisibleHotels = () => {
+        if(window.innerWidth < 730){
+            setNumVisibleHotels(1);
+        }
+        else if (window.innerWidth < 768) {
+            setNumVisibleHotels(3);
+        } else if (window.innerWidth < 1024) {
+            setNumVisibleHotels(5);
+        } else {
+            setNumVisibleHotels(5);
+        }
+    };
+  
+    useEffect(() => {
+        updateNumVisibleHotels();
+        window.addEventListener('resize', updateNumVisibleHotels);
+        return () => window.removeEventListener('resize', updateNumVisibleHotels);
+    }, []);
 
     const handleFilter = async (city) => {
         // ${api}/search/hotels/?city=${searchText}&check_in=${checkInDate}&check_out=${checkOutDate}
@@ -146,7 +165,7 @@ const OneHotel = () => {
             </div>
                 {dummydata.map(item=>(
                     <div key={item.id} className="relative flex flex-col items-center justify-center h-full  text-white pointer-events-auto">
-                        <h1 className="md:text-[70px] text-[60px] font-bold mb-8 mt-[130px]">{item.name}</h1>
+                        <h1 className="md:text-[70px] text-[40px] font-bold mb-8 mt-[130px]">{item.name}</h1>
                         <p className="text-lg md:text-[19px] text-[14px]">{item.location.city}, {item.location.country}</p>
                         
                     </div>
@@ -155,10 +174,10 @@ const OneHotel = () => {
            
         </section>
         <div className=' mx-5 my-10'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2'>
+        <div className='grid grid-cols-1 sm:grid-cols-3  md:grid-cols-5 gap-2'>
       {getVisibleHotels().map((item, index) => (
           <div key={item.id} className='w-full '>
-          <img className='shadow-2xl hover:scale-105 w-[18rem] h-auto rounded-md' src={item.image} alt="Yard 1"/>
+          <img className='shadow-2xl hover:scale-105 md:w-[18rem] w-full  sm:w-[15rem] px-2 h-auto rounded-md' src={item.image} alt="Yard 1"/>
           
         </div>
         ))}
@@ -169,30 +188,24 @@ const OneHotel = () => {
         </div>
         {dummydata.map(item=>(
             <>
-            <div className='flex '>
-            <div className='w-3/5 md:mx-[5rem] text-black '>
+            <div className=' md:flex '>
+            <div className='sm:w-3/5 m-auto  text-center  md:mx-[5rem] text-black '>
                 <div className='text-4xl font-bold '>About </div>
                 <div className='pt-5'>{item.about}</div>
                 <div>
                 <StarRating  rating={item.stars} />
                 </div>
-                <div className='py-5'>
-                <ul >
-                    {item.rooms.map((name, index) => (
-                    <li key={index} className="text-lg mb-2">{name}</li>
-                    ))}
-                </ul>
-                </div>
+                
                
 
             </div>
-            <div className='w-2/5 md:mx-[5rem] text-black '>
+            <div className=' mt-5 sm:w-2/5 text-center m-auto md:mx-[5rem] text-black  '>
                 <div className='text-4xl font-bold '>Contact </div>
                 <div className='pt-5 '> {item.address}</div>
                 <div className=' '>Phone : {item.phone}</div>
                 <div className=' '>Mail : {item.email}</div>
                 
-                <Link href="/checkout"><button className="bg-black text-white my-10 flex items-center justify-center rounded-full px-4 py-2 sm:px-6 sm:py-3">
+                <Link href="/checkout"><button className="bg-black text-white m-auto  my-10  flex items-center justify-center rounded-full px-4 py-2 sm:px-6 sm:py-3">
             $ {item.price} per night <GoArrowUpRight className="ml-2" />
           </button></Link>
 
@@ -200,13 +213,13 @@ const OneHotel = () => {
             </div>
             
         </div>
-         <div className='mx-[5rem] md:pb-10 md:pt-10 py-10 md:mr-[10rem] sm:mr-10 mr-5 md:text-lg text-md flex flex-wrap'>
+         <div className='px-10 md:pb-10 md:pt-10 py-10 md:mr-[10rem] sm:mr-10  md:text-lg text-md flex flex-wrap'>
          {item.rooms.map((value, index) => (
              <Highlight 
              key={index} 
-             name={value}  // Assuming value is the name or identifier you want to display
-             isHighlighted={highlighted === index}  // Check against index, assuming highlighted is a number
-             onClick={() => handleHighlight(index)}  // Pass index to handleHighlight
+             name={value} 
+             isHighlighted={highlighted === index}  
+             onClick={() => handleHighlight(index)}  
              />
          ))}
          </div>

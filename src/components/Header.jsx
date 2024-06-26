@@ -36,6 +36,8 @@ const Header = () => {
         <button onClick={() => handleNavigation('/blog')} className={`text-white ${pathname === '/blog' ? 'font-bold' : ''}`}>Blog</button>
         <button onClick={() => handleNavigation('/hotels')} className={`text-white ${pathname === '/hotels' ? 'font-bold' : ''}`}>Hotels</button>
         <button onClick={() => handleNavigation('/contact')} className={`text-white ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact Us</button>
+        <button onClick={() => handleNavigation('/aboutus')} className={`text-white ${pathname === '/aboutus' ? 'font-bold' : ''}`}>About Us</button>
+
       </nav>
       <div className="hidden xl:flex items-center space-x-4 gap-7">
         {isAuthenticated ? (
@@ -76,6 +78,8 @@ const Header = () => {
               <button onClick={() => handleNavigation('/blog')} className={`text-black px-2 py-1 rounded-md ${pathname === '/blog' ? 'font-bold' : ''} hover:bg-gray-200`}>Blog</button>
               <button onClick={() => handleNavigation('/hotels')} className={`text-black px-2 py-1 rounded-md ${pathname === '/hotels' ? 'font-bold' : ''} hover:bg-gray-200`}>Hotel</button>
               <button onClick={() => handleNavigation('/contact')} className={`text-black px-2 py-1 rounded-md ${pathname === '/contact' ? 'font-bold' : ''} hover:bg-gray-200`}>Contact Us</button>
+              <button onClick={() => handleNavigation('/aboutus')} className={`text-black px-2 py-1 rounded-md ${pathname === '/aboutus' ? 'font-bold' : ''} hover:bg-gray-200`}>About Us</button>
+
               {isAuthenticated ? (
                 <>
                   <button onClick={() => handleNavigation('/waitlist')} className={`text-black px-2 py-1 rounded-md ${pathname === '/waitlist' ? 'font-bold' : ''} hover:bg-gray-200`}>Waitlist</button>

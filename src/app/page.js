@@ -9,6 +9,7 @@ import BestChoice from '@/components/home/BestChoice'
 import Footer from '@/components/Footer'
 import Fixed from '@/components/home/Fixed';
 import Virtual from '@/components/home/Virtual';
+import WeTrust from '@/components/home/WeTrust';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <HeroSection />
             <Features />
             <Map />
+            <WeTrust/>
             <BestChoice />
             <Virtual/>
             <Footer />
