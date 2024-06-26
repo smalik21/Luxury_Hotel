@@ -75,6 +75,9 @@ const Page = () => {
 
       const result = await res.json();
       setResponseMessage(result.message);
+      
+      localStorage.setItem("token", result.token);
+      // console.log(result);
 
       router.push("/");
     } catch (error) {
@@ -106,7 +109,6 @@ const Page = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <button onClick={generateOTP}>Send OTP</button>
               </div>
               <div className="flex">
                 <div className="mb-4 mr-2">
@@ -153,16 +155,18 @@ const Page = () => {
                 required
               />
             </div>
-            <div className="ml-[5rem] md:mx-10 mb-4">
+
+            <div className="ml-[5rem] md:mx-10 mb-4 flex">
               <input
                 type="text"
                 id="otp"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] p-2.5"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[12.5rem] md:w-[25rem] p-2.5"
                 placeholder="OTP"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 required
               />
+              <button className="border px-2 rounded-full text-white bg-green-600 ml-2" onClick={generateOTP}>Send OTP</button>
             </div>
             <button
               type="button"
