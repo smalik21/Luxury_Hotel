@@ -29,7 +29,7 @@ export default function ContactSection() {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", KEY);
+    formData.append("access_key", "d6efbbeb-5a9c-48d6-8378-c53e1344b2a9");
     formData.append("interest", components.find(component => component.id === highlighted)?.name || "None");
 
     try {
@@ -61,7 +61,7 @@ export default function ContactSection() {
             <div className='sm:text-3xl md:text-4xl text-2xl md:leading-normal leading-snug'>
               Reach out to us for more details & <b>custom bookings</b>
             </div>
-            <div className='md:mt-[10rem] my-1 text-gray-500'>email: contact@luxuryhotelconcierge.co.in</div>
+            <div className='md:mt-[10rem] my-1 text-gray-500'>email: booking@luxuryhotelconcierge.co.in</div>
             <div className='md:my-10 my-1 text-gray-500'>Ph no: +123456789</div>
             <div className="text-gray-500 flex items-center md:gap-4 gap-2 text-xl md:text-2xl">
               <FaSquareFacebook aria-label="Facebook" />
@@ -144,8 +144,9 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
-      <button type="button" className="md:mx-3 w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Send Message</button>
-
+      {/* <button type="button" className="md:mx-3 w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Send Message</button> */}
     </div>
   );
 }
+
+
