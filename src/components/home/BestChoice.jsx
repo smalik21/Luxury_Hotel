@@ -49,7 +49,7 @@ const BestChoice = () => {
                 <div
                   key={index}
                   onClick={() => router.push(`/hotels?search=${hotel.location.split(',')[0]}`)}
-                  className="flex gap-4 items-center rounded-lg border border-gray-300 py-3 px-4 hover:shadow-md transition duration-300"
+                  className="flex gap-4 items-center rounded-lg border border-gray-300 py-3 px-4 hover:cursor-pointer hover:shadow-md transition duration-300"
                 >
                   <div className="w-10 h-10 md:w-[100px] md:h-[100px] overflow-hidden rounded-full flex items-center justify-center">
                     <img src={hotel.image} alt={`${hotel.title}`} className="w-full h-full object-cover" />
