@@ -4,7 +4,7 @@ import ContactSection from '@/components/contact/ContactSection'
 import Hero from '@/components/contact/HeroSection'
 import React from 'react'
 
-const page = () => {
+export default function page() {
   return (
     <div>
       <Header/>
@@ -14,5 +14,3 @@ const page = () => {
     </div>
   )
 }
-
-export default page

@@ -6,6 +6,7 @@ import PersonalInfo from '@/components/checkouts/PersonalInfo';
 import PaymentDetails from '@/components/checkouts/PaymentDetails';
 import BookingSummary from '@/components/checkouts/Confirmation';
 import Link from 'next/link';
+import withAuth from '@/utils/withAuth';
 
 const Payment = () => {
   const [step, setStep] = useState(1);
@@ -71,4 +72,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default withAuth(Payment);
