@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const Hero = () => {
+export default function Hero() {
     return (
         <section className="relative h-[500px] w-auto z-0">
             <div className="absolute inset-0 pointer-events-none">
@@ -21,5 +21,3 @@ const Hero = () => {
         </section>
     );
 };
-
-export default Hero;

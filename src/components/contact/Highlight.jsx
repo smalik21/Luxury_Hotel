@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Highlight = ({ id,name, isHighlighted, onClick }) => {
+export default function Highlight ({ id, name, isHighlighted, onClick }) {
 
     const handleClick = () => {
         onClick(id);
@@ -12,5 +12,3 @@ const Highlight = ({ id,name, isHighlighted, onClick }) => {
     </div>
   )
 }
-
-export default Highlight

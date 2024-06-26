@@ -1,12 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useRouter } from "next/navigation";
-
 import Link from "next/link";
-// import FormData from "form-data";
 
-const page = () => {
+const SigninPage = () => {
   const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
 
   const [inputs, setInputs] = useState({
@@ -20,15 +19,12 @@ const page = () => {
     console.log(inputs);
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
     console.log(inputs);
 
     try {
-      let data = new FormData();
       const myHeaders = new Headers();
-      console.log(data);
-
       myHeaders.append("Content-Type", "application/json");
 
       const raw = JSON.stringify(inputs);
@@ -40,16 +36,17 @@ const page = () => {
         redirect: "follow",
       };
 
-      fetch("http://localhost:4000/api/auth/login", requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-          // setToken(result);
-          console.log(result);
-          router.push("/");
-        })
-        .catch((error) => console.error(error));
+      const response = await fetch("http://localhost:4000/api/auth/login", requestOptions);
+      const result = await response.json();
+      console.log(result)
 
-      //write the code for post here
+      if (response.ok) {
+        localStorage.setItem("accessToken", result);
+        console.log(result);
+        router.push("/");
+      } else {
+        console.error(result.message);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +88,6 @@ const page = () => {
               >
                 Continue
               </button>
-              {/* <div className=' absolute mt-2 ml-[12rem] '>Back to login</div> */}
             </div>
             <div className="absolute bg-white rounded-3xl h-[3rem] w-[15rem] ml-[80rem] mt-[5rem] pl-7 pt-3">
               Reset link to your email.{" "}
@@ -114,10 +110,6 @@ const page = () => {
             </div>
             <div className="mx-[5rem] md:mx-10">
               <div className=" mb-4 justify-center items-center">
-                {/* <div className=" inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                
-            </div> */}
-
                 <input
                   name="mail"
                   onChange={handleChange}
@@ -128,9 +120,6 @@ const page = () => {
                 />
               </div>
               <div className=" mb-4 justify-center items-center">
-                {/* <div className=" inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                
-            </div> */}
                 <input
                   name="password"
                   onChange={handleChange}
@@ -141,7 +130,6 @@ const page = () => {
                 />
               </div>
             </div>
-
 
             <button
               onClick={handleClick}
@@ -180,12 +168,10 @@ const page = () => {
           </div>
         </div>
 
-        {/* <div className=' mb-0'>By signing up, you agree to our Terms of Service & Privacy policy</div> */}
-
         <img className="object-fill w-0 md:w-3/5 " src="/sign.png" />
       </div>
     </>
   );
 };
 
-export default page;
+export default SigninPage;
