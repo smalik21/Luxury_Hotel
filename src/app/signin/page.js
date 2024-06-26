@@ -117,6 +117,7 @@ const page = () => {
                 {/* <div className=" inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                 
             </div> */}
+
                 <input
                   name="mail"
                   onChange={handleChange}
@@ -140,6 +141,7 @@ const page = () => {
                 />
               </div>
             </div>
+
 
             <button
               onClick={handleClick}

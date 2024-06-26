@@ -25,9 +25,9 @@ const LandingPage = () => {
                     <Link href='/signup' className="bg-black text-center text-white text-lg py-2 px-6 rounded-full w-[320px] text-[13px]">
                         Sign up
                     </Link>
-                    <Link href='/home' className="border border-white text-center text-white text-lg py-2 px-6 rounded-full w-[320px] text-[13px]">
+                    {/* <Link href='/home' className="border border-white text-center text-white text-lg py-2 px-6 rounded-full w-[320px] text-[13px]">
                         Guest
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className="absolute left-7 bottom-5 flex space-x-4 text-sm">
                     <Link href="#" className="hover:underline">Policy</Link>
