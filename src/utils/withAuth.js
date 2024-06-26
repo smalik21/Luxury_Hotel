@@ -12,7 +12,7 @@ const withAuth = (WrappedComponent) => {
 
         useEffect(() => {
             if (!token) {
-                router.replace('/');
+                router.replace('/guest-page');
             }
         }, []);
 
