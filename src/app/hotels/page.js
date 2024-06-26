@@ -3,12 +3,14 @@
 import Header from "@/components/Header";
 import Hero from "@/components/hotel/HeroSection";
 import Search from "@/components/hotel/Search";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import HotelData from "./data.json";
 import HotelCard from "@/components/hotel/HotelCard";
 import Footer from "@/components/Footer";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
+
+
 
 const Page = () => {
   const [visibleCards, setVisibleCards] = useState(5);
@@ -73,6 +75,8 @@ const Page = () => {
     return () => clearTimeout(timeoutId);
   }, [searchInput]);
 
+
+
   return (
     <div>
       <Header />
@@ -102,4 +106,10 @@ const Page = () => {
   );
 };
 
-export default Page;
+const HotelsPageWithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Page />
+  </Suspense>
+);
+
+export default HotelsPageWithSuspense;

@@ -15,7 +15,7 @@ const Hero = () => {
             </div>
             <div className="relative flex flex-col items-center justify-center h-full text-center text-white pointer-events-auto">
                 <h1 className="md:text-[70px] text-[60px] font-bold mb-8 mt-[130px]">Explore</h1>
-                <p className="text-lg md:text-[19px] text-[14px]">explore new destinations..</p>
+                <p className="text-lg md:text-[19px] text-[14px]">Explore new destinations..</p>
                 <p>Home › explore</p>
             </div>
         </section>

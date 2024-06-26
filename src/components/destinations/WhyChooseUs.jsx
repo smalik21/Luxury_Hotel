@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
                             <FaHotTub className="text-xl mr-3 mt-1" />
                             <div>
                                 <h3 className="text-xl font-semibold">Memorable experiences</h3>
-                                <p className="text-gray-500">Browse and book tours and activities so incredible.</p>
+                                <p className="text-gray-500">Browse and book tours and activities so magnificent.</p>
                             </div>
                         </div>
                         <div className="flex items-start mb-2">

@@ -44,7 +44,7 @@ const Features = () => {
                         <div className="order-2 md:w-1/2 lg:max-w-[350px] max-w-[340px]">
                             <div className="lg:max-w-lg max-w-[350px] text-center md:text-left md:mx-0">
                                 <h3 className="lg:text-[36px] mt-6 lg:mt-0 text-[26px] font-f_2 font-semibold mb-2 text-black leading-tight">Personalized trips</h3>
-                                <p className="text-gray-600 lg:text-[18px] text-[15px]  leading-tight">Travel is different for everyone. We want to make sure that you are getting the most from your trip by crafting the dream vacation that is perfect for you.</p>
+                                <p className="text-gray-600 lg:text-[18px] text-[15px]  leading-tight">Travel isn't one-size-fits-all!  That's why we're here to help you design the perfect adventure for YOU. Tell us what makes your heart race, and we'll craft a dream vacation that's unforgettable.  Let's get started!</p>
                             </div>
                         </div>
                     </div>

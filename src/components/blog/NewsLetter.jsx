@@ -23,7 +23,7 @@ const NewsLetter = () => {
          
         </div>
 
-        <div className='text-white mt-10 text-xs md:text-sm'>*By subscribing you allow for regular email updates</div>
+        <div className='text-white mt-10 text-xs md:text-sm'>*By subscribing you'll be able to get regular email updates</div>
       </div>
 
       {/* image */}

@@ -1,15 +1,18 @@
 [
     {
         "id": 1,
-        "name": "Dubai International Airport Hotel",
-        "location": "Dubai International Airport Terminal 03",
+        "name": "Arakur Ushuaia Resort & Spa",
+        "location": "Ushuaia, Argentina",
         "rating": 4,
-        "description": "Situated in upper midtown Manhattan, 483 metres from the Central Park, the Whitby Hotel is a short distance away from stores such as Saks Fifth Avenue and Bergdorf Goodman. The Whitby Hotel offers complimentary WiFi to all guests.",
+        "description": "Located in a privileged environment, within the Cerro Alarkén Natural Reserve, Arakur is much more than a luxury hotel. It is an experience that will leave an unforgettable impression in the memory of its visitors.",
         "features": [
-            "Front Desk",
-            "Free Wi-Fi in all rooms",
-            "Swimming pool - indoor",
-            "Check-in/out - express"
+            "Guided Adventures",
+            "Secluded",
+            "Romantic",
+            "Ski Destination",
+            "Restaurant and/or Bar",
+           " Spa",
+            "Fitness Center"
         ],
         "image": "./top-hotel.jpeg",
         "img1": "y1.png",
@@ -19,15 +22,18 @@
     },
     {
         "id": 2,
-        "name": "New York Grand Hotel",
-        "location": "New York, USA",
+        "name": "Grand Hyatt Sao Paulo",
+        "location": "São Paulo, Brazil",
         "rating": 5,
-        "description": "Luxury hotel located in the heart of New York City, offering stunning views of Central Park and impeccable service. Ideal for business and leisure travelers alike.",
+        "description": "Situated in the city’s vibrant business district, our centrally located hotel puts you close to São Paulo’s best restaurants, shopping centers and attractions. Whether you’re visiting for business or pleasure, enjoy comfort, impeccable service and stunning views of São Paulo from your room.",
         "features": [
-            "24-hour room service",
-            "Fitness center",
-            "Spa facilities",
-            "Business center"
+            "Pet-Friendly",
+            "Romantic",
+            "Urban",
+            "Restaurant and/or Bar",
+            "Spa",
+            "Fitness Center",
+            "Pool"
         ],
         "image": "./top-hotel.jpeg",
         "img1": "y1.png",
@@ -37,15 +43,21 @@
     },
     {
         "id": 3,
-        "name": "London Skyline Resort",
-        "location": "London, UK",
+        "name": "Mandarin Oriental, Santiago",
+        "location": "Santiago, Chile",
         "rating": 4,
-        "description": "Experience the charm of London with a stay at our resort, offering luxurious rooms, fine dining, and easy access to iconic landmarks like the Big Ben and Buckingham Palace.",
+        "description": "Mandarin Oriental, Santiago, one of the most iconic buildings in the city, is the first Mandarin Oriental in South America. The state-of-the-art rooms, suites and facilities offer the ultimate luxury experience framed by breathtaking Andes mountains.",
         "features": [
-            "Rooftop bar",
-            "Concierge service",
-            "Event spaces",
-            "Valet parking"
+            "Business-Friendly",
+            "Pet-Friendly",
+            "Urban",
+            "Restaurant and/or Bar",
+            "Fitness Center",
+            "Pool",
+            "Card Member Favorite",
+            "Parking",
+            "Electric Vehicle Charging",
+            "Airport Transportation"
         ],
         "image": "./top-hotel.jpeg",
         "img1": "y5.png",
@@ -55,15 +67,16 @@
     },
     {
         "id": 4,
-        "name": "Paris Eiffel Tower Hotel",
-        "location": "Paris, France",
+        "name": "JW Marriott Lima",
+        "location": "Lima, Peru",
         "rating": 4,
-        "description": "Enjoy breathtaking views of the Eiffel Tower from our elegant hotel rooms. Discover French cuisine at our onsite restaurant and explore Parisian culture nearby.",
+        "description": "Situated within steps of the beach and Costa Verde, our hotel is also convenient to Lima attractions like the Cathedral of Lima and Larcomar entertainment center. Our Lima, Peru luxury hotel offers elegant rooms with plush beds and crisp linens. Spacious rooms and suites provide ocean views.",
         "features": [
-            "Eiffel Tower view rooms",
-            "Fine dining restaurant",
-            "Spa and wellness center",
-            "Airport shuttle service"
+           " Romantic",
+            "Urban",
+            "Restaurant and/or Bar",
+            "Spa",
+            "Fitness Center"
         ],
         "image": "./top-hotel.jpeg",
         "img1": "y4.png",

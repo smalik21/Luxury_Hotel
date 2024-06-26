@@ -15,7 +15,7 @@ const Hero = () => {
             </div>
             <div className="relative flex flex-col items-center justify-center h-full text-center text-white pointer-events-auto">
                 <h1 className="md:text-[70px] text-[60px] font-bold mb-8 mt-[130px]">Blogs</h1>
-                <p className="text-lg md:text-[19px] text-[14px]">Insightful travel & Hotel booking tips.</p>
+                <p className="text-lg md:text-[19px] text-[14px]">Insightful travel & Hotel booking advice.</p>
                 <p>Home › blogs</p>
             </div>
         </section>

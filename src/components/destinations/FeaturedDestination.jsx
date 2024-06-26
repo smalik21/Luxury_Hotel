@@ -19,7 +19,7 @@ const destinations = [
   },
   {
     id: 3,
-    name: "Roma",
+    name: "Rome",
     hotels: "400+ Hotels",
     image: "./destinations/roma.png",
   },

@@ -6,9 +6,9 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 const hotels = [
   {
     id: 1,
-    name: "Blue origin Farms",
-    location: "Jarata, Indonesia",
-    price: "94$ / night",
+    name: "Arakur Ushuaia Resort & Spa",
+    location: "Ushuaia, Argentina",
+    price: "200$ / night",
     images: [
       "./Explore/Rectangle 5037.png",
       "./Explore/Rectangle 5039.png",
@@ -17,8 +17,8 @@ const hotels = [
   },
   {
     id: 2,
-    name: "Red origin Farms",
-    price: "95$",
+    name: "Faena Hotel Buenos Aires",
+    price: "215$",
     images: [
       "./Explore/Rectangle 5042.png",
       "./Explore/Rectangle 5039.png",
@@ -27,8 +27,8 @@ const hotels = [
   },
   {
     id: 3,
-    name: "Green origin Farms",
-    price: "96$",
+    name: "Gran Melia Iguazu",
+    price: "205$",
     images: [
       "./Explore/Rectangle 5039.png",
       "./Explore/Rectangle 5041.png",
@@ -37,8 +37,8 @@ const hotels = [
   },
   {
     id: 4,
-    name: "Black origin Farms",
-    price: "97$",
+    name: "Palacio Duhau - Park Hyatt Buenos Aires",
+    price: "250$",
     images: [
       "./Explore/Rectangle 5042.png",
       "./Explore/Rectangle 5039.png",
@@ -47,8 +47,8 @@ const hotels = [
   },
   {
     id: 5,
-    name: "Gray origin Farms",
-    price: "98$",
+    name: "Llao Llao Resort, Golf & Spa",
+    price: "298$",
     images: [
       "./Explore/Rectangle 5039.png",
       "./Explore/Rectangle 5037.png",

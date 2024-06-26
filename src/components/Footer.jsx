@@ -9,9 +9,9 @@ const Footer = () => {
   return (
     <div className="bg-black rounded-t-3xl px-4 py-10 md:px-20 md:py-16">
       <div className="text-center">
-        <div className="text-2xl md:text-4xl text-gray-200">You're important to us!</div>
+        <div className="text-2xl md:text-4xl text-gray-200">You're precious to us!</div>
         <div className="text-lg md:text-xl text-gray-400 mt-3">
-          Subscribe to get notified about exciting things..
+          Subscribe to get notified about exciting travelling plans..
         </div>
       </div>
 
@@ -29,38 +29,45 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center mt-10 md:mt-16">
-        <div className="text-2xl md:text-4xl text-gray-200 pb-3">Start your journey today, don’t miss out!</div>
-        <button
+      <div className="text-center  mt-10 md:mt-16">
+        <div className="text-2xl pb-8 md:text-4xl text-gray-200 ">Start your journey today, don’t miss out!</div>
+        <div className="">
+        <Link href="/hotels"><button
           type="button"
-          className="mt-8 text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5"
+          className=" text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5"
         >
           Start Booking Hotels
         </button>
+        </Link>
+      </div>
       </div>
 
-      <div className=" flex flex-col md:flex-row justify-between items-start md:items-center mt-10 md:mt-16 gap-8 md:gap-0">
+      <div className=" flex flex-col md:flex-row justify-between items-start md:items-center mt-5 md:mt-16 gap-8 md:gap-0">
         <div className="md:w-1/4">
           <div className="text-lg text-gray-200 pb-2 md:pb-8"><b>LuxuryHotelConcierge</b></div>
           <div className="text-gray-400 leading-relaxed text-sm md:text-lg">
-            LuxuryHotelConcierge is a cutting-edge cloud-based platform designed to revolutionize video collaboration.
+          Welcome to The Luxury Hotel Concierge, the top destination for customised premium vacation experiences.
           </div>
         </div>
         <div className="leading-relaxed">
           <div className=" text-gray-200 text-lg pb-2"><b>Company</b></div>
           <Link href="/blog"><div className="cursor-pointer text-gray-400 text-sm md:text-lg">Blog</div></Link>
           <Link href="/aboutus"><div className="text-gray-400 cursor-pointer text-sm md:text-lg">About Us</div></Link>
-          <Link href="/contact"><div className="text-gray-400 cursor-pointer text-sm md:text-lg">Contact Us</div></Link>
+          <a href="mailto:booking@theluxuryhotelconcierge.co.in" target="_blank" rel="noopener noreferrer">
+            
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Careers</div></a>
         </div>
-        <div className="leading-relaxed">
+        {/* <div className="leading-relaxed">
           <div className="text-gray-200  text-lg pb-2"><b>Product</b></div>
           <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Integrations</div>
           <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Pricing</div>
           <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Features</div>
-        </div>
+        </div> */}
         <div className="leading-relaxed">
           <div className="text-gray-200 text-lg pb-2"><b>Support</b></div>
-          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Help Center</div>
+          <a href="mailto:booking@theluxuryhotelconcierge.co.in" target="_blank" rel="noopener noreferrer">
+            
+          <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Help Center</div></a>
           <Link href="contact"><div className="text-gray-400 cursor-pointer text-sm md:text-lg">Contact Us</div></Link>
           <div className="text-gray-400 cursor-pointer text-sm md:text-lg">Status</div>
         </div>

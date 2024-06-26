@@ -7,38 +7,38 @@ const Yards = () => {
   const hotels=[
     {
       id:1,
-      name:"Blue Origin Farms",
-      place:"Jakarta, Indonesia",
+      name:"Four Seasons Hotel Casa Medina Bogota",
+      place:"Bogotá, Colombia",
       image:"/y1.png"
     },
     {
       id:2,
-      name:"Blue Origin Farms",
-      place:"Jakarta, Indonesia",
+      name:"JW Marriott Lima",
+      place:"Lima, Peru",
       image:"/y2.png"
     },
     {
       id:3,
-      name:"Blue Origin Farms",
-      place:"Jakarta, Indonesia",
+      name:"Sofitel Montevideo Casino Carasco & Spa",
+      place:"Montevideo, Uruguay",
       image:"/y3.png"
     },
     {
       id:4,
-      name:"Blue Origin Farms",
-      place:"Jakarta, Indonesia",
+      name:"Four Seasons Hotel Mexico City",
+      place:"Mexico City, Mexico City MX",
       image:"/y4.png"
     },
     {
       id:5,
-      name:"Blue Origin Farms",
-      place:"Jakarta, Indonesia",
+      name:"Four Seasons Resort and Residences Los Cabos at Costa Palmas",
+      place:"La Ribera, Baja California Sur MX",
       image:"/y5.png"
     },
     {
       id:6,
-      name:"Blue Origin Farms",
-      place:"Jakarta, Indonesia",
+      name:"Four Seasons Resort Punta Mita",
+      place:"Punta de Mita, Nayarit MX",
       image:"/y6.png"
     }
   ];

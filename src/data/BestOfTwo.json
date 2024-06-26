@@ -2,8 +2,8 @@
     {
         "id": 1,
         "image": "/guest-page-bg.png",
-        "place": "Ushuaia, Argentina",
-        "name": "Arakur Ushuaia Resort & Spa",
+        "place": "São Paulo, Brazil",
+        "name": "Grand Hyatt Sao Paulo",
         "rating": 4.1,
         "people": 243,
         "days": 4,
@@ -12,8 +12,8 @@
     {
         "id": 2,
         "image": "/guest-page-bg.png",
-        "place": "Buenos Aires, Argentina",
-        "name": "Faena Hotel Buenos Aires",
+        "place": "Rio de Janeiro, Brazil",
+        "name": "Hotel Fasano Rio De Janeiro",
         "rating": 4.8,
         "people": 243,
         "days": 4,
@@ -22,8 +22,8 @@
     {
         "id": 3,
         "image": "/guest-page-bg.png",
-        "place": "Puerto Iguazú, Argentina",
-        "name": "Gran Melia Iguazu",
+        "place": "São Paulo, Brazil",
+        "name": "Rosewood Sao Paulo",
         "rating": 4.8,
         "people": 243,
         "days": 4,

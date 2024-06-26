@@ -11,7 +11,7 @@ const Map = () => {
             Our Global Reach
           </h1>
           <p className="text-[#00000066] font-f_3 text-[18px] md:text-[24px] text-center leading-[22px] md:leading-[28px]">
-            Discover the destinations we service around the world.
+            Discover the destinations we offer around the world.
           </p>
         </div>
 
