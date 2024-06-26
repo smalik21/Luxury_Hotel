@@ -38,10 +38,10 @@ const SigninPage = () => {
 
       const response = await fetch("http://localhost:4000/api/auth/login", requestOptions);
       const result = await response.json();
-      // console.log(result)
+      console.log(result)
 
       if (response.ok) {
-        localStorage.setItem("accessToken", result);
+        localStorage.setItem("token", result.token);
         // console.log(result);
         router.push("/");
       } else {

@@ -14,8 +14,13 @@ const Header = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsAuthenticated(token !== null);
+    setIsAuthenticated(token !== null && token !== undefined);
   }, []);
+
+  const handleSignout = () => {
+    localStorage.removeItem('token');
+    router.push('/signin')
+  }
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -42,7 +47,7 @@ const Header = () => {
           <>
             <button onClick={() => handleNavigation('/waitlist')} className="text-white text-2xl"><BsSuitcaseLgFill /></button>
             <button onClick={() => handleNavigation('/profile')} className="text-white text-3xl"><CgProfile /></button>
-            {/* <button onClick={() => handleNavigation('/signout')} className="text-white">Sign Out</button> */}
+            <button onClick={() => handleSignout()} className="text-white">Sign Out</button>
           </>
         ) : (
           <>
@@ -80,7 +85,7 @@ const Header = () => {
                 <>
                   <button onClick={() => handleNavigation('/waitlist')} className={`text-black px-2 py-1 rounded-md ${pathname === '/waitlist' ? 'font-bold' : ''} hover:bg-gray-200`}>Waitlist</button>
                   <button onClick={() => handleNavigation('/profile')} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Profile</button>
-                  <button onClick={() => handleNavigation('/signout')} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Sign Out</button>
+                  <button onClick={() => handleSignout()} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Sign Out</button>
                 </>
               ) : (
                 <>
