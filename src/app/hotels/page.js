@@ -53,9 +53,9 @@ const Page = () => {
         },
       });
 
-      const message = await res.json();
-      console.log("message: ", message);
-      setData(message);
+      const response = await res.json();
+      console.log("response: ", response);
+      setData(response);
     } catch (error) {
       console.error("Error:", error);
       // setResponseMessage("An error occurred");
