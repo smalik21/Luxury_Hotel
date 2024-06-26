@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center p-6 absolute w-full font-f_3 top-0 z-10 bg-opacity-50 px-8 mt-4">
 
-      <button onClick={() => handleNavigation('/')} className="lg:text-2xl text-lg font-bold text-white text-[24px]">LuxuryHotelConcierge</button>
+      <button onClick={() => handleNavigation('/')} className="lg:text-2xl text-lg font-bold text-white text-[24px] hover:cursor-pointer">LuxuryHotelConcierge</button>
       <nav className="hidden xl:flex flex-grow justify-center space-x-4 text-[16px] gap-5">
         <button onClick={() => handleNavigation('/')} className={`text-white ${pathname === '/' ? 'font-bold' : ''}`}>Home</button>
         <button onClick={() => handleNavigation('/explore')} className={`text-white ${pathname === '/explore' ? 'font-bold' : ''}`}>Explore</button>
