@@ -18,37 +18,41 @@ const Page = () => {
   const renderComponent = () => {
     switch (currentView) {
       case 'dashboard':
-        return <DashBoard/>;
+        return <DashBoard />;
       case 'bookings':
-        return <Bookings/>;
+        return <Bookings />;
       case 'hotels':
-        return <Hotels/>;
+        return <Hotels />;
       case 'users':
         return <Users />;
       default:
-        return <Users/>;
+        return <Users />;
     }
   };
 
   return (
-    <div className='flex h-[100vh] bg-zinc-100 overflow-hidden'>
+    <div className='flex min-h-screen bg-zinc-100 overflow-hidden'>
       {/* aside nav bar */}
       <div className='fixed h-full w-[10%] flex flex-col shadow-lg items-center gap-10 bg-[#FFFFFF]'>
         <h1 className='text-[20px] text-black my-4'>LHC</h1>
-        <MdOutlineSpaceDashboard 
-          className={`text-gray-500 text-3xl cursor-pointer ${currentView === 'dashboard' && 'text-black'}`} 
+        <MdOutlineSpaceDashboard
+        size={35}
+          className={` cursor-pointer ${currentView === 'dashboard' ? 'text-black' : 'text-gray-500'}`}
           onClick={() => setCurrentView('dashboard')}
         />
-        <SlCalender 
-          className={`text-gray-500 text-3xl cursor-pointer ${currentView === 'bookings' && 'text-black'}`} 
+        <SlCalender
+        size={30}
+          className={`cursor-pointer ${currentView === 'bookings' ? 'text-black' : 'text-gray-500'}`}
           onClick={() => setCurrentView('bookings')}
         />
-        <FaKey 
-          className={`text-gray-500 text-3xl cursor-pointer ${currentView === 'hotels' && 'text-black'}`} 
+        <FaKey
+        size={30}
+          className={`cursor-pointer ${currentView === 'hotels' ? 'text-black' : 'text-gray-500'}`}
           onClick={() => setCurrentView('hotels')}
         />
-        <HiOutlineUsers 
-          className={`text-gray-500 text-3xl cursor-pointer ${currentView === 'users' && 'text-black'}`} 
+        <HiOutlineUsers
+          size={30}
+          className={`cursor-pointer ${currentView === 'users' ? 'text-black' : 'text-gray-500'}`}
           onClick={() => setCurrentView('users')}
         />
       </div>
