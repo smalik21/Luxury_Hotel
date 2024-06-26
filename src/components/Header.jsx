@@ -31,7 +31,7 @@ const Header = () => {
                 <button onClick={() => handleNavigation('/hotels')} className={`text-white ${pathname === '/hotels' ? 'font-bold' : ''}`}>Hotels</button>
                 <button onClick={() => handleNavigation('/contact')} className={`text-white ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact Us</button>
             </nav>
-            <div className="hidden xl:flex items-center space-x-4 gap-7">
+            <div className="hidden md:flex items-center space-x-4 gap-7">
                 <button onClick={() => handleNavigation('/waitlist')} className="text-white text-2xl"><BsSuitcaseLgFill /></button>
                 <button onClick={() => handleNavigation('/signin')} className="text-white">Sign In</button>
                 <button className="bg-white text-black px-7 py-1 rounded-full" onClick={() => handleNavigation('/signup')}>Join</button>
