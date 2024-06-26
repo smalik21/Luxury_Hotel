@@ -7,7 +7,8 @@ import Link from "next/link";
 
 const SigninPage = () => {
   const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
-
+  const [message,setMessage] = useState("");
+  const [forgotPasswordEmail, setForgotPasswordEmail] = useState("");
   const [inputs, setInputs] = useState({
     mail: "",
     password: "",
@@ -56,6 +57,34 @@ const SigninPage = () => {
     setIsHiddenDivVisible(!isHiddenDivVisible);
   };
 
+
+  const handleForgotPassword = async () => {
+    setMessage(""); // Clear previous messages
+
+    try {
+      const response = await fetch("http://localhost:4000/api/auth/request-password-reset", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ mail: forgotPasswordEmail }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setMessage("OTP sent to your email.");
+      } else {
+        setMessage(result.message || "Failed to send OTP. Please check your email.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("An error occurred. Please try again later.");
+    }
+  };
+
+
+
   return (
     <>
       <div className="m-auto">
@@ -75,6 +104,8 @@ const SigninPage = () => {
                 id="input-group-1"
                 className=" m-auto mt-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[20rem] md:w-[25rem] ps-10 p-2.5 "
                 placeholder="Enter your email"
+                value={forgotPasswordEmail}
+                onChange={(e) => setForgotPasswordEmail(e.target.value)}
               />
               {/* <input
                 type="text"
@@ -83,10 +114,11 @@ const SigninPage = () => {
                 placeholder="Enter your password"
               /> */}
               <button
+                onClick={handleForgotPassword}
                 type="button"
                 className="mt-5 text-white w-[20rem] md:w-[25rem] ml-5 md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
               >
-                Continue
+                Conti
               </button>
             </div>
             <div className="absolute bg-white rounded-3xl h-[3rem] w-[15rem] ml-[80rem] mt-[5rem] pl-7 pt-3">
