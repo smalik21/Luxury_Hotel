@@ -99,7 +99,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative h-[700px] sm:h-[730px] w-auto top-0 left-0 right-0">
+    <div className="relative h-[670px] sm:h-[700px] w-auto top-0 left-0 right-0">
       <Carousel
         showThumbs={false}
         autoPlay
@@ -126,7 +126,7 @@ const Hero = () => {
       </Carousel>
 
       <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center text-center md:pt-0 pt-[60px] text-white bg-black bg-opacity-50 px-4">
-        <p className="border border-gray-300 py-1 px-3 text-[14px] rounded-2xl md:mt-[140px] text-gray-200">it's time for vacation 🚀</p>
+        {/* <p className="border border-gray-300 py-1 px-3 text-[14px] rounded-2xl md:mt-[140px] text-gray-200">it's time for vacation 🚀</p> */}
         <h2 className="md:text-[50px] text-[40px] font-bold">Discover Luxury</h2>
         <p className="text-[15px] text-gray-200">Experience the ultimate in hospitality..</p>
 
@@ -145,10 +145,16 @@ const Hero = () => {
               Safaris
             </button>
             <button
-              onClick={() => setTab('flight')}
-              className={`px-4 py-2 ${tab === 'flight' ? 'border-b-2 border-black' : ''}`}
+              onClick={() => setTab('visas')}
+              className={`px-4 py-2 ${tab === 'visas' ? 'border-b-2 border-black' : ''}`}
             >
-              Flights
+              Visas
+            </button>
+            <button
+              onClick={() => setTab('services')}
+              className={`px-4 py-2 ${tab === 'services' ? 'border-b-2 border-black' : ''}`}
+            >
+              Procurement Services
             </button>
           </div>
           <hr className="border-gray-300 -mt-[17px] mx-2 w-full mb-4" />
@@ -282,27 +288,6 @@ const Hero = () => {
                     </div>
                   )}
                 </div>
-                {/* <div className="relative check-out-date flex-grow">
-                                    <button
-                                        onClick={() => setCheckOutOpen(!checkOutOpen)}
-                                        className="px-4 py-2 bg-gray-200 rounded-lg w-full text-left"
-                                    >
-                                        {checkOutDate ? `${checkOutDate.toLocaleDateString()}` : 'Check Out'}
-                                    </button>
-                                    {checkOutOpen && (
-                                        <div className="absolute z-50">
-                                            <DatePicker
-                                                selected={checkOutDate}
-                                                onChange={(date) => {
-                                                    setCheckOutDate(date);
-                                                    setCheckOutOpen(false);
-                                                }}
-                                                inline
-                                                className="text-sm"
-                                            />
-                                        </div>
-                                    )}
-                                </div> */}
                 <button className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center">
                   <FaSearch className="mr-2" /> Search
                 </button>
@@ -310,7 +295,7 @@ const Hero = () => {
             </>
           )}
 
-          {tab === 'flight' && (
+          {tab === 'visas' && (
             <>
               <div className="flex items-center mb-4 ">
                 <div className="relative location-search px-2 flex-grow">
@@ -353,28 +338,68 @@ const Hero = () => {
                       />
                     </div>
                   )}
+                  
+
+                  
                 </div>
-                {/* <div className="relative check-out-date flex-grow">
-                                    <button
-                                        onClick={() => setCheckOutOpen(!checkOutOpen)}
-                                        className="px-4 py-2 bg-gray-200 rounded-lg w-full text-left"
-                                    >
-                                        {checkOutDate ? `${checkOutDate.toLocaleDateString()}` : 'Check Out'}
-                                    </button>
-                                    {checkOutOpen && (
-                                        <div className="absolute z-50">
-                                            <DatePicker
-                                                selected={checkOutDate}
-                                                onChange={(date) => {
-                                                    setCheckOutDate(date);
-                                                    setCheckOutOpen(false);
-                                                }}
-                                                inline
-                                                className="text-sm"
-                                            />
-                                        </div>
-                                    )}
-                                </div> */}
+               
+                <button
+                  className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center"
+                >
+                  <FaSearch className="mr-2" />
+                  Search
+                </button>
+              </div>
+            </>
+          )}
+          {tab === 'services' && (
+            <>
+              <div className="flex items-center mb-4 ">
+                <div className="relative location-search px-2 flex-grow">
+                  <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    placeholder="Boarding"
+                    className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none"
+                  />
+                </div>
+                <div className="relative location-search flex-grow">
+                  <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    placeholder="Destination"
+                    className="w-full px-4 py-2 bg-gray-200 rounded-lg focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="relative px-2 check-in-date flex-grow">
+                  <button
+                    onClick={() => setCheckInOpen(!checkInOpen)}
+                    className="px-4 py-2 bg-gray-200 rounded-lg w-full text-left"
+                  >
+                    {checkInDate ? `${checkInDate.toLocaleDateString()}` : 'Select Date'}
+                  </button>
+                  {checkInOpen && (
+                    <div className="absolute z-50">
+                      <DatePicker
+                        selected={checkInDate}
+                        onChange={(date) => {
+                          setCheckInDate(date);
+                          setCheckInOpen(false);
+                        }}
+                        inline
+                        className="text-sm"
+                      />
+                    </div>
+                  )}
+                  
+
+                  
+                </div>
+               
                 <button
                   className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center"
                 >
@@ -385,7 +410,7 @@ const Hero = () => {
             </>
           )}
         </div>
-        <Link href="/explore" className="sm:bottom-12 bottom-9 absolute bg-white bg-opacity-50 border-white text-black rounded-3xl px-8 py-2 flex items-center gap-2 font-bold">
+        <Link href="/explore" className="sm:bottom-12 bottom-9 mt-0 absolute bg-white bg-opacity-50 border-white text-black rounded-3xl px-4 py-2 flex items-center gap-2 font-bold">
           Explore <div className="ml-1 text-md font-extrabold"><IoIosArrowForward /></div>
         </Link>
       </div>
