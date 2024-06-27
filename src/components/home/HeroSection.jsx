@@ -111,16 +111,16 @@ const Hero = () => {
         className="h-[790px]"
         emulateTouch
       >
-        <div className="h-[700px] sm:h-[730px]">
+        <div className="h-[670px] sm:h-[700px]">
           <img src="/hero-image.jpeg" alt="Background 1" className="h-[790px] object-cover" />
         </div>
-        <div className="h-[700px] sm:h-[730px]">
+        <div className="h-[670px] sm:h-[700px]">
           <img src="/luxury-hotel-3.webp" alt="Background 2" className="h-[790px] object-cover" />
         </div>
-        <div className="h-[700px] sm:h-[730px]">
+        <div className="h-[670px] sm:h-[700px]">
           <img src="/luxury-hotel-2.webp" alt="Background 3" className="h-[790px] object-cover" />
         </div>
-        <div className="h-[700px] sm:h-[730px]">
+        <div className="h-[670px] sm:h-[700px]">
           <img src="/luxury-hotel-4.jpg" alt="Background 4" className="h-[790px] object-cover" />
         </div>
       </Carousel>
@@ -134,25 +134,25 @@ const Hero = () => {
           <div className="flex mb-4">
             <button
               onClick={() => setTab('hotels')}
-              className={`px-4 py-2 ${tab === 'hotels' ? 'border-b-2 border-black' : ''}`}
+              className={`px-4 text-xs md:text-lg py-2 ${tab === 'hotels' ? 'border-b-2 border-black' : ''}`}
             >
               Hotels
             </button>
             <button
               onClick={() => setTab('safari')}
-              className={`px-4 py-2 ${tab === 'safari' ? 'border-b-2 border-black' : ''}`}
+              className={`px-4 text-xs md:text-lg py-2 ${tab === 'safari' ? 'border-b-2 border-black' : ''}`}
             >
               Safaris
             </button>
             <button
               onClick={() => setTab('visas')}
-              className={`px-4 py-2 ${tab === 'visas' ? 'border-b-2 border-black' : ''}`}
+              className={`px-4 text-xs md:text-lg py-2 ${tab === 'visas' ? 'border-b-2 border-black' : ''}`}
             >
               Visas
             </button>
             <button
               onClick={() => setTab('services')}
-              className={`px-4 py-2 ${tab === 'services' ? 'border-b-2 border-black' : ''}`}
+              className={`px-4 text-xs md:text-lg py-2 ${tab === 'services' ? 'border-b-2 border-black' : ''}`}
             >
               Procurement Services
             </button>
