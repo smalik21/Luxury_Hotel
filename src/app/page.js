@@ -10,12 +10,14 @@ import Footer from '@/components/Footer'
 import Fixed from '@/components/home/Fixed';
 import Virtual from '@/components/home/Virtual';
 import WeTrust from '@/components/home/WeTrust';
+import BoxSection from '@/components/home/BoxSection';
 
 const Home = () => {
     return (
         <div>
             <Header />
             <HeroSection />
+            <BoxSection/>
             <Features />
             <Map />
             <WeTrust/>
