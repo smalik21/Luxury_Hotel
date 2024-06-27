@@ -1,10 +1,10 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import BlogCard from "@/components/blog/BlogCard";
-import Category from "@/components/blog/Category";
+// import Category from "@/components/blog/Category";
 import Hero from "@/components/blog/HeroSection";
 import NewsLetter from "@/components/blog/NewsLetter";
-import Search from "@/components/blog/Search";
+// import Search from "@/components/blog/Search";
 import React from "react";
 
 const page = () => {

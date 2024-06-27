@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaSearch } from 'react-icons/fa';
 import 'react-datepicker/dist/react-datepicker.css';
-import Link from 'next/link';
-import { IoIosArrowForward } from 'react-icons/io';
+// import Link from 'next/link';
+// import { IoIosArrowForward } from 'react-icons/io';
 import { base_url } from '@/base_url';
 
 const BoxSection = () => {
@@ -21,7 +21,7 @@ const BoxSection = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [requestCall, setRequestCall] = useState(false);
-  const [eventReservation, setEventReservation] = useState('');
+//   const [eventReservation, setEventReservation] = useState('');
   const [luxuryItems, setLuxuryItems] = useState('');
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);

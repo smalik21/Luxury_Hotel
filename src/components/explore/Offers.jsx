@@ -7,23 +7,28 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 const offer=[
     {
         id:1,
-        name:"Enjoy nature Oceanfront Escapes",
+        
         image:"/Explore/three.png"
     },
     {
         id:2,
-        name:"Snowscapes Cabin",
+        
         image:"/Explore/two.png"
     },
     {
         id:3,
-        name:"Safaris at its best!",
+       
         image:"/Explore/one.png"
     },
     {
         id:4,
-        name:"Forts and Castles",
-        image:"/Explore/one.png"
+       
+        image:"/Explore/four.png"
+    },
+    {
+        id:5,
+       
+        image:"/Explore/five.png"
     }
 ];
 
@@ -94,10 +99,8 @@ const Offers = () => {
       {getVisibleHotels().map((item, index) => (
         <Link href="/contact">
             <div key={item.id} className='relative w-full max-w-md mx-auto '>
-                <img className='shadow-2xl hover:scale-105 w-full h-auto rounded-md' src={item.image} alt="Yard 1"/>
-                <div className=' text-lg mx-2 mt-1 absolute inset-0 flex items-center justify-center pl-5 pr-[10rem]'>
-                    <span className='text-gray-500 text-xl font-bold'>{item.name}</span>
-                </div>
+                <img  className='shadow-2xl hover:scale-105 w-full h-auto rounded-md' src={item.image} alt="Yard 1"/>
+                
             </div>
             </Link>
         ))}
