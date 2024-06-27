@@ -8,8 +8,11 @@ import { base_url } from "@/base_url";
 
 const SigninPage = () => {
   const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
+  const [isPasswordResetVisible, setIsPasswordResetVisible] = useState(false);
   const [message, setMessage] = useState("");
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [inputs, setInputs] = useState({
     mail: "",
     password: "",
@@ -18,13 +21,10 @@ const SigninPage = () => {
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log(inputs);
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
-    console.log(inputs);
-
     try {
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
@@ -40,11 +40,9 @@ const SigninPage = () => {
 
       const response = await fetch(`${base_url}/api/auth/login`, requestOptions);
       const result = await response.json();
-      console.log(result)
 
       if (response.ok) {
         localStorage.setItem("token", result.token);
-        // console.log(result);
         router.push("/");
       } else {
         console.error(result.message);
@@ -56,8 +54,10 @@ const SigninPage = () => {
 
   const toggleHiddenDiv = () => {
     setIsHiddenDivVisible(!isHiddenDivVisible);
+    if (!isHiddenDivVisible) {
+      setIsPasswordResetVisible(false);
+    }
   };
-
 
   const handleForgotPassword = async () => {
     setMessage(""); // Clear previous messages
@@ -75,6 +75,7 @@ const SigninPage = () => {
 
       if (response.ok) {
         setMessage("OTP sent to your email.");
+        setIsPasswordResetVisible(true);
       } else {
         setMessage(result.message || "Failed to send OTP. Please check your email.");
       }
@@ -84,124 +85,168 @@ const SigninPage = () => {
     }
   };
 
+  const handlePasswordReset = async () => {
+    setMessage(""); // Clear previous messages
 
+    try {
+      const response = await fetch(`${base_url}/api/auth/reset-password`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ mail: forgotPasswordEmail, otp, newPassword }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setMessage("Password has been reset successfully.");
+        setIsHiddenDivVisible(false);
+        setIsPasswordResetVisible(false);
+      } else {
+        setMessage(result.message || "Failed to reset password. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("An error occurred. Please try again later.");
+    }
+  };
 
   return (
     <>
       <div className="m-auto">
         {isHiddenDivVisible && (
-          <div className="m-auto">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div
               onClick={toggleHiddenDiv}
-              className="m-auto absolute w-[4rem] h-[4rem] mt-[7rem] ml-[11.5rem] md:w-[4rem] md:h-[4rem] bg-white rounded-full md:mt-[7rem] md:ml-[48rem] p-6 "
+              className="absolute top-4 right-4 cursor-pointer text-white"
             >
-              <div className="h-[2rem] w-[2rem]">
-                <RxCross2 />
+              <RxCross2 size={24} />
+            </div>
+            <div className="relative bg-white rounded-3xl p-8 shadow-lg w-80 md:w-96">
+              {!isPasswordResetVisible ? (
+                <>
+                  <input
+                    type="email"
+                    className="w-full p-2 border rounded-full mt-4"
+                    placeholder="Enter your email"
+                    value={forgotPasswordEmail}
+                    onChange={(e) => setForgotPasswordEmail(e.target.value)}
+                  />
+                  <button
+                    onClick={handleForgotPassword}
+                    type="button"
+                    className="w-full mt-5 text-white bg-gray-800 hover:bg-gray-900 rounded-full py-2"
+                  >
+                    Continue
+                  </button>
+                </>
+              ) : (
+                <>
+                  <input
+                    type="email"
+                    className="w-full p-2 border rounded-full mt-4"
+                    placeholder="Enter your email"
+                    value={forgotPasswordEmail}
+                    readOnly
+                  />
+                  <input
+                    type="text"
+                    className="w-full p-2 border rounded-full mt-4"
+                    placeholder="Enter OTP"
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                  />
+                  <input
+                    type="password"
+                    className="w-full p-2 border rounded-full mt-4"
+                    placeholder="Enter new password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                  />
+                  <button
+                    onClick={handlePasswordReset}
+                    type="button"
+                    className="w-full mt-5 text-white bg-gray-800 hover:bg-gray-900 rounded-full py-2"
+                  >
+                    Set Password
+                  </button>
+                </>
+              )}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-gray-700 text-center">
+                {message}
               </div>
-            </div>
-            <div className=" absolute h-[11rem] w-[23rem] mt-[14rem] ml-[2.5rem]  md:h-[13rem] md:w-[30rem] rounded-3xl bg-white md:ml-[35rem] md:mt-[15rem] border-2 border-black">
-              <input
-                type="text"
-                id="input-group-1"
-                className=" m-auto mt-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[20rem] md:w-[25rem] ps-10 p-2.5 "
-                placeholder="Enter your email"
-                value={forgotPasswordEmail}
-                onChange={(e) => setForgotPasswordEmail(e.target.value)}
-              />
-              {/* <input
-                type="text"
-                id="input-group-1"
-                className=" m-auto mt-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[20rem] md:w-[25rem] ps-10 p-2.5 "
-                placeholder="Enter your password"
-              /> */}
-              <button
-                onClick={handleForgotPassword}
-                type="button"
-                className="mt-5 text-white w-[20rem] md:w-[25rem] ml-5 md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-              >
-                Conti
-              </button>
-            </div>
-            <div className="absolute bg-white rounded-3xl h-[3rem] w-[15rem] ml-[80rem] mt-[5rem] pl-7 pt-3">
-              Reset link to your email.{" "}
             </div>
           </div>
         )}
       </div>
-      <div className="flex h-screen w-screen ">
-        <div className="md:w-2/5 w-full  h-screen flex items-center justify-center mx-[2rem] ">
-          <div>
+      <div className="flex flex-col md:flex-row h-screen w-screen">
+        <div className="md:w-2/5 w-full h-full flex items-center justify-center p-4">
+          <div className="max-w-md w-full">
             <div className="text-center text-3xl mb-3">
               LuxuryHotelConcierge
             </div>
-            <div className="text-center text-gray-400 text-md ">
-              Discover the epitome of luxury and comfort at our world-renowned
-              hotels..
+            <div className="text-center text-gray-400 text-md">
+              Discover the epitome of luxury and comfort at our world-renowned hotels.
             </div>
-            <div className="text-center text-3xl my-5 md:mr-[4rem]">
+            <div className="text-center text-3xl my-5">
               Sign In
             </div>
-            <div className="mx-[5rem] md:mx-10">
-              <div className=" mb-4 justify-center items-center">
+            <div className="mx-4 md:mx-10">
+              <div className="mb-4">
                 <input
                   name="mail"
                   onChange={handleChange}
                   type="mail"
-                  id="input-group-1"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 "
+                  className="w-full p-2 border rounded-full"
                   placeholder="Enter your email"
                 />
               </div>
-              <div className=" mb-4 justify-center items-center">
+              <div className="mb-4">
                 <input
                   name="password"
                   onChange={handleChange}
                   type="password"
-                  id="input-group-1"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-[18rem] md:w-[25rem] ps-10 p-2.5 "
+                  className="w-full p-2 border rounded-full"
                   placeholder="Enter your password"
                 />
               </div>
             </div>
-
             <button
               onClick={handleClick}
               type="button"
-              className="text-white w-[18rem] md:w-[25rem] ml-[5rem] md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="w-full text-white bg-gray-800 hover:bg-gray-900 rounded-full py-2 mt-2"
             >
               Continue
             </button>
             <div
               onClick={toggleHiddenDiv}
-              className="text-gray-700 text-sm mb-2 ml-[11.2rem] cursor-pointer"
+              className="text-gray-700 text-sm mb-2 text-center mt-4 cursor-pointer"
             >
               Forgot password?
             </div>
-
-            <div className="relative flex py-2 items-center">
+            <div className="relative flex py-2 items-center mx-4">
               <div className="flex-grow border-t border-gray-400"></div>
               <span className="flex-shrink mx-4 text-gray-400">or</span>
               <div className="flex-grow border-t border-gray-400"></div>
             </div>
-            <div className="text-gray-700 text-sm mb-2 ml-[12rem] md:ml-[12.8rem]">
-              Signin with
+            <div className="text-gray-700 text-sm text-center mb-2">
+              Sign in with
             </div>
             <button
               type="button"
-              className="text-white w-[18rem] md:w-[25rem] ml-[5rem] md:ml-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="w-full text-white bg-gray-800 hover:bg-gray-900 rounded-full py-2 mb-2"
             >
               Google
             </button>
             <Link href="/signup">
-              {" "}
-              <div className="text-gray-700 text-sm mb-2 ml-[7rem] md:ml-[9rem]">
-                Don't have an account ? Sign Up
+              <div className="text-gray-700 text-sm text-center mb-2">
+                Don't have an account? Sign Up
               </div>
             </Link>
           </div>
         </div>
-
-        <img className="object-fill w-0 md:w-3/5 " src="/sign.png" />
+        <img className="hidden md:block object-cover w-full md:w-3/5 h-full" src="/sign.png" alt="Signin Background" />
       </div>
     </>
   );
