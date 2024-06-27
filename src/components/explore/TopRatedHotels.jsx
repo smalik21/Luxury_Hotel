@@ -6,6 +6,7 @@ import { IoStar } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
 import hotels from "@/data/HotelsData.json";
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 // const hotels = [
 //   {
@@ -122,7 +123,7 @@ const TopRatedHotels = () => {
 
         <div className="flex flex-col md:flex-row w-full gap-5 mt-10 p-4 rounded-md">
           <div className="flex-shrink-0 w-full md:w-[270px] h-[250px] md:h-auto">
-            <img src={getVisibleHotel().image} alt="top hotel" className="w-full h-full object-cover rounded-md md:rounded-b-full hover:scale-105" />
+            <img src={getVisibleHotel().image} alt="top hotel" className="md:w-[20rem] md:h-[20rem] w-[18rem] h-[15rem] object-cover rounded-md md:rounded-b-full hover:scale-105" />
           </div>
 
           <div className="flex flex-col justify-center gap-4 w-full">
@@ -151,16 +152,17 @@ const TopRatedHotels = () => {
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-3 mt-4">
-              <button
+              <Link href="/contact"><button
                 className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
               >
                 Book Now
               </button>
-              <button
+              </Link>
+              {/* <button
                 className="border border-black text-black px-4 py-2 rounded-md hover:bg-gray-100 transition"
               >
                 Add To Waitlist
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -171,7 +173,7 @@ const TopRatedHotels = () => {
           ))}
         </div>
 
-        <p
+        <Link href="/hotels"><p
           className="text-center flex items-center justify-center gap-1 text-[16px] text-black font-bold mt-8 hover:cursor-pointer hover:underline"
           onClick={() => router.push('/hotels')}
         >
@@ -181,6 +183,7 @@ const TopRatedHotels = () => {
 
           </span>
         </p>
+        </Link>
       </div>
     </div>
   );

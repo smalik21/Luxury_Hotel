@@ -124,7 +124,7 @@ const TopPickings = () => {
                                     {hotel.price}
                                 </div>
                             </div> */}
-                            <div className="p-4 text-white mt-16 ml-3">
+                            <div className="p-4 text-white mt-[15rem] ml-3">
                                 <h3 className="text-xl font-bold">{hotel.name}</h3>
                                 <p>{hotel.location}</p>
                             </div>

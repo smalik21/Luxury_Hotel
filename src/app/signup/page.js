@@ -175,7 +175,7 @@ const Page = () => {
                 onChange={(e) => setOtp(e.target.value)}
                 required
               />
-              <button className="border px-2 rounded-full text-white bg-green-600 ml-2" onClick={generateOTP}>Send OTP</button>
+              <button className="border px-2 rounded-full text-white bg-black ml-2" onClick={generateOTP}>Send OTP</button>
             </div>
             <button
               type="button"
