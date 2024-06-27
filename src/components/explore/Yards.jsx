@@ -1,7 +1,7 @@
 "use client"
 import React, {useState, useEffect} from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-
+import Link from 'next/link';
 
 const Yards = () => {
   const hotels=[
@@ -95,7 +95,7 @@ const Yards = () => {
       <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="flex flex-col justify-center mb-4 md:mb-0 text-center md:text-left">
             <h1 className="text-4xl text-black font-bold mb-2">Must Visit Places</h1>
-            <p className="text-black text-sm">2000+ hotels</p>
+            <p className="text-black text-sm">50+ hotels</p>
           </div>
           <div className="flex gap-2 items-center justify-center">
             <button aria-label="Previous" onClick={handlePrevClick}>
@@ -112,11 +112,13 @@ const Yards = () => {
         </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {getVisibleHotels().map((item, index) => (
-          <div key={item.id} className='w-full '>
+         <Link href="/contact">
+           <div key={item.id} className='w-full '>
           <img className='shadow-2xl hover:scale-105 w-full h-auto rounded-md' src={item.image} alt="Yard 1"/>
           <div className='text-lg mx-2 mt-1'><b>{item.name}</b></div>
           <div className='text-md mx-2 text-gray-500'>{item.place}</div>
         </div>
+          </Link>
         ))}
        
       </div>

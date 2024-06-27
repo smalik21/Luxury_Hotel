@@ -122,7 +122,7 @@ const TopRatedHotels = () => {
 
         <div className="flex flex-col md:flex-row w-full gap-5 mt-10 p-4 rounded-md">
           <div className="flex-shrink-0 w-full md:w-[270px] h-[250px] md:h-auto">
-            <img src={getVisibleHotel().image} alt="top hotel" className="w-full h-full object-cover rounded-md md:rounded-b-full" />
+            <img src={getVisibleHotel().image} alt="top hotel" className="w-full h-full object-cover rounded-md md:rounded-b-full hover:scale-105" />
           </div>
 
           <div className="flex flex-col justify-center gap-4 w-full">
@@ -167,7 +167,7 @@ const TopRatedHotels = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-10">
           {[getVisibleHotel().img1, getVisibleHotel().img2, getVisibleHotel().img3, getVisibleHotel().img4].map((img, index) => (
-            <img key={index} src={img} alt={`Hotel ${getVisibleHotel().id} Image ${index + 1}`} className="w-full h-full object-cover rounded-md" />
+            <img key={index} src={img} alt={`Hotel ${getVisibleHotel().id} Image ${index + 1}`} className="w-full h-full object-cover rounded-md hover:scale-105" />
           ))}
         </div>
 

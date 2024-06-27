@@ -45,7 +45,7 @@ const HotelCard = ({ data }) => {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
           <div className="flex flex-col items-start  sm:items-center    gap-3">
             <p className="text-[#000000E5] text-base sm:text-lg md:text-xl flex items-center"><IoEarth className="mr-2" />{data.heading2}</p>
-            <p className="text-[#000000E5]  text-sm  sm:text-base md:text-lg">{data.heading3}</p>
+            {/* <p className="text-[#000000E5]  text-sm  sm:text-base md:text-lg">{data.heading3}</p> */}
           </div>
           <Link href='/hoteldetail'><button className="bg-black text-white flex items-center justify-center rounded-full px-4 py-2 sm:px-6 sm:py-3">
             {data.btn3} <GoArrowUpRight className="ml-2" />

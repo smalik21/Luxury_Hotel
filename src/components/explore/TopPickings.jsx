@@ -1,5 +1,5 @@
 "use client";
-
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -95,7 +95,7 @@ const TopPickings = () => {
             <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="flex flex-col justify-center mb-4 md:mb-0 text-center md:text-left">
             <h1 className="text-4xl text-black font-bold mb-2">Deserts and Rejuvinations</h1>
-            <p className="text-black text-sm">2000+ hotels</p>
+            <p className="text-black text-sm">50+ hotels</p>
           </div>
           <div className="flex gap-2 items-center justify-center">
             <button aria-label="Previous" onClick={handlePrevClick}>
@@ -113,21 +113,23 @@ const TopPickings = () => {
                 <div className="container mx-auto max-w-6xl lg:px-0 px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 transition-transform duration-500 ease-in-out">
                     {getVisibleHotels().map((hotel, index) => (
+                       <Link href="/contact">
                         <div
                             key={hotel.id}
-                            className={`rounded-lg shadow-lg overflow-hidden transform transition-all duration-400 hover:cursor-pointer hover:scale-105 ${isAnimating ? 'opacity-0 blur-lg' : 'opacity-100 blur-0'}`}
+                            className={`rounded-lg shadow-lg overflow-hidden  hover:cursor-pointer hover:scale-105 ${isAnimating ? 'opacity-0 blur-lg' : 'opacity-100 blur-0'}`}
                             style={{ backgroundImage: `url(${hotel.image})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '350px' }}
                         >
-                            <div className="relative h-48">
+                            {/* <div className="relative h-48">
                                 <div className="absolute top-5 -right-4 bg-white text-black rounded-full px-5 py-1">
                                     {hotel.price}
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="p-4 text-white mt-16 ml-3">
                                 <h3 className="text-xl font-bold">{hotel.name}</h3>
                                 <p>{hotel.location}</p>
                             </div>
                         </div>
+                        </Link>
                     ))}
                 </div>
             </div>

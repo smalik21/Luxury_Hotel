@@ -226,6 +226,7 @@ const  WeTrust = () => {
       <Link href="/contactus">
       <div className={`grid grid-cols-1 ${numVisibleCards > 1 ? 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3' : ''} gap-6 transition-transform duration-400 ease-in-out`}>
         {getVisibleDestinations().map((destination) => (
+         <Link href="/contact">
           <div
             key={destination.id}
             className="bg-white p-4 rounded-lg border border-gray-400 flex items-center transform transition-transform duration-400 ease-in-out hover:scale-105 cursor-pointer"
@@ -234,9 +235,10 @@ const  WeTrust = () => {
             <img src={destination.image} alt={destination.name} className="w-[90px] h-[90px] rounded-full mr-4" />
             <div>
               <h3 className="text-xl font-bold">{destination.name}</h3>
-              <p className="text-gray-500">{destination.hotels}</p>
+              
             </div>
           </div>
+         </Link>
         ))}
       </div>
       </Link>

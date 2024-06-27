@@ -1,5 +1,5 @@
 "use client";
-
+import Link  from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -89,7 +89,7 @@ const FeaturedHotels = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div className="flex flex-col justify-center mb-4 md:mb-0 text-center md:text-left">
             <h1 className="text-4xl text-black font-bold mb-2">Luxury Hubs of the World</h1>
-            <p className="text-black text-sm">2000+ hotels</p>
+            <p className="text-black text-sm">50+ hotels</p>
           </div>
           <div className="flex gap-2 items-center justify-center">
             <button aria-label="Previous" onClick={handlePrevClick}>
@@ -112,9 +112,9 @@ const FeaturedHotels = () => {
         <div className="mt-[2rem] m-4 sm:mx-[23rem]  md:mx-[35rem] flex flex-col sm:flex-row  items-center sm:p-2 md:p-3 p-1 md:w-[50%] justify-between gap-3 w-[90%] sm:w-auto bg-white rounded-md top-[85%] left-[5%] sm:top-[70%] sm:left-[50%] sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 shadow-xl">
           <div className=" justify-center text-center sm:text-left p-0">
             <h3 className="text-lg sm:text-xl font-medium text-black">{hotels[currentIndex].name}</h3>
-            <p className="text-sm sm:text-md text-[#00000099]">starts at {hotels[currentIndex].price}</p>
+            
           </div>
-          <button className="px-2 py-1 mx-2 my-2 sm:mt-0 text-black border border-black">Start Booking</button>
+          <Link href="/contact"><button className="px-2 py-1 mx-2 my-2 sm:mt-0 text-black border border-black">Start Booking</button></Link>
         </div>
       </div>
     </div>

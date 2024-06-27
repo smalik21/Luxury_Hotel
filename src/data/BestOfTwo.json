@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "image": "/guest-page-bg.png",
+        "image": "/y4.png",
         "place": "São Paulo, Brazil",
         "name": "Grand Hyatt Sao Paulo",
         "rating": 4.1,
@@ -11,7 +11,7 @@
     },
     {
         "id": 2,
-        "image": "/guest-page-bg.png",
+        "image": "/y5.png",
         "place": "Rio de Janeiro, Brazil",
         "name": "Hotel Fasano Rio De Janeiro",
         "rating": 4.8,
@@ -21,7 +21,7 @@
     },
     {
         "id": 3,
-        "image": "/guest-page-bg.png",
+        "image": "/y6.png",
         "place": "São Paulo, Brazil",
         "name": "Rosewood Sao Paulo",
         "rating": 4.8,

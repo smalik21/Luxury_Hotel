@@ -44,7 +44,7 @@ const Footer = () => {
 
       <div className=" flex flex-col md:flex-row justify-between items-start md:items-center mt-5 md:mt-16 gap-8 md:gap-0">
         <div className="md:w-1/4">
-          <div className="text-lg text-gray-200 pb-2 md:pb-8"><b>LuxuryHotelConcierge</b></div>
+          <div className="text-lg text-gray-200 pb-2 md:pb-8"><b>TheLuxuryHotelConcierge</b></div>
           <div className="text-gray-400 leading-relaxed text-sm md:text-lg">
           Welcome to The Luxury Hotel Concierge, the top destination for customised premium vacation experiences.
           </div>
@@ -75,7 +75,7 @@ const Footer = () => {
 
       <hr className="h-px my-6 bg-gray-200 border-0 dark:bg-gray-700" />
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="text-gray-500 text-xs md:text-lg">© 2023 LuxuryHotelConcierge. All rights reserved</div>
+        <div className="text-gray-500 text-xs md:text-lg">© 2021 TheLuxuryHotelConcierge. All rights reserved</div>
         <div className="flex gap-4">
           <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Terms</div>
           <div className="text-gray-500 text-xs md:text-lg cursor-pointer">Cookies</div>
