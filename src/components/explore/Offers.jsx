@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React, {useState, useEffect} from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -91,12 +92,14 @@ const Offers = () => {
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {getVisibleHotels().map((item, index) => (
+        <Link href="/contact">
             <div key={item.id} className='relative w-full max-w-md mx-auto '>
                 <img className='shadow-2xl hover:scale-105 w-full h-auto rounded-md' src={item.image} alt="Yard 1"/>
                 <div className=' text-lg mx-2 mt-1 absolute inset-0 flex items-center justify-center pl-5 pr-[10rem]'>
                     <span className='text-gray-500 text-xl font-bold'>{item.name}</span>
                 </div>
             </div>
+            </Link>
         ))}
        
       </div>

@@ -132,6 +132,7 @@ export default function ContactSection() {
                   aria-label="Message"
                 ></textarea>
               </div>
+              <div>
               <button
                 type="submit"
                 className="md:mx-3 w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
@@ -139,6 +140,16 @@ export default function ContactSection() {
               >
                 Send Message
               </button>
+              <a href="tel:+1234567890" >
+              <button
+                type="submit"
+                className="md:mx-3 w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                aria-label="Send Message"
+              >
+                Call Now
+              </button>
+              </a>
+              </div>
               <span>{result}</span>
             </form>
           </div>

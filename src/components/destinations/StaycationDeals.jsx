@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const deals=[
     {
@@ -58,13 +59,13 @@ const StaycationDeals = () => {
                         </div>
                         
                         <div className="absolute inset-0 flex flex-col justify-center p-4 pt-[110px]">
-                            {deals.map((item)=>{
-                                  return  <div  key={item.id}>
+                            {/* {deals.map((item)=>{ */}
+                                    <div >
                                   <p className="mb-2 text-sm">Enjoy these cool staycation promotions.</p>
-                                  <h2 className="mb-4 text-2xl font-bold">{item.name}</h2>
-                                  <button className="px-4 py-2 w-[110px] text-sm bg-white text-gray-800 rounded-lg">See Hotels</button>
+                                  <h2 className="mb-4 text-2xl font-bold">Best Staycation Deals</h2>
+                                  <Link href="/hotels"><button className="px-4 py-2 w-[110px] text-sm bg-white text-gray-800 rounded-lg">See Hotels</button></Link>
                                   </div>
-                            })}
+                            {/* })} */}
                             
                         </div>
                     </div>

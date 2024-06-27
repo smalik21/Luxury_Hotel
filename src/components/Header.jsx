@@ -56,7 +56,7 @@ const Header = () => {
         <button onClick={() => handleNavigation('/')} className={`text-white ${pathname === '/' ? 'font-bold' : ''}`}>Home</button>
         <button onClick={() => handleNavigation('/explore')} className={`text-white ${pathname === '/explore' ? 'font-bold' : ''}`}>Explore</button>
         <button onClick={() => handleNavigation('/destinations')} className={`text-white ${pathname === '/destinations' ? 'font-bold' : ''}`}>Destinations</button>
-        <button onClick={() => handleNavigation('/blog')} className={`text-white ${pathname === '/blog' ? 'font-bold' : ''}`}>Blog</button>
+        <button onClick={() => handleNavigation('/blog')} className={`text-white ${pathname === '/blog' ? 'font-bold' : ''}`}>Blogs</button>
         <button onClick={() => handleNavigation('/hotels')} className={`text-white ${pathname === '/hotels' ? 'font-bold' : ''}`}>Hotels</button>
         <button onClick={() => handleNavigation('/contact')} className={`text-white ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact Us</button>
         <button onClick={() => handleNavigation('/aboutus')} className={`text-white ${pathname === '/aboutus' ? 'font-bold' : ''}`}>About Us</button>
@@ -71,9 +71,10 @@ const Header = () => {
             
           
           {isVisible && (
-            <div className="fixed top-20 right-5 p-4 rounded-lg  bg-gray-200 border border-gray-300 shadow-lg show-hide-container">
-              <button onClick={() => handleSignout()}  className=" mx-1 bg-black rounded-lg p-2 text-white">Sign Out</button>
-              <button  className=" bg-black rounded-lg mx-1 p-2 text-white">Your Bookings</button>
+            <div className="fixed top-20 right-5 p-5 rounded-lg  bg-gray-200 border border-gray-300 shadow-lg show-hide-container">
+              {/* <button onClick={() => handleSignout()}  className=" mx-1 bg-black rounded-lg p-2 text-white">Sign Out</button> */}
+              <div onClick={() => handleSignout()} className=' mb-2 p-3 hover:bg-gray-300 rounded-lg  text-center text-black'>Sign Out</div>
+              <div  className=' p-3 hover:bg-gray-300 rounded-lg  text-center text-black'>Your Bookings</div>
 
               {/* <p>This will appear when clicked.</p> */}
             </div>
@@ -109,7 +110,7 @@ const Header = () => {
               <button onClick={() => handleNavigation('/')} className={`text-black px-2 py-1 rounded-md ${pathname === '/' ? 'font-bold' : ''} hover:bg-gray-200`}>Home</button>
               <button onClick={() => handleNavigation('/explore')} className={`text-black px-2 py-1 rounded-md ${pathname === '/explore' ? 'font-bold' : ''} hover:bg-gray-200`}>Explore</button>
               <button onClick={() => handleNavigation('/destinations')} className={`text-black px-2 py-1 rounded-md ${pathname === '/destinations' ? 'font-bold' : ''} hover:bg-gray-200`}>Destinations</button>
-              <button onClick={() => handleNavigation('/blog')} className={`text-black px-2 py-1 rounded-md ${pathname === '/blog' ? 'font-bold' : ''} hover:bg-gray-200`}>Blog</button>
+              <button onClick={() => handleNavigation('/blog')} className={`text-black px-2 py-1 rounded-md ${pathname === '/blog' ? 'font-bold' : ''} hover:bg-gray-200`}>Blogs</button>
               <button onClick={() => handleNavigation('/hotels')} className={`text-black px-2 py-1 rounded-md ${pathname === '/hotels' ? 'font-bold' : ''} hover:bg-gray-200`}>Hotel</button>
               <button onClick={() => handleNavigation('/contact')} className={`text-black px-2 py-1 rounded-md ${pathname === '/contact' ? 'font-bold' : ''} hover:bg-gray-200`}>Contact Us</button>
               <button onClick={() => handleNavigation('/aboutus')} className={`text-black px-2 py-1 rounded-md ${pathname === '/aboutus' ? 'font-bold' : ''} hover:bg-gray-200`}>About Us</button>
