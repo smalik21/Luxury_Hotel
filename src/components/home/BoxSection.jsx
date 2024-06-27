@@ -29,6 +29,7 @@ const BoxSection = () => {
   const [checkOutOpen, setCheckOutOpen] = useState(false);
   const [tab, setTab] = useState('hotels');
   const [location, setLocation] = useState('');
+  const [result, setResult] = useState('');
   const router = useRouter();
 
   const api = base_url;
@@ -87,10 +88,10 @@ const BoxSection = () => {
 
   const handleOutsideClick = (event) => {
     if (
-     !event.target.closest('.check-in-date') &&
-     !event.target.closest('.check-out-date') &&
-     !event.target.closest('.city-search') &&
-     !event.target.closest('.location-search')
+      !event.target.closest('.check-in-date') &&
+      !event.target.closest('.check-out-date') &&
+      !event.target.closest('.city-search') &&
+      !event.target.closest('.location-search')
     ) {
       setCheckInOpen(false);
       setCheckOutOpen(false);
@@ -104,8 +105,32 @@ const BoxSection = () => {
     };
   }, []);
 
-  const handleSubmit = () => {
-    
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "d6efbbeb-5a9c-48d6-8378-c53e1344b2a9");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        event.target.reset();
+      } else {
+        console.error("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.error("Form submission error", error);
+      setResult("An error occurred while submitting the form. Please try again later.");
+    }
   };
 
   return (
@@ -190,7 +215,7 @@ const BoxSection = () => {
                         {checkInDate ? `${checkInDate.toLocaleDateString()}` : 'Check In'}
                       </button>
                       {checkInOpen && (
-                        <div className=" z-50">
+                        <div className="z-50">
                           <DatePicker
                             selected={checkInDate}
                             onChange={(date) => {
@@ -203,7 +228,7 @@ const BoxSection = () => {
                         </div>
                       )}
                     </div>
-                    <div className=" px-2 check-out-date flex-grow">
+                    <div className=" check-out-date px-2 flex-grow">
                       <button
                         onClick={() => setCheckOutOpen(!checkOutOpen)}
                         className="px-4 py-2 bg-gray-200 rounded-lg w-full text-left md:text-md text-xs"
@@ -211,7 +236,7 @@ const BoxSection = () => {
                         {checkOutDate ? `${checkOutDate.toLocaleDateString()}` : 'Check Out'}
                       </button>
                       {checkOutOpen && (
-                        <div className=" z-50">
+                        <div className="z-50">
                           <DatePicker
                             selected={checkOutDate}
                             onChange={(date) => {
@@ -248,7 +273,7 @@ const BoxSection = () => {
                     </div>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className=" px-2 check-in-date flex-grow">
+                    <div className="px-2 check-in-date flex-grow">
                       <button
                         onClick={() => setCheckInOpen(!checkInOpen)}
                         className="px-4 py-2 bg-gray-200 rounded-lg w-full text-left"
@@ -256,7 +281,7 @@ const BoxSection = () => {
                         {checkInDate ? `${checkInDate.toLocaleDateString()}` : 'Date'}
                       </button>
                       {checkInOpen && (
-                        <div className=" z-50">
+                        <div className="z-50">
                           <DatePicker
                             selected={checkInDate}
                             onChange={(date) => {
@@ -278,112 +303,184 @@ const BoxSection = () => {
                 </>
               )}
 
+
               {tab === 'visas' && (
-                <div className="flex flex-col items-center">
-                  <div className="mb-4 w-full">
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Name"
-                      className="w-full px-4 py-2 mb-4 bg-gray-200 rounded-lg focus:outline-none"
-                    />
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Email"
-                      className="w-full px-4 py-2 mb-4 bg-gray-200 rounded-lg focus:outline-none"
-                    />
-                    <input
-                      type="tel"
-                      value={contactNumber}
-                      onChange={(e) => setContactNumber(e.target.value)}
-                      placeholder="Contact Number"
-                      className="w-full px-4 py-2 mb-4 bg-gray-200 rounded-lg focus:outline-none"
-                    />
+                <form onSubmit={onSubmit}>
+                  <input type="hidden" name="subject" value="Visa Inquiry Form" />
+                  <div className="mb-4 flex items-center gap-4">
                     <select
-                      className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-full mb-4"
+                      className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-full"
                       value={nationality}
                       onChange={(e) => setNationality(e.target.value)}
+                      name="nationality"
+                      required
                     >
                       <option value="">Select Nationality</option>
-                      {nationalities.map((country) => (
-                        <option key={country.country} value={country.country}>
-                          {country.country}
+                      {nationalities.map((nat) => (
+                        <option key={nat.country} value={nat.country}>
+                          {nat.country}
                         </option>
                       ))}
                     </select>
+                  </div>
+                  <div className="mb-4 flex items-center gap-4">
                     <select
-                      className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-full mb-4"
+                      className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-full"
                       value={travellingTo}
                       onChange={(e) => setTravellingTo(e.target.value)}
+                      name="travellingTo"
+                      required
                     >
-                      <option value="">Select Country Travelling To</option>
+                      <option value="">Travelling To</option>
                       {countries.map((country) => (
                         <option key={country.country} value={country.country}>
                           {country.country}
                         </option>
                       ))}
                     </select>
-                    <label className="inline-flex items-center mt-4">
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Full Name"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      name="contact"
+                      placeholder="Contact Number"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={contactNumber}
+                      onChange={(e) => setContactNumber(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4 flex items-center gap-4">
+                    <label className="flex items-center">
                       <input
                         type="checkbox"
+                        name="requestCall"
                         className="form-checkbox"
                         checked={requestCall}
                         onChange={() => setRequestCall(!requestCall)}
                       />
-                      <span className="ml-2">Request a call</span>
+                      <span className="ml-2">Request a Call</span>
                     </label>
                   </div>
-                  <button
-                    onClick={handleSubmit}
-                    className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center"
-                  >
-                    Submit
-                  </button>
-                </div>
+                  <div className="mt-8">
+                    <button
+                      type="submit"
+                      className="bg-black hover:bg-[#111111] text-white font-bold py-2 px-4 rounded w-full"
+                    >
+                      Submit
+                    </button>
+                    {result}
+                  </div>
+                </form>
               )}
 
               {tab === 'services' && (
-                <div className="flex flex-col items-center">
-                  <div className="mb-4 w-full">
+                <form onSubmit={onSubmit}>
+                  <input type="hidden" name="subject" value="Procurement Services Form" />
+                  <div className="mb-4">
                     <input
                       type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Name"
-                      className="w-full px-4 py-2 mb-4 bg-gray-200 rounded-lg focus:outline-none"
-                    />
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Email"
-                      className="w-full px-4 py-2 mb-4 bg-gray-200 rounded-lg focus:outline-none"
-                    />
-                    <input
-                      type="text"
-                      value={eventReservation}
-                      onChange={(e) => setEventReservation(e.target.value)}
-                      placeholder="Event Reservation"
-                      className="w-full px-4 py-2 mb-4 bg-gray-200 rounded-lg focus:outline-none"
-                    />
-                    <input
-                      type="text"
+                      name="luxuryItems"
+                      placeholder="Luxury Items"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
                       value={luxuryItems}
                       onChange={(e) => setLuxuryItems(e.target.value)}
-                      placeholder="Luxury Items"
-                      className="w-full px-4 py-2 mb-4 bg-gray-200 rounded-lg focus:outline-none"
+                      required
                     />
                   </div>
-                  <button
-                    onClick={handleSubmit}
-                    className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center"
-                  >
-                    Submit
-                  </button>
-                </div>
+                  <div className="mb-4 flex items-center gap-4">
+                    <select
+                      className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-full"
+                      value={nationality}
+                      onChange={(e) => setNationality(e.target.value)}
+                      name="nationality"
+                      required
+                    >
+                      <option value="">Select Nationality</option>
+                      {nationalities.map((nat) => (
+                        <option key={nat.country} value={nat.country}>
+                          {nat.country}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Full Name"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      name="contact"
+                      placeholder="Contact Number"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={contactNumber}
+                      onChange={(e) => setContactNumber(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4 flex items-center gap-4">
+                    <label className="flex items-center">
+                      <input
+                        type="checkbox"
+                        name="requestCall"
+                        className="form-checkbox"
+                        checked={requestCall}
+                        onChange={() => setRequestCall(!requestCall)}
+                      />
+                      <span className="ml-2">Request a Call</span>
+                    </label>
+                  </div>
+                  <div className="mt-8">
+                    <button
+                      type="submit"
+                      className="bg-black hover:bg-[#111111] text-white font-bold py-2 px-4 rounded w-full"
+                    >
+                      Submit
+                    </button>
+                    {result}
+                  </div>
+                </form>
               )}
             </div>
           </div>
