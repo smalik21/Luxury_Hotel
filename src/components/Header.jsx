@@ -7,10 +7,28 @@ import { CgProfile } from "react-icons/cg";
 import Fixed from './home/Fixed';
 
 const Header = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+  const handleClickOutside = (event) => {
+    if (isVisible && !event.target.closest('.show-hide-container')) {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -44,13 +62,24 @@ const Header = () => {
         <button onClick={() => handleNavigation('/aboutus')} className={`text-white ${pathname === '/aboutus' ? 'font-bold' : ''}`}>About Us</button>
 
       </nav>
+
       <div className="hidden xl:flex items-center space-x-4 gap-7">
         {isAuthenticated ? (
           <>
             <button onClick={() => handleNavigation('/waitlist')} className="text-white text-2xl"><BsSuitcaseLgFill /></button>
-            <button onClick={() => handleNavigation('/profile')} className="text-white text-3xl"><CgProfile /></button>
-            <button onClick={() => handleSignout()} className="text-white">Sign Out</button>
-          </>
+            <button onClick={toggleVisibility} className="text-white text-3xl"><CgProfile /></button>
+            
+          
+          {isVisible && (
+            <div className="fixed top-20 right-5 p-4 rounded-lg  bg-gray-200 border border-gray-300 shadow-lg show-hide-container">
+              <button onClick={() => handleSignout()}  className=" mx-1 bg-black rounded-lg p-2 text-white">Sign Out</button>
+              <button  className=" bg-black rounded-lg mx-1 p-2 text-white">Your Bookings</button>
+
+              {/* <p>This will appear when clicked.</p> */}
+            </div>
+           
+          )}
+           </>
         ) : (
           <>
             <button onClick={() => handleNavigation('/signin')} className="text-white">Sign In</button>
@@ -88,7 +117,7 @@ const Header = () => {
               {isAuthenticated ? (
                 <>
                   <button onClick={() => handleNavigation('/waitlist')} className={`text-black px-2 py-1 rounded-md ${pathname === '/waitlist' ? 'font-bold' : ''} hover:bg-gray-200`}>Waitlist</button>
-                  <button onClick={() => handleNavigation('/profile')} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Profile</button>
+                  <button onClick={toggleVisibility} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Your Bookings</button>
                   <button onClick={() => handleSignout()} className="text-black px-2 py-1 rounded-md hover:bg-gray-200">Sign Out</button>
                 </>
               ) : (
