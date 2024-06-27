@@ -8,7 +8,7 @@ import { base_url } from "@/base_url";
 
 const SigninPage = () => {
   const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
-  const [message,setMessage] = useState("");
+  const [message, setMessage] = useState("");
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState("");
   const [inputs, setInputs] = useState({
     mail: "",
@@ -63,7 +63,7 @@ const SigninPage = () => {
     setMessage(""); // Clear previous messages
 
     try {
-      const response = await fetch("http://localhost:4000/api/auth/request-password-reset", {
+      const response = await fetch(`${base_url}/api/auth/request-password-reset`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
