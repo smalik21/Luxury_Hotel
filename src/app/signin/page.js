@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -17,7 +17,15 @@ const SigninPage = () => {
     mail: "",
     password: "",
   });
+
   const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token !== null && token !== undefined) {
+      router.push("/");
+    }
+  }, []);
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -41,7 +49,9 @@ const SigninPage = () => {
       const response = await fetch(`${base_url}/api/auth/login`, requestOptions);
       const result = await response.json();
 
-      if (response.ok) {
+      console.log("res:", result)
+
+      if (response.ok && result.token !== null && result.token !== undefined) {
         localStorage.setItem("token", result.token);
         router.push("/");
       } else {
