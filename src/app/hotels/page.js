@@ -11,8 +11,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { base_url } from "@/base_url";
 
-
-
 const Page = () => {
   const [visibleCards, setVisibleCards] = useState(5);
   const [data, setData] = useState([]);
@@ -40,13 +38,17 @@ const Page = () => {
   const handleInput = (e) => {
     const value = e.target.value;
     setSearchInput(value);
+  };
+
+  const applyFilter = () => {
     const params = new URLSearchParams(searchParams);
-    params.set('search', value);
+    params.set('search', searchInput);
     router.push(`?${params.toString()}`);
+    handleFilter(searchInput);
   };
 
   const handleFilter = useDebouncedCallback(async (searchValue = searchInput) => {
-    if (searchInput === "") return
+    if (searchInput === "") return;
 
     try {
       const res = await fetch(`${api}/search/hotels?city=${searchValue}`, {
@@ -61,7 +63,6 @@ const Page = () => {
       setData(response);
     } catch (error) {
       console.error("Error:", error);
-      // setResponseMessage("An error occurred");
     }
   }, 300);
 
@@ -76,8 +77,6 @@ const Page = () => {
     return () => clearTimeout(timeoutId);
   }, [searchInput]);
 
-
-
   return (
     <div>
       <Header />
@@ -85,7 +84,7 @@ const Page = () => {
       <Search
         searchInput={searchInput}
         handleInput={handleInput}
-        handleFilter={handleFilter}
+        handleFilter={applyFilter}
       />
       <div className="flex flex-col gap-4 p-4">
         {data &&
@@ -101,7 +100,6 @@ const Page = () => {
           </button>
         )}
       </div>
-      
       <Footer />
     </div>
   );
