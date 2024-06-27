@@ -10,7 +10,7 @@ const withAuth = (WrappedComponent) => {
     const [token, setToken] = useState(null);
 
     useEffect(() => {
-      const accessToken = localStorage.getItem('accessToken');
+      const accessToken = localStorage.getItem('token');
       setToken(accessToken);
 
       if (!accessToken) {
