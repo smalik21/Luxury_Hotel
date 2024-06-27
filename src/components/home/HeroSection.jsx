@@ -9,6 +9,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import Link from 'next/link';
 import { IoIosArrowForward } from "react-icons/io";
+import { base_url } from '@/base_url';
 
 const Hero = () => {
   const [cities, setCities] = useState([]);
@@ -22,8 +23,9 @@ const Hero = () => {
   const [tab, setTab] = useState('hotels');
   const [location, setLocation] = useState('')
   const router = useRouter()
+  
 
-  const api = `http://localhost:4000`
+  const api = base_url;
 
   const fetchCountries = async () => {
     const res = await fetch('https://countriesnow.space/api/v0.1/countries');
@@ -164,7 +166,7 @@ const Hero = () => {
                                     /> */}
                   <select className=" px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-1/2" value={selectedCountry} onChange={handleCountryChange}>
 
-                    <option value="">Select Country</option>
+                    <option className='sm:text-xs' value="">Select Country</option>
                     {countries.map((country) => (
                       <option key={country.country} value={country.country}>
                         {country.country}
@@ -173,7 +175,7 @@ const Hero = () => {
                   </select>
 
                   <select className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none flex-grow w-1/2" value={selectedCity} onChange={handleCityChange} disabled={!selectedCountry}>
-                    <option value="">Select City</option>
+                    <option className='sm:text-xs' value="">Select City</option>
                     {cities.map((city) => (
                       <option key={city} value={city}>
                         {city}

@@ -5,6 +5,7 @@ import { FaStar } from 'react-icons/fa';
 import Highlight from '../contact/Highlight';
 import { GoArrowUpRight } from "react-icons/go";
 import Link from 'next/link';
+import { base_url } from '@/base_url';
 
 
 
@@ -100,7 +101,7 @@ const OneHotel = () => {
         setHighlighted(id);
     };
     
-    const api = `http://localhost:4000`;
+    const api = base_url;
 
     const getVisibleHotels = () => {
         const visibleHotels = [];

@@ -2,6 +2,21 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+const deals=[
+    {
+        id:1,
+        name:"Best Staycation Deals"
+    },
+    {
+        id:2,
+        name:"Top Budget Travel Destinations"
+    },
+    {
+        id:3,
+        name:"Best Places for Food Lovers"
+    }
+];
+
 const StaycationDeals = () => {
     const [numVisibleCards, setNumVisibleCards] = useState(3);
 
@@ -41,10 +56,16 @@ const StaycationDeals = () => {
                                 className="opacity-60"
                             />
                         </div>
+                        
                         <div className="absolute inset-0 flex flex-col justify-center p-4 pt-[110px]">
-                            <p className="mb-2 text-sm">Enjoy these cool staycation promotions.</p>
-                            <h2 className="mb-4 text-2xl font-bold">Best staycation deals</h2>
-                            <button className="px-4 py-2 w-[110px] text-sm bg-white text-gray-800 rounded-lg">See Hotels</button>
+                            {deals.map(item=>(
+                                <div key={item.id}>
+                                <p className="mb-2 text-sm">Enjoy these cool staycation promotions.</p>
+                                <h2 className="mb-4 text-2xl font-bold">{item.name}</h2>
+                                <button className="px-4 py-2 w-[110px] text-sm bg-white text-gray-800 rounded-lg">See Hotels</button>
+                                </div>
+                             ))}
+                            
                         </div>
                     </div>
                 ))}

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { base_url } from "@/base_url";
 
 const SigninPage = () => {
   const [isHiddenDivVisible, setIsHiddenDivVisible] = useState(false);
@@ -37,7 +38,7 @@ const SigninPage = () => {
         redirect: "follow",
       };
 
-      const response = await fetch("http://localhost:4000/api/auth/login", requestOptions);
+      const response = await fetch(`${base_url}/api/auth/login`, requestOptions);
       const result = await response.json();
       console.log(result)
 

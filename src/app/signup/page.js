@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Link from "next/link";
+import { base_url } from "@/base_url";
 // import Link from 'next/link';
 
 const Page = () => {
@@ -16,7 +17,7 @@ const Page = () => {
 
   const router = useRouter();
 
-  const api = `http://localhost:4000`;
+  const api = base_url;
 
   const generateOTP = async (e) => {
     e.preventDefault();

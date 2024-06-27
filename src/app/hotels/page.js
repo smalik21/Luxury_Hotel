@@ -9,6 +9,7 @@ import HotelCard from "@/components/hotel/HotelCard";
 import Footer from "@/components/Footer";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
+import { base_url } from "@/base_url";
 
 
 
@@ -20,7 +21,7 @@ const Page = () => {
   const searchQuery = searchParams.get('search') || '';
   const [searchInput, setSearchInput] = useState(searchQuery);
 
-  const api = `http://localhost:4000`;
+  const api = base_url;
 
   useEffect(() => {
     if (searchQuery) {
