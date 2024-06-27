@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { base_url } from "@/base_url";
 // import Link from 'next/link';
@@ -18,6 +18,13 @@ const Page = () => {
   const router = useRouter();
 
   const api = base_url;
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token !== null && token !== undefined) {
+      router.push("/");
+    }
+  }, []);
 
   const generateOTP = async (e) => {
     e.preventDefault();
@@ -76,11 +83,12 @@ const Page = () => {
 
       const result = await res.json();
       setResponseMessage(result.message);
-      
-      localStorage.setItem("token", result.token);
-      // console.log(result);
 
-      router.push("/");
+      if (result.token !== null && result.token !== undefined) {
+        localStorage.setItem("token", result.token);
+        router.push("/");
+      }
+      // console.log(result);
     } catch (error) {
       console.error("Error:", error);
       setResponseMessage("An error occurred");
