@@ -5,10 +5,13 @@ import { useTransition, animated } from '@react-spring/web';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const images = [
-  { src: '/hero-image.jpeg', alt: 'Background 1', title: 'The Carlton', description: 'Experience the Royal Era with our selection of Palaces!' },
-  { src: '/luxury-hotel-3.webp', alt: 'Background 2', title: 'Aman Le melezin', description: 'Let us Take you on your next vacation with your loved ones!' },
-  { src: '/luxury-hotel-2.webp', alt: 'Background 3', title: 'Umaid Bhawan Palace', description: 'Experience the Royal Era with our selection of Palaces!' },
-  { src: '/luxury-hotel-4.jpg', alt: 'Background 4', title: 'The Adare Manor', description: 'The Rich History held within the Castles of Ireland awaits you!' },
+  { src: '/the-carlton.jpg', alt: 'Background 1', title: 'The Carlton', description: 'Skiing in the Lush White Snow of a Switzerland this Winter!' },
+  { src: '/Aman-le-melezin-chourchevel-exterior.webp', alt: 'Background 2', title: 'Aman Le melezin', description: 'Let us Take you on your next vacation with your loved ones!' },
+  { src: '/umaid-bhawan-2-866x487.jpg', alt: 'Background 3', title: 'Umaid Bhawan Palace', description: 'Experience the Royal Era with  our selection of Palaces!' },
+  { src: '/adare-manor-aerial-image.jpg', alt: 'Background 4', title: 'The Adare Manor', description: 'The Rich History held within the Castles of Ireland awaits you!' },
+  { src: '/amanera.jpg', alt: 'Background 5', title: 'Amanera', description: "Visit the Dominican Republic's Pristine North Coast for your next getaway! A Beach, Jungle, and Adventure Paradise !" },
+  { src: '/night-shot.jpg', alt: 'Background 6', title: 'The Argos', description: 'Witness the Unique Rocks of Cappadocia on a Hot Air balloon!' },
+
 ];
 
 const Hero = () => {

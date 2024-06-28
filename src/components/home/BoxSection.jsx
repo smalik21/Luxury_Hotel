@@ -136,9 +136,9 @@ const BoxSection = () => {
   };
 
   return (
-    <div className="bg-white min-h-[400px] sm:min-h-[500px] my-6 mb-14 md:mb-0 w-auto flex justify-center overflow-hidden">
+    <div className="bg-gradient-to-r from-gray-500 via-gray-400 to-gray-500 min-h-[400px] sm:min-h-[500px]  mb-14 md:mb-0 flex justify-center overflow-hidden">
       <div className="flex flex-col justify-center items-center text-center md:pt-0 pt-[60px] text-black px-4">
-        <div className="bg-gray-200 p-8 rounded-3xl">
+        <div className=" w-[50rem] p-8 rounded-3xl">
           <h2 className="md:text-[50px] text-[40px] font-bold">Discover Luxury</h2>
           <p className="text-[15px] text-black">Experience the ultimate in hospitality..</p>
 

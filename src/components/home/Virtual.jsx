@@ -12,6 +12,8 @@ const Virtual = () => {
     {img:"./v3.jpg",heading:"Charter services",time:"30 mins",info:"Experience unparalleled travel with our premier charter services, offering customized and luxurious journeys tailored to your needs."},
     {img:"./v4.jpg",heading:"Cruise Reservations",time:"2 hrs",info:"Enjoy the Luxury of sailing on the best of cruises with one of our Cruise Experts to guide you throughout the process from booking to Embarking and disembarking your cruise"},
     {img:"./v5.jpeg",heading:"Personal Event Planning",time:"3 hrs ",info:"From your Kid's Birthday Party to your Wedding event, one of our event planner's will assist you with your next small/big event at your beck and call!"},
+    {img:"./v1.jpg",heading:"Procurement Services",time:"3 hrs ",info:"We specialize in delivering top-tier procurement services tailored to meet your unique needs, ensuring efficiency, cost-effectiveness, and superior quality in every step of your supply chain process."},
+
   ];
 
   const handleContactClick = (card) => {
