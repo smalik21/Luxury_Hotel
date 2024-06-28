@@ -51,6 +51,7 @@ export default function ContactSection() {
       console.error("Form submission error", error);
       setResult("An error occurred while submitting the form. Please try again later.");
     }
+
   };
 
   return (

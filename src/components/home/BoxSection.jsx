@@ -9,6 +9,22 @@ import 'react-datepicker/dist/react-datepicker.css';
 // import { IoIosArrowForward } from 'react-icons/io';
 import { base_url } from '@/base_url';
 
+const showservice=[
+  {
+    id:1,
+    name:"Event Registration"
+  },
+  {
+    id:2,
+    name:"Luxury Items"
+  },
+  {
+    id:3,
+    name:"Procurement Services"
+  }
+  
+]
+
 const BoxSection = () => {
   const [cities, setCities] = useState([]);
   const [countries, setCountries] = useState([]);
@@ -30,6 +46,7 @@ const BoxSection = () => {
   const [tab, setTab] = useState('hotels');
   const [location, setLocation] = useState('');
   const [result, setResult] = useState('');
+  const [service, setService]=useState('');
   const router = useRouter();
 
   const api = base_url;
@@ -113,6 +130,8 @@ const BoxSection = () => {
     const formData = new FormData(event.target);
 
     formData.append("access_key",KEY);
+    formData.append('location', location);
+    formData.append('checkInDate', checkInDate);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -136,7 +155,7 @@ const BoxSection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-gray-500 via-gray-400 to-gray-500 min-h-[400px] sm:min-h-[500px]  mb-14 md:mb-0 flex justify-center overflow-hidden">
+    <div className="bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 min-h-[400px] sm:min-h-[500px]  mb-14 md:mb-0 flex justify-center overflow-hidden">
       <div className="flex flex-col justify-center items-center text-center md:pt-0 pt-[60px] text-black px-4">
         <div className=" w-[50rem] p-8 rounded-3xl">
           <h2 className="md:text-[50px] text-[40px] font-bold">Discover Luxury</h2>
@@ -263,8 +282,9 @@ const BoxSection = () => {
 
               {tab === 'safari' && (
                 <>
+                <form onSubmit={onSubmit}>
                   <div className="flex items-center mb-4">
-                    <div className=" px-2 location-search flex-grow">
+                    <div className="  location-search flex-grow">
                       <input
                         type="text"
                         value={location}
@@ -274,8 +294,8 @@ const BoxSection = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="px-2 check-in-date flex-grow">
+                  <div className="flex mb-4 items-center space-x-2">
+                    <div className=" check-in-date flex-grow">
                       <button
                         onClick={() => setCheckInOpen(!checkInOpen)}
                         className="px-4 py-2 bg-gray-200 rounded-lg w-full text-left"
@@ -296,12 +316,61 @@ const BoxSection = () => {
                         </div>
                       )}
                     </div>
-                    <button
-                      className="bg-black text-white px-4 py-2 rounded-3xl flex items-center justify-center"
-                    >
-                      <FaSearch className="mr-2" /> Search
-                    </button>
+                    
+                    
                   </div>
+                  <div className="mb-4 ">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Full Name"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4 ">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      name="contact"
+                      placeholder="Contact Number"
+                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
+                      value={contactNumber}
+                      onChange={(e) => setContactNumber(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-4 flex items-center gap-4">
+                    <label className="flex items-center">
+                      <input
+                        type="checkbox"
+                        name="requestCall"
+                        className="form-checkbox"
+                        checked={requestCall}
+                        onChange={() => setRequestCall(!requestCall)}
+                      />
+                      <span className="ml-2">Request a Call</span>
+                    </label>
+                  </div>
+                  <button
+                      type="submit"
+                      className="bg-black px-4 py-2 over:bg-[#111111] text-white font-bold rounded w-full"
+                    >
+                      Submit
+                    </button>
+                  </form>
                 </>
               )}
 
@@ -402,15 +471,20 @@ const BoxSection = () => {
                 <form onSubmit={onSubmit}>
                   <input type="hidden" name="subject" value="Procurement Services Form" />
                   <div className="mb-4">
-                    <input
-                      type="text"
-                      name="luxuryItems"
-                      placeholder="Luxury Items"
-                      className="px-4 py-2 bg-gray-200 rounded-lg w-full focus:outline-none"
-                      value={luxuryItems}
-                      onChange={(e) => setLuxuryItems(e.target.value)}
+                  <select
+                      className="px-4 py-2 bg-gray-200 rounded-lg focus:outline-none w-full"
+                      value={service}
+                      onChange={(e) => setService(e.target.value)}
+                      name="service"
                       required
-                    />
+                    >
+                      <option value="">Select Service</option>
+                      {showservice.map((item) => (
+                        <option key={item.id} value={item.name}>
+                          {item.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div className="mb-4 flex items-center gap-4">
                     <select

@@ -207,7 +207,7 @@ const OneHotel = () => {
                 <div className=' '>Mail : {item.email}</div>
                 
                 <Link href="/checkout"><button className="bg-black text-white m-auto  my-10  flex items-center justify-center rounded-full px-4 py-2 sm:px-6 sm:py-3">
-            $ {item.price} per night <GoArrowUpRight className="ml-2" />
+           Book Now <GoArrowUpRight className="ml-2" />
           </button></Link>
 
 
