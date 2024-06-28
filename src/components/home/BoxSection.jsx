@@ -105,12 +105,14 @@ const BoxSection = () => {
     };
   }, []);
 
+  let KEY = process.env.NEXT_PUBLIC_KEY;
+
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "d6efbbeb-5a9c-48d6-8378-c53e1344b2a9");
+    formData.append("access_key",KEY);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

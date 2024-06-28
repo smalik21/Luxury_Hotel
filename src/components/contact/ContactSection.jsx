@@ -18,7 +18,7 @@ export default function ContactSection() {
   const [highlighted, setHighlighted] = useState(null);
   const [result, setResult] = useState("");
 
-  const KEY = process.env.WEB3FORM_ACCESS_KEY;
+  let KEY = process.env.NEXT_PUBLIC_KEY;
 
   const handleHighlight = (id) => {
     setHighlighted(id);
@@ -29,7 +29,7 @@ export default function ContactSection() {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "d6efbbeb-5a9c-48d6-8378-c53e1344b2a9");
+    formData.append("access_key",KEY);
     formData.append("interest", components.find(component => component.id === highlighted)?.name || "None");
 
     try {
